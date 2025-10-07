@@ -2,18 +2,21 @@
 import { ref, onMounted } from 'vue'
 
 const SHOW_MS   = 1800    // duración visible (ms)
-const SHOW_ONCE = true    // mostrar solo una vez por sesión
+const SHOW_ONCE = false    // mostrar solo una vez por sesión
 const KEY       = 'imperium:splashShown'
 
 const visible = ref(false)
 
 onMounted(() => {
+
   if (SHOW_ONCE && sessionStorage.getItem(KEY)) return
   visible.value = true
   setTimeout(() => {
     visible.value = false
     if (SHOW_ONCE) sessionStorage.setItem(KEY, '1')
   }, SHOW_MS)
+
+
 })
 </script>
 
