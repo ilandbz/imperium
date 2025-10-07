@@ -21,7 +21,7 @@ const props = defineProps({
         <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
 
         <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-10 text-white">
-          <h2 class="text-3xl md:text-4xl font-extrabold max-w-xl leading-tight">
+          <h2 class="text-white text-3xl md:text-4xl font-extrabold max-w-xl leading-tight">
             {{ left.title }}
           </h2>
           <p class="mt-3 max-w-xl/1 text-white/90">
@@ -47,7 +47,7 @@ const props = defineProps({
         <div class="absolute inset-0 bg-gradient-to-l from-primary/90 via-primary/60 to-transparent"></div>
 
         <div class="relative z-10 h-full flex flex-col justify-center items-start md:items-end px-6 md:px-10 text-white text-left md:text-right">
-          <h2 class="text-3xl md:text-4xl font-extrabold max-w-xl leading-tight">
+          <h2 class="text-white text-3xl md:text-4xl font-extrabold max-w-xl leading-tight">
             {{ right.title }}
           </h2>
           <p class="mt-3 max-w-xl/1 text-white/90">

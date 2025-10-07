@@ -27,7 +27,7 @@ const isActive = (href) => pathname.value === href
   >
     <nav class="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
       <!-- Marca IMPERIUM -->
-      <Link href="/" class="flex items-center gap-2 font-semibold text-neutral"> <img src="/img/logo_sin_fondo.png" alt="Logo" class="h-12 md:h-16 lg:h-20 w-auto object-contain shrink-0" /> </Link>
+      <Link href="/" class="flex items-center gap-2 font-semibold text-neutral"> <img src="/img/logo_solo.png" alt="Logo" class="h-12 md:h-16 lg:h-25 w-auto object-contain shrink-0" /> </Link>
 
       <!-- Botón menú móvil -->
       <button
