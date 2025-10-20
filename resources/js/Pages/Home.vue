@@ -5,50 +5,56 @@ import HeroSplit from '@/Components/HeroSplit.vue'
 import ServicesSection from '@/Components/ServicesSection.vue'
 import ContactSection from '@/Components/ContactSection.vue'
 import FloatingWhatsApp from '@/Components/FloatingWhatsApp.vue'
-
+import MetricsSection from '@/Components/MetricsSection.vue'
 const props = defineProps({
-  services: { type: Array, default: () => [] } // si vienen desde Laravel
+  services: { type: Array, default: () => [] }
 })
 
-// Fallback IMPERIUM en español
+// Fallback local si el backend no manda nada (tu mismo patrón)
 const localServices = [
   {
-    title: 'Arbitraje en Contrataciones del Estado',
-    excerpt: 'Administración integral de procesos arbitrales bajo la normativa de contrataciones del Estado.',
-    icon: '⚖️',
-    href: '/servicios#arbitraje',
+    title: 'Arbitraje en Contratación Pública',
+    href : '/arbitraje-en-contratacion-publica',
+    image: 'img/arbitraje-en-contratacin-pblica.webp'
   },
   {
-    title: 'Junta de Prevención y Resolución de Disputas (JPRD)',
-    excerpt: 'Conformación y administración de JPRD para proyectos de infraestructura y obras.',
-    icon: '🛡️',
-    href: '/servicios#jprd',
+    title: 'Arbitraje de Emergencia',
+    href : '/arbitraje-de-emergencia',
+    image: 'img/arbitraje-de-emergencia.webp'
   },
   {
-    title: 'Secretaría Arbitral',
-    excerpt: 'Mesa de partes, notificaciones, custodia de expedientes y soporte procedimental.',
-    icon: '📑',
-    href: '/servicios#secretaria',
+    title: 'Arbitraje entre privados',
+    href : '/arbitraje-entre-privados',
+    image: 'img/arbitraje-entre-privados.webp'
   },
   {
-    title: 'Capacitaciones y Programas Académicos',
-    excerpt: 'Formación especializada en contratación pública, arbitraje y prevención de controversias.',
-    icon: '🎓',
-    href: '/servicios#academico',
+    title: 'Junta de Prevención y Resolución de Disputas',
+    href : '/junta-de-resolucion-de-disputas',
+    image: 'img/jprd.webp'
   },
   {
-    title: 'Prevención y Gestión de Controversias',
-    excerpt: 'Consultoría para mitigación de riesgos y solución temprana de disputas.',
-    icon: '🧭',
-    href: '/servicios#prevencion',
+    title: 'Recusación',
+    href : '/recusacion',
+    image: 'img/recusacion.webp'
   },
   {
-    title: 'Mesa de Partes Virtual (MPV)',
-    excerpt: 'Recepción digital de escritos y solicitudes con trazabilidad y alertas.',
-    icon: '📬',
-    href: '/servicios#mpv',
+    title: 'Peritaje en sus diversas especialidades',
+    href : '/peritaje',
+    image: 'img/peritaje-en-sus-diversas.webp'
   },
+  {
+    title: 'Designación Residual de Árbitro Ad Hoc',
+    href : '/designacion-residual-arbitro',
+    image: 'img/designacion-residual-arbitro.webp'
+  },
+  {
+    title: 'Instalación de Árbitro Único o Tribunal Arbitral',
+    href : '/instalacion-arbitral',
+    image: 'img/instalacion-arbitral.webp'
+  }
 ]
+
+
 </script>
 
 <template>
@@ -72,6 +78,14 @@ const localServices = [
     <!-- Envío lo que venga del backend; si está vacío, uso el fallback en español -->
     <ServicesSection :services="props.services.length ? props.services : localServices" />
 
+    <MetricsSection
+      :items="kpis"
+      bg-class="bg-[#071C54]"
+      accent-class="text-primary"
+      :count-up="true"
+    />
+
+    
     <ContactSection />
   </SiteLayout>
 
