@@ -6,6 +6,8 @@ import ServicesSection from '@/Components/ServicesSection.vue'
 import ContactSection from '@/Components/ContactSection.vue'
 import FloatingWhatsApp from '@/Components/FloatingWhatsApp.vue'
 import MetricsSection from '@/Components/MetricsSection.vue'
+import ArbitrationCalculatorSection from '@/Components/ArbitrationCalculatorSection.vue'
+import CommitmentSection from '@/Components/CommitmentSection.vue'
 const props = defineProps({
   services: { type: Array, default: () => [] }
 })
@@ -54,7 +56,30 @@ const localServices = [
   }
 ]
 
+const calcStrategy = (montoPen, { igv, mode }) => {
+  // EJEMPLO: cambia según tus tablas reales
+  // puedes leer "mode" para usar otra tabla en emergencia
+  let admin, arbitrator
 
+  if (montoPen <= 50000) {
+    admin = 0.02 * montoPen
+    arbitrator = 0.034 * montoPen
+  } else if (montoPen <= 200000) {
+    admin = 1000 + 0.015 * (montoPen - 50000)
+    arbitrator = 1700 + 0.02 * (montoPen - 50000)
+  } else {
+    admin = 3250 + 0.01 * (montoPen - 200000)
+    arbitrator = 4700 + 0.015 * (montoPen - 200000)
+  }
+
+  // si mode === 'emergencia' podrías aplicar un factor diferente:
+  if (mode === 'emergencia') {
+    admin *= 1.0
+    arbitrator *= 1.0
+  }
+
+  return { admin, arbitrator }
+}
 </script>
 
 <template>
@@ -74,16 +99,22 @@ const localServices = [
         primary: { label: 'Conocer más', href: '/servicios#jprd' }
       }"
     />
-
-    <!-- Envío lo que venga del backend; si está vacío, uso el fallback en español -->
+    <CommitmentSection />
     <ServicesSection :services="props.services.length ? props.services : localServices" />
 
     <MetricsSection
-      :items="kpis"
       bg-class="bg-[#071C54]"
       accent-class="text-primary"
       :count-up="true"
     />
+
+
+
+  <ArbitrationCalculatorSection
+    :sunat-rate="3.378"
+    :igv="0.18"
+    :calc-strategy="calcStrategy"
+  />
 
     
     <ContactSection />

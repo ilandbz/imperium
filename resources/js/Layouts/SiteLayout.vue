@@ -10,7 +10,7 @@ import SplashLoaderGradient from '@/Components/SplashLoaderGradient.vue'
     <!-- <SplashLoader /> -->
     <SplashLoaderGradient />
     <NavBar />
-    <main class="flex-1 pt-16"> <!-- separa del header sticky -->
+    <main class="flex-1 pt-2"> <!-- separa del header sticky -->
       <slot />
     </main>
     <Footer />

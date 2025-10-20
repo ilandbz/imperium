@@ -59,7 +59,7 @@ watch(() => props.items, (nv) => {
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 text-center">
       <div v-for="(it, i) in items" :key="i" class="flex flex-col justify-center items-center">
         <span class="text-5xl md:text-6xl text-white font-bold flex items-center">
-          <span :class="[accentClass, 'text-6xl mr-1']" v-if="it.prefix">{{ it.prefix }}</span>
+          <span :class="['text-6xl mr-1']" v-if="it.prefix">{{ it.prefix }}</span>
           {{ displayValues[i] }}
         </span>
         <p class="text-white text-lg md:text-2xl font-semibold leading-tight">

@@ -12,6 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
+
   <section class="relative isolate">
     <div class="grid md:grid-cols-2">
       <!-- LEFT -->
