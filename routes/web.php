@@ -17,3 +17,17 @@ Route::post('/contacto/enviar', [ContactController::class, 'send'])
 Route::get('/institucional/quienes-somos', function () {
     return Inertia::render('Institucional/QuienesSomos');
 })->name('quienes-somos');
+
+Route::get('/institucional/unidad-de-gobierno', function () {
+    return Inertia::render('Institucional/unidadGobierno');
+})->name('unidad-de-gobierno');
+
+Route::get('/institucional/normas-legales', function () {
+    return Inertia::render('Institucional/normasLegales');
+})->name('normas-legales');
+
+Route::get('/sirea', function () {
+    return Inertia::render('Auth/SireaLogin', [
+        'redirectTo' => '/plataforma' // o '/dashboard'
+    ]);
+})->name('sirea.login');

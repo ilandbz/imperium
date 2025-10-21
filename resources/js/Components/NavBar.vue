@@ -92,12 +92,12 @@ const institucionalItems = [
         <li><Link href="/contacto" class="hover:text-primary">Contacto</Link></li>
         <li><Link href="/blog" class="hover:text-primary">Blog</Link></li>
         <li>
-          <a
-            href="/"
+          <Link
+            href="/sirea"
             class="inline-block rounded-xl bg-primary text-white px-4 py-2 font-semibold hover:bg-primary-dark"
           >
             SIREA
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
