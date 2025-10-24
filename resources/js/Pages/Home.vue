@@ -8,6 +8,8 @@ import FloatingWhatsApp from '@/Components/FloatingWhatsApp.vue'
 import MetricsSection from '@/Components/MetricsSection.vue'
 import ArbitrationCalculatorSection from '@/Components/ArbitrationCalculatorSection.vue'
 import CommitmentSection from '@/Components/CommitmentSection.vue'
+
+
 const props = defineProps({
   services: { type: Array, default: () => [] }
 })
@@ -80,6 +82,7 @@ const calcStrategy = (montoPen, { igv, mode }) => {
 
   return { admin, arbitrator }
 }
+
 </script>
 
 <template>
@@ -118,6 +121,8 @@ const calcStrategy = (montoPen, { igv, mode }) => {
 
     
     <ContactSection />
+
+
   </SiteLayout>
 
   <FloatingWhatsApp />

@@ -6,7 +6,7 @@ const SHOW_ONCE = false    // mostrar solo una vez por sesión
 const KEY       = 'imperium:splashShown'
 
 const visible = ref(false)
-
+const emit = defineEmits(['hidden'])
 onMounted(() => {
 
   if (SHOW_ONCE && sessionStorage.getItem(KEY)) return
@@ -14,6 +14,7 @@ onMounted(() => {
   setTimeout(() => {
     visible.value = false
     if (SHOW_ONCE) sessionStorage.setItem(KEY, '1')
+    emit('hidden')
   }, SHOW_MS)
 
 

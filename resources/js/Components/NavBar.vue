@@ -13,6 +13,7 @@ onUnmounted(() => window.removeEventListener('scroll', checkScroll))
 const page = usePage()
 const pathname = computed(() => (page.url || '/').split('?')[0])
 const isActive = (href) => pathname.value === href
+const isHome = computed(() => pathname.value === '/')
 
 // Submenú Institucional
 const institucionalOpen = ref(false)
@@ -87,8 +88,16 @@ const institucionalItems = [
             </ul>
           </transition>
         </li>
-
-        <li><Link href="/servicios" class="hover:text-primary">Nuestros Servicios</Link></li>
+        <li>
+          <!-- Si ya estoy en Home, solo hash; si no, voy a Home y al hash -->
+          <component
+            :is="isHome ? 'a' : Link"
+            :href="isHome ? '#servicios' : '/#servicios'"
+            class="text-primary hover:text-primary"
+          >
+            Servicios
+          </component>
+        </li>
         <li><Link href="/contacto" class="hover:text-primary">Contacto</Link></li>
         <li><Link href="/blog" class="hover:text-primary">Blog</Link></li>
         <li>
