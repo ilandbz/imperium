@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import SiteLayout from '@/Layouts/SiteLayout.vue'
 import Certificaciones from '@/Components/Certificaciones.vue'
+import PoliticasSection from '@/Components/PoliticasSection.vue'
 </script>
 
 <template>
@@ -88,5 +89,6 @@ import Certificaciones from '@/Components/Certificaciones.vue'
       </div>
     </section>
     <certificaciones></certificaciones>
+    <PoliticasSection></PoliticasSection>
   </SiteLayout>
 </template>
