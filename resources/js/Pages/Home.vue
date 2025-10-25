@@ -1,5 +1,6 @@
 <!-- resources/js/Pages/Home.vue -->
 <script setup>
+import { ref } from 'vue'
 import SiteLayout from '@/Layouts/SiteLayout.vue'
 import HeroSplit from '@/Components/HeroSplit.vue'
 import ServicesSection from '@/Components/ServicesSection.vue'
@@ -8,12 +9,13 @@ import FloatingWhatsApp from '@/Components/FloatingWhatsApp.vue'
 import MetricsSection from '@/Components/MetricsSection.vue'
 import ArbitrationCalculatorSection from '@/Components/ArbitrationCalculatorSection.vue'
 import CommitmentSection from '@/Components/CommitmentSection.vue'
-
-
+import SplashLoaderGradient from '@/Components/SplashLoaderGradient.vue'
+import CertificationsModal from '@/Components/CertificationsModal.vue'
 const props = defineProps({
   services: { type: Array, default: () => [] }
 })
-
+const showIso = ref(false)
+const onSplashHidden = () => { showIso.value = true } 
 // Fallback local si el backend no manda nada (tu mismo patrón)
 const localServices = [
   {
@@ -87,6 +89,7 @@ const calcStrategy = (montoPen, { igv, mode }) => {
 
 <template>
   <SiteLayout>
+    <SplashLoaderGradient @hidden="onSplashHidden" />
     <HeroSplit
       :left="{
         image: '/img/hero-arbitraje-publica.webp',
@@ -122,7 +125,7 @@ const calcStrategy = (montoPen, { igv, mode }) => {
     
     <ContactSection />
 
-
+    <CertificationsModal v-model="showIso" />
   </SiteLayout>
 
   <FloatingWhatsApp />
