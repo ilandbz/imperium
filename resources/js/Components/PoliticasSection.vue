@@ -51,35 +51,35 @@
 const politicas = [
   {
     nombre: "Política de Sistema de Gestión de Calidad",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-sistema-de-gestin-de-calidad.pdf",
+    url: "/archivos/politicas/POLITICA_DE_SISTEMA_DE_GESTION_DE_CALIDAD.pdf",
   },
   {
     nombre: "Política de Sistema de Gestión Antisoborno",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-sistema-de-gestin-antisoborno.pdf",
+    url: "/archivos/politicas/POLITICA_DEL_SISTEMA_DE_GESTIÓN_ANTISOBORNO.pdf",
   },
   {
     nombre: "Política de Protección a los Trabajadores",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-proteccin-a-los-trabajadores.pdf",
+    url: "/archivos/politicas/POLITICA_DE_PROTECCION_A_LOS_TRABAJADOORES.pdf",
   },
   {
     nombre: "Política de Regalos, Atenciones...",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-regalos-atenciones.pdf",
+    url: "/archivos/politicas/POLITICA_DE_REGALOS,_ATENCIONES_Y_CORTESIAS_O_CUALQUIER_TIPO_DE_GRATIFICACION.pdf",
   },
   {
     nombre: "Política Sistema de Gestión de Seguridad de la Información",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-sistema-de-gestin-de-seguridad-de-la-informacin.pdf",
+    url: "/archivos/politicas/POLITICA_DEL_SISTEMA_DE_GESTION_DE_SEGURIDAD_DE_LA_INFORMACION.pdf",
   },
   {
     nombre: "Política de Seguridad de Proveedores",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-seguridad-de-proveedores.pdf",
+    url: "/archivos/politicas/POLITICA_DE_SEGURIDAD_DE_PROVEEDORES.pdf",
   },
   {
     nombre: "Política de Privacidad de Datos",
-    url: "https://cearlatinoamericano.pe/rsc/public/nosotros/archivos/poltica-de-privacidad-de-datos.pdf",
+    url: "/archivos/politicas/POLITICA_DE_PRIVACIDAD_DE_DATOS.pdf",
   },
   {
     nombre: "Código de Ética",
-    url: "/rsc/public/files/2025/politicas/CÓDIGO DE ÉTICA DEL CEAR LATINOAMERICANO.pdf",
+    url: "/archivos/politicas/CONSORCIO_ETICA_CONDUCTA.pdf",
   },
 ];
 </script>
