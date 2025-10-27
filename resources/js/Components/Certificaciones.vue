@@ -61,10 +61,10 @@
           <p class="text-justify leading-relaxed">
             El Centro de Conciliación, Arbitraje y Junta de Prevención y Resolución de Disputas Corporación Imperium ofrece una amplia gama de servicios orientados a la prevención y solución eficaz de conflictos.
           </p>
-          <p>
+          <p class="text-justify">
             Servicios legales: Implementación de mecanismos alternativos de resolución de controversias, tales como la conciliación, el arbitraje, la junta de prevención y resolución de disputas y el peritaje especializado.
           </p>
-          <p>
+          <p class="text-justify">
             Servicios de formación: Desarrollo de diplomados, cursos de especialización y programas in house vinculados al marco legal de las contrataciones del Estado, el arbitraje, la junta de prevención y resolución de disputas, así como otras áreas afines al derecho y la ingeniería.
           </p>
 
