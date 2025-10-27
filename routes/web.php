@@ -31,3 +31,4 @@ Route::get('/sirea', function () {
         'redirectTo' => '/plataforma' // o '/dashboard'
     ]);
 })->name('sirea.login');
+

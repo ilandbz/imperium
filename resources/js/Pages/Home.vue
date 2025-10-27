@@ -123,7 +123,7 @@ const calcStrategy = (montoPen, { igv, mode }) => {
   />
 
     
-    <ContactSection />
+    <ContactSection bg-image="/img/mesareuniones.jpg" />
 
     <CertificationsModal v-model="showIso" />
   </SiteLayout>
