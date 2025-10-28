@@ -8,7 +8,7 @@ import ContactSection from '@/Components/ContactSection.vue'
   <SiteLayout>
     <Head title="¿Quiénes Somos? | Corporación Imperium" />
 
-<ContactSection bg-image="/img/mesareuniones.jpg" />
+    <ContactSection bg-image="/img/mesareuniones.jpg" />
   </SiteLayout>
 
     
