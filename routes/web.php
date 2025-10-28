@@ -25,6 +25,9 @@ Route::get('/institucional/unidad-de-gobierno', function () {
 Route::get('/institucional/normas-legales', function () {
     return Inertia::render('Institucional/normasLegales');
 })->name('normas-legales');
+Route::get('/contacto', function () {
+    return Inertia::render('Institucional/contactenos');
+})->name('contacto');
 
 Route::get('/sirea', function () {
     return Inertia::render('Auth/SireaLogin', [
