@@ -7,6 +7,7 @@ const year = new Date().getFullYear()
 const websiteUrl = 'http://www.imperium.org.pe'
 const phoneMain  = '(062) 620227'
 const phoneAlt   = '905595297'
+const emailHtml  = 'imperium.sg.2021@gmail.com'
 const addressHtml =
   'Jr. 28 de Julio N° 1167, 2do Piso – Oficina 05, Huánuco – Perú'
 
@@ -102,6 +103,13 @@ const gmapSrc =
             <span>{{ addressHtml }}</span>
           </p>
           <p class="flex gap-2">
+            <!-- Email -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="mt-1 fill-white">
+              <path d="M502.3 190.8L327.4 338.3c-22.1 18.5-53.6 18.5-75.7 0L9.7 190.8C3.8 185.9 0 178.4 0 170.4V64C0 28.7 28.7 0 64 0h384c35.3 0 64 28.7 64 64v106.4c0 8-3.8 15.5-9.7 20.4zM0 224v224c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V224L327.4 371.5c-22.1 18.5-53.6 18.5-75.7 0L0 224z"/>
+            </svg>
+            <a href="mailto:{{ emailHtml }}" class="text-white hover:underline">{{ emailHtml }}</a>
+          </p>
+          <p class="flex gap-2">
             <!-- Teléfono -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="mt-1 fill-white">
               <path d="M511.1 387.3c3.4 8.7 .9 18.6-6.3 24.6l-67.1 56.9c-7.7 6.5-18.7 7.2-27.2 1.8l-62.3-39.6c-7.9-5-12.2-13.9-10.9-23l8.1-59.1c-63.5-31.6-114.9-83-146.5-146.5L142 210.7c-9.1 1.3-18-3-23-10.9L79.4 137.6c-5.4-8.5-4.7-19.5 1.8-27.2l56.9-67.1c6-7.2 15.9-9.7 24.6-6.3l87.7 34.1c9.1 3.5 15.1 12.3 14.9 22L263 153.2c27.9 62 77.8 111.9 139.8 139.8l59.1-5.3c9.7-.2 18.5 5.8 22 14.9l34.1 84.7z"/>
@@ -119,6 +127,7 @@ const gmapSrc =
               {{ websiteUrl.replace(/^https?:\/\//,'') }}
             </a>
           </p>
+
         </div>
       </div>
 

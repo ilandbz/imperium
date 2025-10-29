@@ -11,41 +11,78 @@ const grupos = ref([
     abierto: true,
     items: [
       {
-        label: 'Nueva Ley General de Contrataciones Públicas Nº 32069',
-        href: '/archivos/normaslegales/Modificacion-Reglamento-de-la-Ley-30225.pdf',
+        label: 'NUEVA LEY GENERAL DE CONTRATACIONES PUBLICAS N°32069',
+        href: '/archivos/normaslegales/NUEVA_LEY_GENERAL_DE_CONTRATACIONES_PUBLICAS_32069.pdf',
       },
-      // {
-      //   label: 'Decreto Supremo N° 009-2025-EF. Reglamento de la Ley N° 32069 (22.01.2025)',
-      //   href: '/docs/normas/ds-009-2025-ef-reglamento-ley-32069.pdf',
-      // },
-      // {
-      //   label: 'Fe de erratas del Reglamento de la Ley N° 32069 (D.S. N° 009-2025-EF)',
-      //   href: '/docs/normas/fe-erratas-ds-009-2025-ef.pdf',
-      // },
+      {
+        label: 'Decreto Supremo N° 009-2025-EF. Reglamento de la Ley N° 32069 (22.01.2025)',
+        href: '/archivos/normaslegales/ds-009-2025-ef-reglamento-ley-32069.pdf',
+      },
+      {
+        label: 'Fe de erratas del Reglamento de la Ley N° 32069 (D.S. N° 009-2025-EF)',
+        href: '/archivos/normaslegales/fe-erratas-ds-009-2025-ef.pdf',
+      },
     ],
   },
-  // {
-  //   titulo: 'Ley de Contrataciones del Estado N° 30225 – Ley Anterior',
-  //   abierto: false,
-  //   items: [
-  //     { label: 'Texto de la Ley 30225', href: '/docs/normas/ley-30225.pdf' },
-  //     { label: 'Reglamento de la Ley 30225', href: '/docs/normas/reglamento-ley-30225.pdf' },
-  //   ],
-  // },
-  // {
-  //   titulo: 'Reglamento de la Ley de Contrataciones del Estado – Anterior',
-  //   abierto: false,
-  //   items: [
-  //     { label: 'Reglamento (compilado)', href: '/docs/normas/reglamento-anterior-compilado.pdf' },
-  //   ],
-  // },
-  // {
-  //   titulo: 'Ley de Arbitraje',
-  //   abierto: false,
-  //   items: [
-  //     { label: 'Decreto Legislativo N° 1071 – Ley de Arbitraje', href: '/docs/normas/ley-arbitraje-dl-1071.pdf' },
-  //   ],
-  // },
+  {
+    titulo: 'Ley de Contrataciones del Estado N° 30225 – Ley Anterior',
+    abierto: false,
+    items: [
+      {
+        label: 'TUO Ley de Contrataciones del Estado – D.S. N° 082-2019-EF',
+        href: '/archivos/normaslegales/tuo-ley-contrataciones-ds-082-2019-ef.pdf',
+      },
+      {
+        label: 'Decreto Legislativo N° 1444 – Modifica la Ley N° 30225 (Vigente 30.01.2019)',
+        href: '/archivos/normaslegales/decreto-legislativo-1444-modifica-ley-30225.pdf',
+      },
+      {
+        label: 'Decreto Legislativo N° 1341 – Modifica la Ley N° 30225 (Vigente 03.04.2017)',
+        href: '/archivos/normaslegales/decreto-legislativo-1341-modifica-ley-30225.pdf',
+      },
+      {
+        label: 'Ley N° 30225 – Ley de Contrataciones del Estado (Vigente 09.01.2016)',
+        href: '/archivos/normaslegales/ley-30225-contrataciones-del-estado.pdf',
+      },
+    ],
+  },
+  {
+    titulo: 'Reglamento de la Ley de Contrataciones del Estado – Anterior',
+    abierto: false,
+    items: [
+      {
+        label: 'Decreto Supremo N° 162-2021-EF (Vigente 26.06.2021)',
+        href: '/archivos/normaslegales/ds-162-2021-ef.pdf',
+      },
+      {
+        label: 'Decreto Supremo N° 250-2020-EF (Vigente 05.09.2020)',
+        href: '/archivos/normaslegales/ds-250-2020-ef.pdf',
+      },
+      {
+        label: 'Decreto Supremo N° 168-2020-EF – Modifica el D.S. N° 344-2018-EF (Vigente 01.07.2020)',
+        href: '/archivos/normaslegales/ds-168-2020-ef.pdf',
+      },
+      {
+        label: 'Decreto Supremo N° 377-2019-EF – Modifica el D.S. N° 344-2018-EF (Vigente 15.12.2019)',
+        href: '/archivos/normaslegales/ds-377-2019-ef.pdf',
+      },
+      {
+        label: 'Decreto Supremo N° 234-2022-EF – Modifica el D.S. N° 344-2018-EF (Vigente 28.10.2022)',
+        href: '/archivos/normaslegales/ds-234-2022-ef.pdf',
+      },
+      {
+        label: 'Decreto Supremo N° 344-2018-EF – Reglamento de la Ley N° 30225 (Vigente 30.01.2019)',
+        href: '/archivos/normaslegales/ds-344-2018-ef.pdf',
+      },
+    ],
+  },
+  {
+    titulo: 'Ley de Arbitraje',
+    abierto: false,
+    items: [
+      { label: 'Decreto Legislativo N° 1071 – Ley de Arbitraje', href: '/archivos/normaslegales/ley-arbitraje-dl-1071.pdf' },
+    ],
+  },
 ])
 
 const toggle = (i) => (grupos.value[i].abierto = !grupos.value[i].abierto)
