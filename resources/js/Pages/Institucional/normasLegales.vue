@@ -164,10 +164,6 @@ const toggle = (i) => (grupos.value[i].abierto = !grupos.value[i].abierto)
           </div>
         </div>
 
-        <!-- Nota -->
-        <p class="text-sm text-neutral-500 mt-6">
-          * Los documentos se abrirán en una nueva pestaña. Guarda tus PDFs en <code class="bg-neutral-100 px-1 py-0.5 rounded">/public/docs/normas/</code>.
-        </p>
       </div>
     </section>
   </SiteLayout>
