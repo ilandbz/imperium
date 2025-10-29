@@ -147,7 +147,7 @@ const toggle = (i) => (grupos.value[i].abierto = !grupos.value[i].abierto)
                     :href="it.href"
                     target="_blank"
                     rel="noopener"
-                    class="inline-flex items-center gap-2 w-fit rounded-full bg-[#0c94af] hover:bg-[#0a8196]
+                    class="inline-flex items-center gap-2 w-fit rounded-full bg-primary hover:bg-primary
                            text-white text-[15px] font-semibold px-3.5 py-2 transition"
                   >
                     <!-- pdf icon -->
