@@ -10,506 +10,154 @@ const props = defineProps({
   pageSize: { type: Number, default: 10 },
 })
 
-const localLaudos = [
-  // --- 2013 ---
-  {
-    id: 57,
-    year: 2013,
-    contratista: 'MUNICIPALIDAD LUYANDO',
-    entidad: 'EMPRESA R Y J CONTRATISTAS SRL',
-    controversia: 'RESOLUCION DE CONTRATO Y OTROS',
-    pdf: '/archivos/banco_laudos/2013/N° 57 MUNICIPALIDAD LUYANDO vs EMPRESA R Y J CONTRATISTAS SRL.pdf',
-  },
-
-  // --- 2014 ---
-  {
-    id: 53,
-    year: 2014,
-    contratista: 'CONSORCIO SANTA ROSA',
-    entidad: 'GOBIERNO REGIONAL DE PASCO',
-    controversia: 'PAGO POR INCUMPLIMIENTO DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2014/N° 53 CONSORCIO SANTA ROSA vs GOBIERNO REGIONAL DE PASCO.pdf',
-  },
-  {
-    id: 54,
-    year: 2014,
-    contratista: 'ENRIQUE LUCEN DEL CAMPO',
-    entidad: 'GOBIERNO REGIONAL DE HUANUCO',
-    controversia: 'LIQUIDACION DE OBRA Y OTROS',
-    pdf: '/archivos/banco_laudos/2014/N° 54 ENRIQUE LUCEN DEL CAMPO vs GOBIERNO REGIONAL DE HUANUCO.pdf',
-  },
-  {
-    id: 55,
-    year: 2014,
-    contratista: 'VETHEL SAC',
-    entidad: 'MUNICIPALIDAD DE SAN FRANCISCO DE YARUS YACAN - PASCO',
-    controversia: 'PAGO DE BIENES Y SERVICIOS',
-    pdf: '/archivos/banco_laudos/2014/N° 55 VETHEL SAC vs MUNICIPALIDAD DE SAN FRANCISCO DE YARUS YACAN - PASCO.pdf',
-  },
-  {
-    id: 56,
-    year: 2014,
-    contratista: 'CONSORCIO 28 DE JULIO',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2014/N° 56 CONSORCIO 28 DE JULIO vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-
-  // --- 2015 ---
-  {
-    id: 38,
-    year: 2015,
-    contratista: 'INGENIEROS RIVERA VIDAL CONTRATISTAS GENERALES SCRL',
-    entidad: 'RECTIFICACIONES CARLOS',
-    controversia: 'INCUMPLIMIENTO DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2015/N° 38 INGENIEROS RIVERA VIDAL CONTRATISTAS GENERALES SCRL vs RECTIFICACIONES CARLOS.pdf',
-  },
-  {
-    id: 39,
-    year: 2015,
-    contratista: 'CONSORCIO ARQUITECTOS E INGENIEROS',
-    entidad: 'UNIVERSIDAD NACIONAL DANIEL ALCIDESS CARRION',
-    controversia: 'PAGO POR CONSULTORIA',
-    pdf: '/archivos/banco_laudos/2015/N° 39 CONSORCIO ARQUITECTOS E INGENIEROS vs UNIVERSIDAD NACIONAL DANIEL ALCIDESS CARRION.pdf',
-  },
-  {
-    id: 40,
-    year: 2015,
-    contratista: 'CONSORCIO AV FENIX',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE HUÁNUCO',
-    controversia: 'PAGO DE INDEMNIZACION POR DAÑOS Y PERJUICIOS',
-    pdf: '/archivos/banco_laudos/2015/N° 40 CONSORCIO AV FENIX vs MUNICIPALIDAD PROVINCIAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 41,
-    year: 2015,
-    contratista: 'SEDA HUANUCO',
-    entidad: 'EMPRESA CRSIBEL SCRL',
-    controversia: 'INCUMPLIMIENTO DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2015/N° 41 SEDA HUANUCO vs EMPRESA CRSIBEL SCRL.pdf',
-  },
-  {
-    id: 42,
-    year: 2015,
-    contratista: 'CONSORCIO RONDOBAMBA',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE APARICIO POMARES',
-    controversia: 'LIQUIDACION DE OBRA Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 42 CONSORCIO RONDOBAMBA vs MUNICIPALIDAD DISTRITAL DE APARICIO POMARES.pdf',
-  },
-  {
-    id: 43,
-    year: 2015,
-    contratista: 'CONSOORCIO AYAPITEC',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE YAROWILCA',
-    controversia: 'LIQUIDACION DE OBRA Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 43 CONSOORCIO AYAPITEC vs MUNICIPALIDAD PROVINCIAL DE YAROWILCA.pdf',
-  },
-  {
-    id: 44,
-    year: 2015,
-    contratista: 'EMPRESA COORPORAION DE ALTOS ESTUDIOS EDUCATIVOS',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE HUÁNUCO',
-    controversia: 'PAGO SALDO DE EJECUCION DE OBRA',
-    pdf: '/archivos/banco_laudos/2015/N° 44 EMPRESA COORPORAION DE ALTOS ESTUDIOS EDUCATIVOS vs MUNICIPALIDAD PROVINCIAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 45,
-    year: 2015,
-    contratista: 'CONSORCIO HR',
-    entidad: 'GOBIERNO REGIONAL DE HUANUCO',
-    controversia: 'NULIDAD DE RESOLUCION',
-    pdf: '/archivos/banco_laudos/2015/N° 45 CONSORCIO HR vs GOBIERNO REGIONAL DE HUANUCO.pdf',
-  },
-  {
-    id: 46,
-    year: 2015,
-    contratista: 'CONSORCIO POMARES',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'LIQUIDACION DE OBRA Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 46 CONSORCIO POMARES vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 47,
-    year: 2015,
-    contratista: 'NINO DARLING',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 47 NINO DARLING vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 48,
-    year: 2015,
-    contratista: 'N Y R CONSTRUCTORA SAC',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE DANIEL ALCIDEZ CARRION',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 48 N Y R CONSTRUCTORA SAC vs MUNICIPALIDAD DISTRITAL DE DANIEL ALCIDEZ CARRION.pdf',
-  },
-  {
-    id: 49,
-    year: 2015,
-    contratista: 'CONSORCIO SANTA MARTHA',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'AMPLIACION DE PLAZO',
-    pdf: '/archivos/banco_laudos/2015/N° 49 CONSORCIO SANTA MARTHA vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 50,
-    year: 2015,
-    contratista: 'JOGAMA CONSULTORIA Y CONSTRUCCIONES GENERALES E.I.R.L',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'NULIDAD DE LIQUIDACION',
-    pdf: '/archivos/banco_laudos/2015/N° 50 JOGAMA CONSULTORIA Y CONSTRUCCIONES GENERALES E.I.R.L vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 51,
-    year: 2015,
-    contratista: 'CONSORCIO CAUNARAPA',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'NULIDAD DE RESOLUCION',
-    pdf: '/archivos/banco_laudos/2015/N° 51 CONSORCIO CAUNARAPA vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 52,
-    year: 2015,
-    contratista: 'ELITE COORPORACION E.I.R.L',
-    entidad: 'GOBIERNO REGIONAL PASCO',
-    controversia: 'LIQUIDACION DE CONTRATO Y OTROS',
-    pdf: '/archivos/banco_laudos/2015/N° 52 ELITE COORPORACION E.I.R.L vs GOBIERNO REGIONAL PASCO.pdf',
-  },
-
-  // --- 2016 ---
-  {
-    id: 33,
-    year: 2016,
-    contratista: 'CONSORCIO PILLCO MARCA',
-    entidad: 'UNIVERSIDAD NACIONAL HERMILIO VALDIZAN',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2016/N° 33 CONSORCIO PILLCO MARCA vs UNIVERSIDAD NACIONAL HERMILIO VALDIZAN.pdf',
-  },
-  {
-    id: 34,
-    year: 2016,
-    contratista: 'CONSORCIO COSAFRAM',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'LIQUIDACION DE CONTRATO Y OTROS',
-    pdf: '/archivos/banco_laudos/2016/N° 34 CONSORCIO COSAFRAM vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 35,
-    year: 2016,
-    contratista: 'CONSORCIO WYY',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE AMBO',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2016/N° 35 CONSORCIO WYY vs MUNICIPALIDAD PROVINCIAL DE AMBO.pdf',
-  },
-  {
-    id: 36,
-    year: 2016,
-    contratista: 'CONSORCIO CORPORACION BETETA',
-    entidad: 'GOBIERNO REGIONAL DE HUÁNUCO',
-    controversia: 'LIQUIDACION DE OBRA Y OTROS',
-    pdf: '/archivos/banco_laudos/2016/N° 36 CONSORCIO CORPORACION BETETA vs GOBIERNO REGIONAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 37,
-    year: 2016,
-    contratista: 'UNIVERSIDAD NACIONAL DANIEL ACLIDES CARRION',
-    entidad: 'EMPRESA COSNTRUCTORA ERWI SAC',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2016/N° 37 UNIVERSIDAD NACIONAL DANIEL ACLIDES CARRION vs EMPRESA COSNTRUCTORA ERWI SAC.pdf',
-  },
-
-  // --- 2017 ---
-  {
-    id: 28,
-    year: 2017,
-    contratista: 'CONSORCIO GYM CONSORCIADOS',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE CHACAYAN',
-    controversia: 'PAGO DE LIQUIDACION DE OBRAS Y OTROS',
-    pdf: '/archivos/banco_laudos/2017/N° 28 CONSORCIO GYM vs MUNICIPALIDAD DISTRITAL DE CHACAYAN.pdf',
-  },
-  {
-    id: 29,
-    year: 2017,
-    contratista: 'CONSORCIO SAN PEDRO',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE CHACAYAN',
-    controversia: 'PAGO DE LIQUIDACION DE OBRAS Y OTROS',
-    pdf: '/archivos/banco_laudos/2017/N° 29 CMT CONSORCIO SAN PEDRO vs MUNICIPALIDAD DISTRITAL DE CHACAYAN.pdf',
-  },
-  {
-    id: 30,
-    year: 2017,
-    contratista: 'CONSORCIO AYACUCHO',
-    entidad: 'PROGRAMA DE DESARROLLO PRODUCTIVO AGRARIO RURAL',
-    controversia: 'AMPLIACION DE PLAZO',
-    pdf: '/archivos/banco_laudos/2017/N° 30 CONSORCIO AYACUCHO vs PROGRAMA DE DESARROLLO PRODUCTIVO AGRARIO RURAL.pdf',
-  },
-  {
-    id: 32,
-    year: 2017,
-    contratista: 'CONSORCIO MEGAUNI',
-    entidad: 'UNIVERSIDAD NACIONAL HERMILIO VALDIZAN',
-    controversia: 'PAGO DE EJECUCION DE OBRA',
-    pdf: '/archivos/banco_laudos/2017/N° 32 CONSORCIO MEGAUNI vs UNIVERSIDAD NACIONAL HERMILIO VALDIZAN.pdf',
-  },
-  {
-    id: 31,
-    year: 2017,
-    contratista: 'CONSORCIO PILLCO MARCA',
-    entidad: 'UNIVERSIDAD NACIONAL HERMILIO VALDIZAN',
-    controversia: 'PAGO SALDO DE LIQUIDACION DE OBRA',
-    pdf: '/archivos/banco_laudos/2017/N°31 CONSORCIO PILLCO MARCA vs UNIVERSIDAD HERMILIO VALDIZAN.pdf',
-  },
-
-  // --- 2018 ---
-  {
-    id: 27,
-    year: 2018,
-    contratista: 'CONSORCIO MAMA ASHU',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE ASUNCION',
-    controversia: 'LIQUIDACION DE OBRAS Y OTROS',
-    pdf: '/archivos/banco_laudos/2018/N° 27 CONSORCIO MAMA ASHU vs MUNICIPALIDAD PROVINCIAL DE ASUNCION.pdf',
-  },
-
-  // --- 2019 ---
-  {
-    id: 26,
-    year: 2019,
-    contratista: 'GINA CAROL CHAVEZ PACCHINI',
-    entidad: 'GOBIERNO REGIONAL DE HUANUCO',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2019/N° 26 GINA CAROL CHAVEZ PACCHINI vs GOBIERNO REGIONAL DE HUANUCO.pdf',
-  },
-
-  // --- 2020 ---
-  {
-    id: 22,
-    year: 2020,
-    contratista: 'CONFAMA SRL',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE SANTA MARIA DEL VALLE',
-    controversia: 'LIQUIDACION DE CONTRATO Y PAGO DE INTERESES',
-    pdf: '/archivos/banco_laudos/2020/N° 22  CONFAMA SRL vs MUNICIPALIDAD DISTRITAL DE SANTA MARIA DEL VALLE.pdf',
-  },
-  {
-    id: 23,
-    year: 2020,
-    contratista: 'CONSORCIO VILLA AMERICA',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE PALCAZU',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2020/N° 23 CONSORCIO VILLA AMERICA  vs MUNICIPALIDAD DISTRITAL DE PALCAZU.pdf',
-  },
-  {
-    id: 24,
-    year: 2020,
-    contratista: 'CONSORCIO PILLCO MOZO',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE HUÁNUCO',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2020/N° 24 CONSORCIO PILLCO MOZO VS MUNICIPALIDAD PROVINCIAL DE HUÁNUCO.pdf',
-  },
-  {
-    id: 25,
-    year: 2020,
-    contratista: 'FERNANDO HUSSERL ESPINOZA SOTO',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUALLAGA',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2020/N° 25 FERNANDO HUSSERL ESPINOZA SOTO vs MUNICIPALIDAD DISTRITAL DE HUALLAGA.pdf',
-  },
-
-  // --- 2021 ---
-  {
-    id: 17,
-    year: 2021,
-    contratista: 'SOFIA VERONICA MORON CARHUARICRA',
-    entidad: 'EDITH SUAREZ GARCIA',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2021/N° 17 SOFIA VERONICA MORON CARHUARICRA vs EDITH SUAREZ GARCIA.pdf',
-  },
-  {
-    id: 18,
-    year: 2021,
-    contratista: 'CONSTRUCTORA Y CONSULTORA FISICA S.A.C.',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE YAROWILCA',
-    controversia: 'NULIDAD DE PENALIDAD',
-    pdf: '/archivos/banco_laudos/2021/N° 18 CONSTRUCTORA Y CONSULTORA FISICA S.A.C. vs MUNICIPALIDAD PROVINCIAL DE YAROWILCA.pdf',
-  },
-  {
-    id: 19,
-    year: 2021,
-    contratista: 'CONSORCIO KAWI MAKI',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE PACHITEA',
-    controversia: 'DEDUCTIVOS Y OTROS',
-    pdf: '/archivos/banco_laudos/2021/N° 19 CONSORCIO KAWI MAKI vs MUNICIPALIDAD PROVINCIAL DE PACHITEA.pdf',
-  },
-  {
-    id: 20,
-    year: 2021,
-    contratista: 'CONSORCIO D&J',
-    entidad: 'SEDA HUANUCO',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2021/N° 20 CONSORCIO D&J vs SEDA HUANUCO.pdf',
-  },
-  {
-    id: 21,
-    year: 2021,
-    contratista: 'CONSORCIO DE INGINIERIA Y CONSTRUCCION',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE HUAMALIES',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2021/N° 21 CONSORCIO DE INGINIERIA Y CONSTRUCCION vs MUNICIPALIDAD PROVINCIAL DE HUAMALIES.pdf',
-  },
-
-  // --- 2022 ---
-  {
-    id: 16,
-    year: 2022,
-    contratista: 'CONSORCIO MEFRED',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE CHAMACA',
-    controversia: 'NULIDAD DE RESOLUCION',
-    pdf: '/archivos/banco_laudos/2022/N° 16  CONSORCIO MEFRED vs MUNICIPALIDAD DISTRITAL DE CHAMACA.pdf',
-  },
-
-  // --- 2023 ---
-  {
-    id: 10,
-    year: 2023,
-    contratista: 'CONSORCIO SUPERIOR GyM',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUACAR',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2023/N° 10 CONSORCIO SUPERIOR GyM vs MUNICIPALIDAD DISTRITAL DE HUACAR.pdf',
-  },
-  {
-    id: 11,
-    year: 2023,
-    contratista: 'CONSORCIO PUENTE MUYA',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE PAUCARTAMBO',
-    controversia: 'AMPLIACION DE PLAZO',
-    pdf: '/archivos/banco_laudos/2023/N° 11 CONSORCIO PUENTE MUYA vs MUNICIPALIDAD DISTRITAL DE PAUCARTAMBO.pdf',
-  },
-  {
-    id: 12,
-    year: 2023,
-    contratista: 'CONSORCIO CRUZPATA',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE SANTA MARIA DEL VALLE',
-    controversia: 'NULIDAD DE RESOLUCION Y RESOLUCION DE APROBACION DE EXPEDIENTE TECNICO',
-    pdf: '/archivos/banco_laudos/2023/N° 12 CONSORCIO CRUZPATA vs MUNICIPALIDAD DISTRITAL DE SANTA MARIA DEL VALLE.pdf',
-  },
-  {
-    id: 13,
-    year: 2023,
-    contratista: 'CONSORCIO H&M ASOCIADOS',
-    entidad: 'E.R.D.S.P.D.E..E.N.M.S.A.H-S.A',
-    controversia: 'LIQUIDACION DE CONTRATO Y PAGO DE INTERESES',
-    pdf: '/archivos/banco_laudos/2023/N° 13 CONSORCIO H&M ASOCIADOS vs E.R.D.S.P.D.E..E.N.M.S.A.H-S.A.pdf',
-  },
-  {
-    id: 14,
-    year: 2023,
-    contratista: 'CONSORCIO MEFRED',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUALLAGA',
-    controversia: 'LIQUIDACION DE CONTRATO Y PAGO DE INTERESES',
-    pdf: '/archivos/banco_laudos/2023/N° 14 CONSORCIO MEFRED VS MUNICIPALIDAD DISTRITAL DE HUALLAGA.pdf',
-  },
-  {
-    id: 15,
-    year: 2023,
-    contratista: 'CONSORCIO MEFRED',
-    entidad: 'GOBIERNO REGIONAL DE HUANUCO',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2023/N° 15 CONSORCIO MEFRED vs GOBIERNO REGIONAL DE HUANUCO.pdf',
-  },
-
-  // --- 2024 ---
+export const bancoDecisiones = [
+  // ===== 2013 =====
   {
     id: 1,
-    year: 2024,
-    contratista: 'CONSORCIO PUENTE MUYA',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE PAUCARTAMBO',
-    controversia: 'RESOLUCION DE CONTRATO',
-    pdf: '/archivos/banco_laudos/2024/N° 01 CONSORCIO PUENTE MUYA VS MUNICIPALIDAD DISTRITAL DE PAUCARTAMBO.pdf',
+    year: 2013,
+    titulo: 'Empresa Group vs Municipalidad de Tusi – Falta de impulso',
+    pdf: '/storage/bancodeciciones/2013/exp_02-2013_arb_dmt_empresa_group_dmd_tusi-pas_falta_de_impulso_.pdf'
   },
   {
     id: 2,
-    year: 2024,
-    contratista: 'CONSORCIO GROUP SANEAMIENTO',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE CONSTITUCIÓN',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 02 CONSORCIO GROUP SANEAMIENTO VS MUNICIPALIDAD DISTRITAL DE CONSTITUCIÓN.pdf',
+    year: 2013,
+    titulo: 'Municipalidad de Tocache – Archivado',
+    pdf: '/storage/bancodeciciones/2013/exp_n_04-2013_arb._municipalidad_de_tocache_archivado_.pdf'
   },
+
+  // ===== 2014 =====
   {
     id: 3,
-    year: 2024,
-    contratista: 'CONSORCIO H&M AMAZONIA',
-    entidad: 'ELECTROCENTRO S.A',
-    controversia: 'NULIDAD DE RECURSO',
-    pdf: '/archivos/banco_laudos/2024/N° 03 CONSORCIO H&M AMAZONIA vs ELECTROCENTRO.pdf',
+    year: 2014,
+    titulo: 'Enrique Lucen del Campo vs Gobierno Regional – Laudo',
+    pdf: '/storage/bancodeciciones/2014/exp.n_012-2014_enrique_lucen_del_campo_y_gobierno_regional_2_laudo_.pdf'
   },
   {
     id: 4,
-    year: 2024,
-    contratista: 'CONSORCIO H&M AMAZONIA',
-    entidad: 'ELECTROCENTRO S.A',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 04 CONSORCIO H&M AMAZONIA vs ELECTROCENTRO.pdf',
+    year: 2014,
+    titulo: 'Damms Consultores – Archivado',
+    pdf: '/storage/bancodeciciones/2014/exp.n_09-2014_arb._damms_consultores_y_ejecutores_e.i.r.l_archivado_.pdf'
   },
   {
     id: 5,
-    year: 2024,
-    contratista: 'CONSORCIO HUACAR',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUACAR',
-    controversia: 'AMPLIACION DE PLAZO',
-    pdf: '/archivos/banco_laudos/2024/N° 05 CONSORCIO HUACAR VS MUNICIPALIDAD DISTRITAL DE HUACAR.pdf',
+    year: 2014,
+    titulo: 'Vethel SAC vs Municipalidad de San Francisco de Yarus Yacan – Laudo',
+    pdf: '/storage/bancodeciciones/2014/exp._n_013-2014_arb._vethel_sac_y_muni._san_franc._de_yarus_yacan_-_pasco_laudo_.pdf'
   },
   {
     id: 6,
-    year: 2024,
-    contratista: 'CONSORCIO DESCOLMATACION HUACAR',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUACAR',
-    controversia: 'RESOLUCION DE CONTRATO Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 06 CONSORCIO DESCOLMATACION HUACAR vs MUNICIPALIDAD DISTRITAL DE HUACAR.pdf',
+    year: 2014,
+    titulo: 'Consorcio Señor de los Milagros – Sin laudo',
+    pdf: '/storage/bancodeciciones/2014/exp._n_06-2014_arb._consorcio_senor_de_los_milagros_sin_laudo.pdf'
   },
   {
     id: 7,
-    year: 2024,
-    contratista: 'CONSORCIO HUACARMAYO',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE HUACAR',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 07 CONSORCIO HUACARMAYO VS MUNICIPALIDAD DISTRITAL DE HUACAR.pdf',
+    year: 2014,
+    titulo: 'Consorcio 28 de Julio vs Gobierno Regional de Huánuco – Laudo',
+    pdf: '/storage/bancodeciciones/2014/exp_015-2014_tomo_i_arb_consorcio_28_de_julio_gobierno_regional_de_huanuco_laudo_.pdf'
   },
   {
     id: 8,
-    year: 2024,
-    contratista: 'CONSORCIO SAN PABLO DE PILLAO',
-    entidad: 'MUNICIPALIDAD DISTRITAL DE SAN PABLO DE PILLAO',
-    controversia: 'NULIDAD DE RESOLUCION Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 08 CONSORCIO SAN PABLO DE PILLAO vs MUNICIPALIDAD DISTRITAL DE SAN PABLO DE PILLAO.pdf',
+    year: 2014,
+    titulo: 'Consorcio Santa Rosa vs Gobierno Regional de Pasco – Tomo II (Laudo)',
+    pdf: '/storage/bancodeciciones/2014/exp_n_011-2014_tomo_ii_arb._consorcio_santa_rosa_y_gob_regional_de_pasco_laudo.pdf'
   },
+
+  // ===== 2015 =====
   {
     id: 9,
-    year: 2024,
-    contratista: 'CONSORCIO GD GROUP SANEAMIENTO',
-    entidad: 'MUNICIPALIDAD PROVINCIAL DE LEONCIO PRADO',
-    controversia: 'RESOLUCION DE CONTRATO Y OTROS',
-    pdf: '/archivos/banco_laudos/2024/N° 09 CONSORCIO GD GROUP SANEAMIENTO VS MUNICIPALIDAD PROVINCIAL DE LEONCIO PRADO.pdf',
+    year: 2015,
+    titulo: 'Consorcio Huaracalla vs Municipalidad Provincial de Ambo – Conciliación',
+    pdf: '/storage/bancodeciciones/2015/exp_n_009-2015_consorcio_huaracalla_vs_municipalidad_provincial_de_ambo_conciliacion_.pdf'
   },
-];
+  {
+    id: 10,
+    year: 2015,
+    titulo: 'Consorcio Pillco Marca vs Universidad Hermilio Valdizán – Desistimiento',
+    pdf: '/storage/bancodeciciones/2015/exp_n_012-2015_arb_dmt_consorcio_pillco_marca_vs_dmdo_universidad_hermilio_valdizan_desestimiento_.pdf'
+  },
+
+  // ===== 2016 =====
+  {
+    id: 11,
+    year: 2016,
+    titulo: 'Consorcio Pillco Marca vs Universidad Hermilio Valdizán – Laudo',
+    pdf: '/storage/bancodeciciones/2016/exp_n_01-2016_tomo_i_arb._consorcio_pillco_marca_vs_universidad_hermilio_valdizan_laudo_.pdf'
+  },
+  {
+    id: 12,
+    year: 2016,
+    titulo: 'Corporación Beteta vs Gobierno Regional de Huánuco – Laudo',
+    pdf: '/storage/bancodeciciones/2016/exp_n_07-2016_arb_consorcio_corporacion_beteta_vs_gobierno_regional_de_huanuco_laudo_.pdf'
+  },
+
+  // ===== 2017 =====
+  {
+    id: 13,
+    year: 2017,
+    titulo: 'Consorcio Megauni vs Universidad Nacional Hermilio Valdizán – Tomo I',
+    pdf: '/storage/bancodeciciones/2017/exp_n_0006-2017_demandante_consorcio_megauni_vs_demandado_universidad_nacional_hermilio_valdizan_tomo_i.pdf'
+  },
+
+  // ===== 2018 =====
+  {
+    id: 14,
+    year: 2018,
+    titulo: 'Consorcio Mama Ashu vs Municipalidad Provincial de Asunción – Laudo',
+    pdf: '/storage/bancodeciciones/2018/exp_arb_n_004-2018_demandante_consorcio_mama_ashu_vs_demandado_municipalidad_provincial_de_asuncion_laudo_.pdf'
+  },
+
+  // ===== 2019 =====
+  {
+    id: 15,
+    year: 2019,
+    titulo: 'Jorge Simón Phevoz Jarra vs Gustavo Tomás Jacha Valladares – Sin laudo',
+    pdf: '/storage/bancodeciciones/2019/exp_n_04-2019_demandante_jorge_simon_phevoz_jarra_vs_demandado_gusstavo_tomas_jacha_valladdares_sin_laudo_.pdf'
+  },
+
+  // ===== 2020 =====
+  {
+    id: 16,
+    year: 2020,
+    titulo: 'Consorcio Pillco Mozo vs Municipalidad de Huánuco – Laudo / Conciliación',
+    pdf: '/storage/bancodeciciones/2020/exp._arbitral_no_003-2020_consorcio_pillco_mozo_vs_municipalidad_de_huanuco_laudo_-_conciliacion_.pdf'
+  },
+
+  // ===== 2024 =====
+  {
+    id: 17,
+    year: 2024,
+    titulo: 'Consorcio Group Saneamiento vs Municipalidad Distrital de Constitución – Laudo',
+    pdf: '/storage/bancodeciciones/2024/exp._arbitral_004-2024_consorcio_group_saneamiento_vs_municipalidad_distrital_de_constitucion_laudo_.pdf'
+  },
+
+  // ===== 2025 =====
+  {
+    id: 18,
+    year: 2025,
+    titulo: 'Consorcio Ejecutor Jesús vs Municipalidad Provincial de Lauricocha',
+    pdf: '/storage/bancodeciciones/2025/exp._004-2025_consorcio_ejecutor_jesus_vs_municipalidad_provincial_de_lauricocha.pdf'
+  }
+]
 
 
 // === estado / cálculos ===
-const data = computed(() => localLaudos)
+const data = computed(() => bancoDecisiones)
 
 // búsqueda simple
 const q = ref('')
+
 const filtered = computed(() => {
   if (!q.value.trim()) return data.value
+
   const t = q.value.toLowerCase()
+
   return data.value.filter(r =>
     String(r.id).includes(t) ||
-    r.contratista.toLowerCase().includes(t) ||
-    r.entidad.toLowerCase().includes(t) ||
-    (r.controversia || '').toLowerCase().includes(t) ||
-    String(r.year).includes(t)
+    String(r.year).includes(t) ||
+    r.titulo.toLowerCase().includes(t)
   )
 })
-
 // paginación
 const current = ref(1)
 const pageSize = ref(10)
@@ -568,8 +216,8 @@ const range = computed(() => {
             <input
               v-model="q"
               type="search"
-              placeholder="Buscar por año, contratista, entidad o controversia…"
-              class="w-full rounded-xl border border-neutral/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Buscar por año, ID o descripción…"
+              class="w-full rounded-xl border px-3 py-2"
               @input="go(1)"
             />
           </div>
@@ -580,30 +228,38 @@ const range = computed(() => {
           <table class="min-w-[720px] w-full">
             <thead>
               <tr class="bg-[#0A2A57] text-white">
-                <th class="px-4 py-3 text-left w-16">ID</th>
-                <th class="px-4 py-3 text-left w-20">AÑO</th>
-                <th class="px-4 py-3 text-left">CONTRATISTA</th>
-                <th class="px-4 py-3 text-left">ENTIDAD</th>
-                <th class="px-4 py-3 text-left">CONTROVERSIA</th>
+                <th class="px-4 py-3 w-16">ID</th>
+                <th class="px-4 py-3 w-20">AÑO</th>
+                <th class="px-4 py-3">DESCRIPCIÓN</th>
+                <th class="px-4 py-3 w-24 text-center">PDF</th>
               </tr>
             </thead>
             <tbody>
               <tr
                 v-for="row in pageData"
-                :key="row.year + '-' + row.id"
-                class="border-t border-neutral-10 hover:bg-neutral-50"
+                :key="row.id"
+                class="border-t hover:bg-neutral-50"
               >
-                <td class="px-4 py-3 text-neutral-800">{{ row.id }}</td>
-                <td class="px-4 py-3 text-neutral-800">{{ row.year }}</td>
-                <td class="px-4 py-3">{{ row.contratista }}</td>
-                <td class="px-4 py-3">{{ row.entidad }}</td>
+                <td class="px-4 py-3">{{ row.id }}</td>
+                <td class="px-4 py-3">{{ row.year }}</td>
+
                 <td class="px-4 py-3">
-                  {{ row.controversia || '—' }}
+                  {{ row.titulo }}
+                </td>
+
+                <td class="px-4 py-3 text-center">
+                  <a
+                    :href="row.pdf"
+                    target="_blank"
+                    class="text-primary font-semibold hover:underline"
+                  >
+                    Ver
+                  </a>
                 </td>
               </tr>
 
               <tr v-if="pageData.length === 0">
-                <td colspan="6" class="px-4 py-6 text-center text-neutral-500">
+                <td colspan="4" class="px-4 py-6 text-center text-neutral-500">
                   No se encontraron resultados.
                 </td>
               </tr>
