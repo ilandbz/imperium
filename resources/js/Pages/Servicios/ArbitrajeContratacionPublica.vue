@@ -75,7 +75,7 @@ const sections = [
       },
       {
         label: 'Documento de Aprobación del Reglamento Interno y código de ética',
-        href: '/archivos/servicios/',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/b2.pdf',
         type: 'PDF',
       },
     ],
