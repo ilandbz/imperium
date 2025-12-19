@@ -18,6 +18,7 @@ const props = defineProps({
     default: '/archivos/REGLAMENTO_DE_COSTOS_ARBITRALES.pdf'
   },
 
+  
   // SUNAT para conversión USD->PEN
   sunatRate: { type: Number, default: 3.378 },
 
