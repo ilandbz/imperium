@@ -1,0 +1,459 @@
+<!-- resources/js/Components/ArbitrationCalculatorSection.vue -->
+<script setup>
+import { ref, computed } from 'vue'
+
+const props = defineProps({
+  title: { type: String, default: 'Calculadora de Costos de Arbitraje' },
+  subtitle: {
+    type: String,
+    default:
+      'Calcula los costos arbitrales según las pretensiones en disputa, ya sea ante un Árbitro Único o un Tribunal Arbitral, e incluye el servicio de administración del proceso.'
+  },
+  tablaCostosUrl: {
+    type: String,
+    default: '/archivos/TABLA_DE_COSTOS_ARBITRALES.pdf'
+  },
+  reglamentoCostosUrl: {
+    type: String,
+    default: '/archivos/TABLA_DE_COSTOS_ARBITRALES.pdf'
+  },
+
+  // SUNAT para conversión USD->PEN
+  sunatRate: { type: Number, default: 3.378 },
+
+  // IGV Perú
+  igv: { type: Number, default: 0.18 },
+
+  // Porcentajes base (los puedes afinar luego)
+  adminPct: { type: Number, default: 0.02 },       // 2%
+  arbitratorPct: { type: Number, default: 0.034 }, // 3.4%
+
+  // Tasa de presentación (aprox.) como % de la cuantía
+  presentationPct: { type: Number, default: 0.007 }, // 0.7 %
+
+  // Si quieres sobreescribir completamente el cálculo:
+  // (montoPen:number, ctx:{igv:number, mode:string, tipoArbitraje:string, categoria:string})
+  calcStrategy: { type: Function, default: null }
+})
+
+/* ---------- STATE ---------- */
+const showModal = ref(false)
+const hasCalculated = ref(false)
+
+const amount = ref('')            // input monto
+const money = ref('PEN')          // PEN | USD
+const mode = ref('regular')       // regular | emergencia (por si luego quieres usarlo)
+const tipoArbitraje = ref('unico') // 'unico' | 'tribunal'
+const categoria = ref('nacional')  // 'nacional' | 'internacional'
+
+/* ---------- HELPERS ---------- */
+const parsedAmount = computed(() => {
+  const n = Number(String(amount.value).replace(/[^\d.,]/g, '').replace(',', '.'))
+  return isFinite(n) ? n : 0
+})
+
+const amountInPEN = computed(() => {
+  if (money.value === 'PEN') return parsedAmount.value
+  return parsedAmount.value * props.sunatRate
+})
+
+function formatMoney(n) {
+  return n.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
+
+/* ---------- CORE CALC ---------- */
+const results = computed(() => {
+  const base = amountInPEN.value
+  if (!base || base <= 0) {
+    return { admin: 0, arbitrator: 0, total: 0 }
+  }
+
+  let admin = 0
+  let arbitrator = 0
+
+  if (typeof props.calcStrategy === 'function') {
+    const r = props.calcStrategy(base, {
+      igv: props.igv,
+      mode: mode.value,
+      tipoArbitraje: tipoArbitraje.value,
+      categoria: categoria.value
+    })
+    admin = r?.admin ?? 0
+    arbitrator = r?.arbitrator ?? 0
+  } else {
+    const mult = mode.value === 'emergencia' ? 1.0 : 1.0
+    admin = base * props.adminPct * mult
+    arbitrator = base * props.arbitratorPct * mult
+  }
+
+  return { admin, arbitrator, total: admin + arbitrator }
+})
+
+// Tasa de presentación aproximada (puedes ajustar el % en props.presentationPct)
+const presentationFee = computed(() => {
+  const base = amountInPEN.value
+  if (!base || base <= 0) return 0
+  return base * props.presentationPct
+})
+
+// Subtotales para el bloque "Resultados del Cálculo"
+const subtotal = computed(
+  () => presentationFee.value + results.value.total
+)
+const igvAmount = computed(
+  () => subtotal.value * props.igv
+)
+const totalPagar = computed(
+  () => subtotal.value + igvAmount.value
+)
+
+/* ---------- EVENTS ---------- */
+function openModal() {
+  showModal.value = true
+  hasCalculated.value = false
+}
+
+function onSubmit(e) {
+  e?.preventDefault?.()
+  hasCalculated.value = true
+}
+
+function resetCalc() {
+  amount.value = ''
+  hasCalculated.value = false
+}
+
+function toggleMoney() {
+  money.value = money.value === 'PEN' ? 'USD' : 'PEN'
+}
+
+
+const loadingPdf = ref(false)
+
+async function handlePdf(action = 'download') {
+  if (!hasCalculated.value || amountInPEN.value <= 0) return
+
+  try {
+    loadingPdf.value = true
+
+    const payload = {
+      monto_base: amountInPEN.value,
+      moneda: money.value,
+      tipo_arbitraje: tipoArbitraje.value,
+      categoria: categoria.value,
+      tasa_presentacion: presentationFee.value,
+      costos_admin: results.value.admin,
+      honorarios: results.value.arbitrator,
+      subtotal: subtotal.value,
+      igv: igvAmount.value,
+      total: totalPagar.value
+    }
+
+    const res = await fetch('/calculadora-arbitraje/pdf', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': document
+          .querySelector('meta[name="csrf-token"]')
+          ?.getAttribute('content') || ''
+      },
+      body: JSON.stringify(payload)
+    })
+
+    if (!res.ok) {
+      throw new Error('Error al generar el PDF')
+    }
+
+    const blob = await res.blob()
+    const url = URL.createObjectURL(blob)
+
+    if (action === 'view') {
+      // Abrir en nueva pestaña para visualizar
+      window.open(url, '_blank')
+    } else {
+      // Forzar descarga
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'costos-arbitraje.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+
+    URL.revokeObjectURL(url)
+  } catch (err) {
+    console.error(err)
+    alert('Ocurrió un error al generar el PDF.')
+  } finally {
+    loadingPdf.value = false
+  }
+}
+
+</script>
+
+<template>
+  <section class="my-14 px-4">
+    <div class="max-w-[750px] mx-auto flex flex-col gap-6">
+      <!-- encabezado -->
+      <div class="flex flex-col justify-center items-center text-center">
+        <h3 class="text-3xl normal-case subtitle">
+          {{ title }}
+        </h3>
+        <p class="text-primary font-semibold mt-2 text-justify">
+          {{ subtitle }}
+        </p>
+      </div>
+
+      <!-- botones / links -->
+      <div class="p-3 md:p-6 shadow-xl rounded-lg bg-white flex flex-col gap-4">
+        <div class="grid md:grid-cols-2 gap-2">
+          <a
+            :href="tablaCostosUrl"
+            target="_blank"
+            rel="noopener"
+            class="bg-[#E6EEEF] text-primary hover:bg-primary hover:text-white font-semibold p-3 md:p-4 flex items-center justify-center rounded-md text-sm md:text-base"
+          >
+            TABLA DE COSTOS ARBITRALES
+          </a>
+
+          <a
+            :href="reglamentoCostosUrl"
+            target="_blank"
+            rel="noopener"
+            class="bg-[#E6EEEF] text-primary hover:bg-primary hover:text-white font-semibold p-3 md:p-4 flex items-center justify-center rounded-md text-sm md:text-base"
+          >
+            REGLAMENTO DE COSTOS ARBITRALES
+          </a>
+        </div>
+
+        <button
+          type="button"
+          @click="openModal"
+          class="mt-2 bg-primary text-white font-bold py-3 rounded-md text-sm md:text-base hover:bg-primary/90"
+        >
+          ABRIR CALCULADORA
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL PRINCIPAL -->
+    <div
+      class="fixed inset-0 z-[9999] bg-black/50 flex justify-center items-start md:items-center transition-all"
+      :class="[showModal ? 'opacity-100 visible' : 'opacity-0 invisible']"
+    >
+      <div
+        class="mt-6 md:mt-0 bg-white rounded-2xl shadow-2xl w-full max-w-[520px] mx-3 overflow-hidden"
+      >
+        <!-- header -->
+        <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-200">
+          <h2 class="text-lg md:text-xl font-bold text-neutral-900">
+            Calculadora de Costos de Arbitraje
+          </h2>
+          <button
+            type="button"
+            @click="showModal = false"
+            class="text-neutral-500 hover:text-neutral-800 text-xl font-bold leading-none"
+          >
+            ×
+          </button>
+        </div>
+
+        <!-- contenido -->
+        <form class="px-5 pt-4 pb-5 space-y-4" @submit="onSubmit">
+          <!-- monto -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-neutral-700 uppercase">
+              Monto de la Controversia (S/)
+            </label>
+            <div class="flex gap-2">
+              <input
+                v-model="amount"
+                type="text"
+                inputmode="decimal"
+                placeholder="0.00"
+                class="flex-1 border border-neutral-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
+              />
+              <div class="flex flex-col gap-1">
+                <label class="flex items-center gap-1 text-xs text-neutral-700">
+                  <input
+                    type="radio"
+                    value="PEN"
+                    v-model="money"
+                    class="accent-primary"
+                  />
+                  S/
+                </label>
+                <label class="flex items-center gap-1 text-xs text-neutral-700">
+                  <input
+                    type="radio"
+                    value="USD"
+                    v-model="money"
+                    class="accent-primary"
+                  />
+                  USD
+                </label>
+              </div>
+            </div>
+            <p class="text-[11px] text-neutral-500">
+              Tasa de cambio SUNAT usada: {{ sunatRate }} &nbsp;|&nbsp;
+              Cuantía en soles: <span class="font-semibold">S/ {{ formatMoney(amountInPEN) }}</span>
+            </p>
+          </div>
+
+          <!-- tipo de arbitraje -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-neutral-700 uppercase">
+              Tipo de Arbitraje
+            </label>
+            <select
+              v-model="tipoArbitraje"
+              class="w-full border border-neutral-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
+            >
+              <option value="unico">Árbitro Único</option>
+              <option value="tribunal">Tribunal Arbitral</option>
+            </select>
+          </div>
+
+          <!-- categoría -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-neutral-700 uppercase">
+              Categoría de Arbitraje
+            </label>
+            <select
+              v-model="categoria"
+              class="w-full border border-neutral-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
+            >
+              <option value="nacional">Nacional</option>
+              <option value="internacional">Internacional</option>
+            </select>
+          </div>
+
+          <!-- botón calcular -->
+          <button
+            type="submit"
+            class="w-full mt-2 bg-primary text-white font-semibold py-2.5 rounded-md text-sm md:text-base hover:bg-primary/90"
+          >
+            Calcular Costos
+          </button>
+        </form>
+
+        <!-- resultados -->
+        <div class="px-5 pb-5 border-t border-neutral-200">
+          <h3 class="text-base font-semibold text-neutral-900 mt-3 mb-2">
+            Resultados del Cálculo
+          </h3>
+
+          <div
+            v-if="hasCalculated && amountInPEN > 0"
+            class="border border-neutral-200 rounded-lg overflow-hidden text-sm"
+          >
+            <div class="flex justify-between px-4 py-2 bg-neutral-50">
+              <span class="text-neutral-700">Tasa de Presentación:</span>
+              <span class="font-semibold text-neutral-900">
+                S/ {{ formatMoney(presentationFee) }}
+              </span>
+            </div>
+
+            <div class="flex justify-between px-4 py-2">
+              <span class="text-neutral-700">Costos Administrativos:</span>
+              <span class="font-semibold text-neutral-900">
+                S/ {{ formatMoney(results.admin) }}
+              </span>
+            </div>
+
+            <div class="flex justify-between px-4 py-2">
+              <span class="text-neutral-700">Honorarios Arbitrales:</span>
+              <span class="font-semibold text-neutral-900">
+                S/ {{ formatMoney(results.arbitrator) }}
+              </span>
+            </div>
+
+            <div class="border-t border-neutral-200 mt-1" />
+
+            <div class="flex justify-between px-4 py-2">
+              <span class="text-neutral-700">Subtotal:</span>
+              <span class="font-semibold text-neutral-900">
+                S/ {{ formatMoney(subtotal) }}
+              </span>
+            </div>
+
+            <div class="flex justify-between px-4 py-2">
+              <span class="text-neutral-700">IGV ({{ (igv * 100).toFixed(0) }}%):</span>
+              <span class="font-semibold text-neutral-900">
+                S/ {{ formatMoney(igvAmount) }}
+              </span>
+            </div>
+
+            <div class="border-t border-neutral-200 mt-1" />
+
+            <div class="flex justify-between px-4 py-2 bg-red-50">
+              <span class="text-neutral-800 font-semibold">Total a Pagar:</span>
+              <span class="font-semibold text-red-600">
+                S/ {{ formatMoney(totalPagar) }}
+              </span>
+            </div>
+          </div>
+
+          <p
+            v-else
+            class="text-xs text-neutral-500 mt-2 mb-1"
+          >
+            Ingresa el monto de la controversia y presiona <strong>“Calcular Costos”</strong> para ver
+            el detalle.
+          </p>
+
+          <!-- acciones inferiores -->
+          <div class="flex flex-col gap-3 mt-4 mb-2 text-sm">
+
+            <div class="flex flex-col gap-2">
+              <button
+                type="button"
+                @click="handlePdf('download')"
+                class="flex gap-2 items-center justify-center py-2.5 px-4 bg-primary text-white rounded-md font-semibold disabled:opacity-60"
+                :disabled="!hasCalculated || amountInPEN <= 0 || loadingPdf"
+              >
+                {{ loadingPdf ? 'Generando PDF...' : 'DESCARGAR PDF' }}
+              </button>
+
+              <button
+                type="button"
+                @click="handlePdf('view')"
+                class="flex gap-2 items-center justify-center py-2.5 px-4 bg-white border border-primary text-primary rounded-md font-semibold disabled:opacity-60"
+                :disabled="!hasCalculated || amountInPEN <= 0 || loadingPdf"
+              >
+                VER PDF EN OTRA PESTAÑA
+              </button>
+            </div>
+
+
+            <div class="flex flex-col md:flex-row gap-3">
+              <button
+                type="button"
+                @click="resetCalc"
+                class="flex-1 py-2.5 px-4 border border-primary text-primary rounded-md font-semibold hover:bg-neutral-50"
+              >
+                REALIZAR NUEVO CÁLCULO
+              </button>
+
+              <button
+                type="button"
+                @click="toggleMoney"
+                class="flex-1 py-2.5 px-4 border border-primary text-primary rounded-md font-semibold hover:bg-neutral-50"
+              >
+                CAMBIAR A ({{ money === 'PEN' ? 'USD' : 'S/' }})
+                {{ money === 'PEN' ? 'DÓLARES' : 'SOLES' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.subtitle {
+  @apply text-3xl font-extrabold text-primary text-center;
+}
+</style>
