@@ -15,7 +15,7 @@ const props = defineProps({
   },
   reglamentoCostosUrl: {
     type: String,
-    default: '/archivos/TABLA_DE_COSTOS_ARBITRALES.pdf'
+    default: '/archivos/REGLAMENTO_DE_COSTOS_ARBITRALES.pdf'
   },
 
   // SUNAT para conversión USD->PEN
