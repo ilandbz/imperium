@@ -10,64 +10,64 @@ const consejoSuperior = [
     nombre: 'Ing. Mario Manuel Silva López',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'mariomanuel.pdf'
+    cv: 'mariomanuel.pdf'
   },
   {
     id: 'cs-1',
     nombre: 'Abg. Mayra Alexandra Silva Olivera',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'mayraalexandra.pdf'
+    cv: 'mayraalexandra.pdf'
   },
   {
     id: 'cs-2',
     nombre: 'Abg. Joyce Echeandía Sinarahua',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'joyce.pdf'
+    cv: 'joyce.pdf'
   },
   {
     id: 'cs-3',
     nombre: 'Abg. Ángel Antonio Espinoza Trelles',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'angelantonio.pdf'
+    cv: 'angelantonio.pdf'
   },
   {
     id: 'og-1',
     nombre: 'Abg. Francisco Martín Pinedo Aubián',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'franciscomartin.pdf'
+    cv: 'franciscomartin.pdf'
   },
   {
     id: 'og-2',
     nombre: 'Abg. María de los Ángeles Aranda Ponce',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'mariadelosangeles.pdf'
+    cv: 'mariadelosangeles.pdf'
   },
   {
     id: 'og-3',
     nombre: 'Abg. Heidi Ivonne Torres Santos de Kulesza',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'heidiivonne.pdf'
+    cv: 'heidiivonne.pdf'
   },
   {
     id: 'og-4',
     nombre: 'Abg. Jhon Cruz Torres',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    //cv: 'jhon.pdf'
+    cv: 'jhon.pdf'
   }
 ]
 
 const abrirCV = (persona) => {
   if (!persona.cv) return
 
-  const url = `/archivos/cvs/${persona.cv}`
-  window.open(url, '_blank') // nueva pestaña
+  const url = `/storage/cv/${persona.cv}`
+  window.open(url, '_blank')
 }
 
 
