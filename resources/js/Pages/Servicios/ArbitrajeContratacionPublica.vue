@@ -73,6 +73,11 @@ const sections = [
         href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/clausula-arbitral-centro.docx',
         type: 'DOCX',
       },
+      {
+        label: 'Documento de Aprobación del Reglamento Interno y código de ética',
+        href: '/archivos/servicios/',
+        type: 'PDF',
+      },
     ],
   },
 ]
