@@ -81,7 +81,7 @@ const range = computed(() => {
         <!-- Top bar -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
           <div class="text-sm font-semibold text-neutral-700">
-            Nº DE EXPEDIENTES CON RESOLUCIONES Y DECISIONES ARBITRALES: <span class="text-primary">{{ total }}</span>
+            Nº DE EXPEDIENTES CON RESOLUCIONES Y DECISIONES ARBITRALES:
           </div>
 
           <div class="w-full sm:w-80">
