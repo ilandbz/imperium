@@ -1,6 +1,6 @@
 <script setup>
 // Cambia por tu número (formato internacional sin +)
-const phone = '51999999999'
+const phone = '51905595297'
 const text  = encodeURIComponent('Hola, necesito información.')
 const href  = `https://wa.me/${phone}?text=${text}`
 </script>

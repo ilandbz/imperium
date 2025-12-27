@@ -96,12 +96,12 @@ const calcStrategy = (montoPen, { igv, mode }) => {
         title: 'Arbitraje en Contrataciones del Estado',
         subtitle: 'Organizamos y gestionamos procesos arbitrales con acceso inmediato a la plataforma virtual IMPERIUM.',
         primary:  { label: 'Solicitar cotización', href: '/contacto#cotizacion' },
-        secondary:{ label: 'Iniciar solicitud',   href: '/plataforma' }
+        secondary:{ label: 'Iniciar solicitud',   href: '//contacto#cotizacion' }
       }"
       :right="{
         image: '/img/hero-jprd.webp',
-        title: 'Junta de Prevención',
-        subtitle: 'y Resolución de Disputas (JPRD)',
+        title: 'Junta de Prevención y Resolución de Disputas (JPRD)',
+        subtitle: '',
         primary: { label: 'Conocer más', href: 'http://imperium_portal.test/junta-prevencion-resolucion' }
       }"
     />
