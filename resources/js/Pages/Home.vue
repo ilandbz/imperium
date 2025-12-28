@@ -95,8 +95,8 @@ const calcStrategy = (montoPen, { igv, mode }) => {
         image: '/img/hero-arbitraje-publica.webp',
         title: 'Arbitraje en Contrataciones del Estado',
         subtitle: 'Organizamos y gestionamos procesos arbitrales con acceso inmediato a la plataforma virtual IMPERIUM.',
-        primary:  { label: 'Solicitar cotización', href: '/contacto#cotizacion' },
-        secondary:{ label: 'Iniciar solicitud',   href: '//contacto#cotizacion' }
+        primary:  { label: 'Solicitar cotización', href: '/contacto' },
+        secondary:{ label: 'Iniciar solicitud',   href: '/calculadora' }
       }"
       :right="{
         image: '/img/hero-jprd.webp',
@@ -114,15 +114,12 @@ const calcStrategy = (montoPen, { igv, mode }) => {
       :count-up="true"
     />
 
-
-
-  <ArbitrationCalculatorSection
-    :sunat-rate="3.378"
-    :igv="0.18"
-    :calc-strategy="calcStrategy"
-  />
-
-    
+    <ArbitrationCalculatorSection
+      :sunat-rate="3.378"
+      :igv="0.18"
+      :calc-strategy="calcStrategy"
+    />
+   
     <ContactSection bg-image="/img/mesareuniones.jpg" />
 
     <CertificationsModal v-model="showIso" />
