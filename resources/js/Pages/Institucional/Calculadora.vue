@@ -11,7 +11,6 @@ import ArbitrationCalculatorSection from '@/Components/ArbitrationCalculatorSect
     <ArbitrationCalculatorSection
       :sunat-rate="3.378"
       :igv="0.18"
-      :calc-strategy="calcStrategy"
     />
   </SiteLayout>
 

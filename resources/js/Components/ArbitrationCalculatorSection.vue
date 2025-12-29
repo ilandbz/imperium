@@ -22,20 +22,78 @@ const props = defineProps({
   // SUNAT para conversión USD->PEN
   sunatRate: { type: Number, default: 3.378 },
 
-  // IGV Perú
-  igv: { type: Number, default: 0.18 },
-
   // Porcentajes base (los puedes afinar luego)
-  adminPct: { type: Number, default: 0.02 },       // 2%
   arbitratorPct: { type: Number, default: 0.034 }, // 3.4%
-
-  // Tasa de presentación (aprox.) como % de la cuantía
-  presentationPct: { type: Number, default: 0.007 }, // 0.7 %
 
   // Si quieres sobreescribir completamente el cálculo:
   // (montoPen:number, ctx:{igv:number, mode:string, tipoArbitraje:string, categoria:string})
   calcStrategy: { type: Function, default: null }
 })
+
+function calcularArbitroUnico(base) {
+  let honorario = 0
+
+  if (base <= 50_000) {
+    honorario = 2748
+  }
+  else if (base <= 300_000) {
+    honorario = 2748 + (base - 50_000) * 0.0085
+  }
+  else if (base <= 700_000) {
+    honorario = 4708 + (base - 300_000) * 0.007
+  }
+  else if (base <= 1_500_000) {
+    honorario = 7480 + (base - 700_000) * 0.0045
+  }
+  else if (base <= 5_000_000) {
+    honorario = 11_428 + (base - 1_500_000) * 0.0035
+  }
+  else if (base <= 15_000_000) {
+    honorario = 20_428 + (base - 5_000_000) * 0.002
+  }
+  else if (base <= 40_000_000) {
+    honorario = 41_628 + (base - 15_000_000) * 0.0015
+  }
+  else {
+    honorario = 85_068 + (base - 40_000_000) * 0.0012
+  }
+
+  // 🔒 Tope máximo
+  return Math.min(honorario, 250_000)
+}
+
+
+function calcularTribunalArbitral(base) {
+  let honorario = 0
+
+  if (base <= 50_000) {
+    honorario = 5400
+  }
+  else if (base <= 300_000) {
+    honorario = 5400 + (base - 50_000) * 0.03
+  }
+  else if (base <= 700_000) {
+    honorario = 11_400 + (base - 300_000) * 0.02
+  }
+  else if (base <= 1_500_000) {
+    honorario = 18_400 + (base - 700_000) * 0.01
+  }
+  else if (base <= 5_000_000) {
+    honorario = 30_400 + (base - 1_500_000) * 0.008
+  }
+  else if (base <= 15_000_000) {
+    honorario = 65_400 + (base - 5_000_000) * 0.007
+  }
+  else if (base <= 40_000_000) {
+    honorario = 149_400 + (base - 15_000_000) * 0.0056
+  }
+  else {
+    honorario = 364_000 + (base - 40_000_000) * 0.0055
+  }
+
+  // 🔒 Tope máximo por árbitro
+  return Math.min(honorario, 200_000)
+}
 
 /* ---------- STATE ---------- */
 const showModal = ref(false)
@@ -44,7 +102,7 @@ const hasCalculated = ref(false)
 const amount = ref('')            // input monto
 const money = ref('PEN')          // PEN | USD
 const mode = ref('regular')       // regular | emergencia (por si luego quieres usarlo)
-const tipoArbitraje = ref('unico') // 'unico' | 'tribunal'
+const tipoArbitraje = ref('arbitro_unico')  // 'unico' | 'tribunal'
 const categoria = ref('nacional')  // 'nacional' | 'internacional'
 
 /* ---------- HELPERS ---------- */
@@ -62,6 +120,38 @@ function formatMoney(n) {
   return n.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
+
+function calcularCostoAdministrativo(base) {
+  let admin = 0
+
+  if (base <= 50_000) {
+    admin = 4122
+  } 
+  else if (base <= 300_000) {
+    admin = 4122 + (base - 50_000) * 0.01
+  } 
+  else if (base <= 700_000) {
+    admin = 7062 + (base - 300_000) * 0.007
+  } 
+  else if (base <= 1_500_000) {
+    admin = 11_220 + (base - 700_000) * 0.004
+  } 
+  else if (base <= 5_000_000) {
+    admin = 17_142 + (base - 1_500_000) * 0.002
+  } 
+  else if (base <= 15_000_000) {
+    admin = 30_642 + (base - 5_000_000) * 0.0018
+  } 
+  else if (base <= 40_000_000) {
+    admin = 62_442 + (base - 15_000_000) * 0.0015
+  } 
+  else {
+    admin = 127_602 + (base - 40_000_000) * 0.0011
+  }
+
+  return admin
+}
+
 /* ---------- CORE CALC ---------- */
 const results = computed(() => {
   const base = amountInPEN.value
@@ -74,7 +164,6 @@ const results = computed(() => {
 
   if (typeof props.calcStrategy === 'function') {
     const r = props.calcStrategy(base, {
-      igv: props.igv,
       mode: mode.value,
       tipoArbitraje: tipoArbitraje.value,
       categoria: categoria.value
@@ -83,8 +172,13 @@ const results = computed(() => {
     arbitrator = r?.arbitrator ?? 0
   } else {
     const mult = mode.value === 'emergencia' ? 1.0 : 1.0
-    admin = base * props.adminPct * mult
-    arbitrator = base * props.arbitratorPct * mult
+    admin = calcularCostoAdministrativo(base)
+    if (tipoArbitraje.value === 'arbitro_unico') {
+        arbitrator = calcularArbitroUnico(base)
+      } 
+      else if (tipoArbitraje.value === 'tribunal_arbitral') {
+        arbitrator = calcularTribunalArbitral(base)
+      }
   }
 
   return { admin, arbitrator, total: admin + arbitrator }
@@ -92,21 +186,19 @@ const results = computed(() => {
 
 // Tasa de presentación aproximada (puedes ajustar el % en props.presentationPct)
 const presentationFee = computed(() => {
-  const base = amountInPEN.value
-  if (!base || base <= 0) return 0
-  return base * props.presentationPct
+  if (!amountInPEN.value || amountInPEN.value <= 0) return 0
+
+  return categoria.value === 'internacional'
+    ? 1000
+    : 870
 })
 
 // Subtotales para el bloque "Resultados del Cálculo"
 const subtotal = computed(
   () => presentationFee.value + results.value.total
 )
-const igvAmount = computed(
-  () => subtotal.value * props.igv
-)
-const totalPagar = computed(
-  () => subtotal.value + igvAmount.value
-)
+
+const totalPagar = computed(() => subtotal.value)
 
 /* ---------- EVENTS ---------- */
 function openModal() {
@@ -145,8 +237,6 @@ async function handlePdf(action = 'download') {
       tasa_presentacion: presentationFee.value,
       costos_admin: results.value.admin,
       honorarios: results.value.arbitrator,
-      subtotal: subtotal.value,
-      igv: igvAmount.value,
       total: totalPagar.value
     }
 
@@ -311,8 +401,8 @@ async function handlePdf(action = 'download') {
               v-model="tipoArbitraje"
               class="w-full border border-neutral-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"
             >
-              <option value="unico">Árbitro Único</option>
-              <option value="tribunal">Tribunal Arbitral</option>
+            <option value="arbitro_unico">Árbitro Único</option>
+            <option value="tribunal_arbitral">Tribunal Arbitral</option>
             </select>
           </div>
 
@@ -378,15 +468,6 @@ async function handlePdf(action = 'download') {
                 S/ {{ formatMoney(subtotal) }}
               </span>
             </div>
-
-            <div class="flex justify-between px-4 py-2">
-              <span class="text-neutral-700">IGV ({{ (igv * 100).toFixed(0) }}%):</span>
-              <span class="font-semibold text-neutral-900">
-                S/ {{ formatMoney(igvAmount) }}
-              </span>
-            </div>
-
-            <div class="border-t border-neutral-200 mt-1" />
 
             <div class="flex justify-between px-4 py-2 bg-red-50">
               <span class="text-neutral-800 font-semibold">Total a Pagar:</span>
