@@ -70,7 +70,7 @@ const sections = [
       },
       {
         label: 'Reglamento de Costos Arbitrales',
-        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/reglamento-de-costos-arbitrales-corporacion-imperium.pdf',
+        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/tarifario_jprd.pdf',
         type: 'PDF',
       },
       {
