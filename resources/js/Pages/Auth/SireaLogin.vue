@@ -32,11 +32,11 @@ async function onSubmit(e) {
   >
     <!-- Fondo -->
     <div
-      class="absolute inset-0 bg-[url('/img/bg-login.jpg')] bg-cover bg-center"
+      class="absolute inset-0 bg-primary bg-cover bg-center"
       aria-hidden="true"
     />
     <!-- Overlay teal/azul -->
-    <div class="absolute inset-0 bg-teal-600/40" aria-hidden="true" />
+    <div class="absolute inset-0" aria-hidden="true" />
 
     <!-- Card -->
     <div
