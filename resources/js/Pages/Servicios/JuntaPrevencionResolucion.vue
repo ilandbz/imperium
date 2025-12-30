@@ -69,7 +69,7 @@ const sections = [
         type: 'PDF',
       },
       {
-        label: 'Reglamento de Costos Arbitrales',
+        label: 'TARIFARIO Y COSTOS DE LA JPRD',
         href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/tarifario_jprd.pdf',
         type: 'PDF',
       },
