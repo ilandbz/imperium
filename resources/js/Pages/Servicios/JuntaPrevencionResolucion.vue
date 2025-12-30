@@ -302,7 +302,7 @@ const toggle = (idx) => {
             </p>
 
             <a
-              href="/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/nomina-de-arbitros.pdf"
+              href="/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/lineamientos.pdf"
               target="_blank"
               class="inline-flex mt-2 items-center justify-center rounded-full bg-white text-primary px-4 py-2 text-xs font-semibold hover:bg-white/90"
             >

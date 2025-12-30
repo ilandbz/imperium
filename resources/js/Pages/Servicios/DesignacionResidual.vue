@@ -31,37 +31,43 @@ const sections = [
 
   {
     title: 'Reglamentos',
-    description: 'Normativa aplicable a la designación residual de árbitros.',
+    description:
+      'Marco normativo aplicable al servicio de Arbitraje en Contratación Pública.',
     items: [
       {
-        label: 'Código de Ética — Corporación Imperium',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/codigo-de-etica-corporacion-imperium.pdf',
+        label: 'Código de Ética – Corporación Imperium',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/codigo-de-etica-corporacion-imperium.pdf',
         type: 'PDF',
       },
       {
         label: 'Estatuto del Centro',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/estatuto-del-centro-.pdf',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/estatuto-del-centro.pdf',
         type: 'PDF',
       },
       {
         label: 'Nómina de Árbitros',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/nomina-de-arbitros.pdf',
-        type: 'PDF',
+        href: '/institucional/NominaArbitros',
+        type: 'URL',
       },
       {
         label: 'Reglamento de Costos Arbitrales',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/reglamento-de-costos-arbitrales-corporacion-imperium.pdf',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/reglamento-de-costos-arbitrales-corporacion-imperium.pdf',
         type: 'PDF',
       },
       {
-        label: 'Reglamento Interno — Corporación Imperium',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/reglamento-interno-corporacion-imperium.pdf',
+        label: 'Reglamento Interno – Corporación Imperium',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/reglamento-interno-corporacion-imperium.pdf',
         type: 'PDF',
       },
       {
-        label: 'Cláusula Arbitral — Modelo (Centro)',
-        href: '/archivos/servicios/designacion-residual-de-arbitro-ad-hoc/reglamento/clausula-arbitral-centro.docx',
+        label: 'Cláusula Arbitral – Modelo',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/clausula-arbitral-centro.docx',
         type: 'DOCX',
+      },
+      {
+        label: 'Documento de Aprobación del Reglamento Interno y código de ética',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/b2.pdf',
+        type: 'PDF',
       },
     ],
   },
