@@ -46,6 +46,10 @@ Route::get('/calculadora', function () {
     return Inertia::render('Institucional/Calculadora');
 })->name('calculadora');
 
+Route::get('/calculadora-junta', function () {
+    return Inertia::render('Institucional/CalculadoraJunta');
+})->name('calculadora-junta');
+
 Route::get('/arbitraje-en-contratacion-publica', function () {
     return Inertia::render('Servicios/ArbitrajeContratacionPublica');
 });
