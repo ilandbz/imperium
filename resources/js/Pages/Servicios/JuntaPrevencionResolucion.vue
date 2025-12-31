@@ -83,6 +83,11 @@ const sections = [
         href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/clausula-arbitral-centro.docx',
         type: 'DOCX',
       },
+      {
+        label: 'Banco de Desciones — JPRD',
+        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/clausula-arbitral-centro.docx',
+        type: 'DOCX',
+      },
     ],
   },
 ]
