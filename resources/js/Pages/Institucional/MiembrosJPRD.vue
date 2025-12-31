@@ -93,14 +93,25 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
         <div class="absolute inset-0 bg-primary/60"></div>
       </div>
       <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          COORDINADOR Y ADMINISTRADOR DE LA JPRD
+        </h1>
       </div>
     </section>
 
     <nav class="bg-white" aria-label="breadcrumb">
       <div class="max-w-6xl mx-auto px-4 py-3 text-primary flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="fill-current"><path d="M12.293 5.293a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414L8.586 10l3.707-4.707z"/></svg>
-        <span class="font-medium">» COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</span>
+          <section class="py-12 px-6 bg-gray-50 text-center">
+            <div class="max-w-3xl mx-auto">
+              <h3 class="text-3xl font-bold text-primary mb-4">
+                COORDINADOR Y ADMINISTRADOR DE LA JPRD
+              </h3>
+              <p class="text-neutral-700 leading-relaxed text-lg">
+                Responsable de la coordinación y administración de la JPRD
+              </p>
+            </div>
+          </section>
       </div>
     </nav>
 
@@ -144,7 +155,14 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
             </button>
             </div>
         </div>
-
+<div class="text-center space-y-2">
+  <h4 class="text-2xl font-bold text-primary">
+    ADJUDICADORES PARA LA JPRD
+  </h4>
+  <p class="text-sm uppercase tracking-wide text-neutral-600">
+    Para contrataciones del Estado
+  </p>
+</div>
         <div class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
             <button
