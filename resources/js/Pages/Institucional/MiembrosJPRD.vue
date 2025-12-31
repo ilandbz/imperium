@@ -99,21 +99,6 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
       </div>
     </section>
 
-    <nav class="bg-white" aria-label="breadcrumb">
-      <div class="max-w-6xl mx-auto px-4 py-3 text-primary flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="fill-current"><path d="M12.293 5.293a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414L8.586 10l3.707-4.707z"/></svg>
-          <section class="py-12 px-6 bg-gray-50 text-center">
-            <div class="max-w-3xl mx-auto">
-              <h3 class="text-3xl font-bold text-primary mb-4">
-                COORDINADOR Y ADMINISTRADOR DE LA JPRD
-              </h3>
-              <p class="text-neutral-700 leading-relaxed text-lg">
-                Responsable de la coordinación y administración de la JPRD
-              </p>
-            </div>
-          </section>
-      </div>
-    </nav>
 
     <section class="py-12 px-6 bg-gray-50 text-center">
       <div class="max-w-3xl mx-auto">
