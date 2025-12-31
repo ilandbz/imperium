@@ -90,7 +90,10 @@ const sections = [
 const toggle = (idx) => {
   openIndex.value = openIndex.value === idx ? -1 : idx
 }
-
+const conformacionJPRD = ref('colegiada') // unico | colegiado
+const miembros = computed(() =>
+  conformacionJPRD.value === 'unipersonal' ? 1 : 3
+)
 
 const props = defineProps({
   title: { type: String, default: 'Calculadora de JUNTA DE PREVENCIÓN Y RESOLUCIÓN DE DISPUTAS (JPRD)' },
@@ -112,69 +115,62 @@ const props = defineProps({
   calcStrategy: { type: Function, default: null }
 })
 
-function calcularArbitroUnico(base) {
-  let honorario = 0
+function calcularJPRD(base, miembros = 3) {
+  let admin = 0
+  let retribucionMiembro = 0
 
-  if (base <= 50_000) {
-    honorario = 2748
-  }
-  else if (base <= 300_000) {
-    honorario = 2748 + (base - 50_000) * 0.0085
-  }
-  else if (base <= 700_000) {
-    honorario = 4708 + (base - 300_000) * 0.007
-  }
-  else if (base <= 1_500_000) {
-    honorario = 7480 + (base - 700_000) * 0.0045
-  }
-  else if (base <= 5_000_000) {
-    honorario = 11_428 + (base - 1_500_000) * 0.0035
-  }
-  else if (base <= 15_000_000) {
-    honorario = 20_428 + (base - 5_000_000) * 0.002
-  }
-  else if (base <= 40_000_000) {
-    honorario = 41_628 + (base - 15_000_000) * 0.0015
-  }
-  else {
-    honorario = 85_068 + (base - 40_000_000) * 0.0012
-  }
+  if (miembros === 3) {
+    if (base <= 40_000_000) {
+      admin = 3200
+      retribucionMiembro = 3000
+    } else if (base <= 70_000_000) {
+      admin = 3400
+      retribucionMiembro = 5000
+    } else if (base <= 100_000_000) {
+      admin = 3600
+      retribucionMiembro = 6000
+    } else if (base <= 150_000_000) {
+      admin = 3700
+      retribucionMiembro = 7000
+    } else if (base <= 300_000_000) {
+      admin = 3800
+      retribucionMiembro = 8000
+    } else {
+      admin = 3900
+      retribucionMiembro = 10000
+    }
 
-  // 🔒 Tope máximo
-  return Math.min(honorario, 250_000)
-}
-
-
-function calcularTribunalArbitral(base) {
-  let honorario = 0
-
-  if (base <= 50_000) {
-    honorario = 5400
-  }
-  else if (base <= 300_000) {
-    honorario = 5400 + (base - 50_000) * 0.03
-  }
-  else if (base <= 700_000) {
-    honorario = 11_400 + (base - 300_000) * 0.02
-  }
-  else if (base <= 1_500_000) {
-    honorario = 18_400 + (base - 700_000) * 0.01
-  }
-  else if (base <= 5_000_000) {
-    honorario = 30_400 + (base - 1_500_000) * 0.008
-  }
-  else if (base <= 15_000_000) {
-    honorario = 65_400 + (base - 5_000_000) * 0.007
-  }
-  else if (base <= 40_000_000) {
-    honorario = 149_400 + (base - 15_000_000) * 0.0056
-  }
-  else {
-    honorario = 364_000 + (base - 40_000_000) * 0.0055
+    return {
+      admin,
+      miembros: retribucionMiembro * 3
+    }
   }
 
-  // 🔒 Tope máximo por árbitro
-  return Math.min(honorario, 200_000)
+  // 🔹 JPRD UNIPERSONAL
+  if (base <= 40_000_000) {
+    admin = 4000
+    retribucionMiembro = 5000
+  } else if (base <= 70_000_000) {
+    admin = 7000
+    retribucionMiembro = 7000
+  } else if (base <= 100_000_000) {
+    admin = 8000
+    retribucionMiembro = 9000
+  } else if (base <= 150_000_000) {
+    admin = 9000
+    retribucionMiembro = 10000
+  } else if (base <= 300_000_000) {
+    admin = 10000
+    retribucionMiembro = 11000
+  } else {
+    admin = 14000
+    retribucionMiembro = 15000
+  }
+
+  return {
+    admin,
+    miembros: retribucionMiembro
+  }
 }
 
 /* ---------- STATE ---------- */
@@ -197,71 +193,30 @@ const amountInPEN = computed(() => {
   return parsedAmount.value * props.sunatRate
 })
 
-function formatMoney(n) {
-  return n.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-}
-
-
-function calcularCostoAdministrativo(base) {
-  let admin = 0
-
-  if (base <= 50_000) {
-    admin = 4122
-  } 
-  else if (base <= 300_000) {
-    admin = 4122 + (base - 50_000) * 0.01
-  } 
-  else if (base <= 700_000) {
-    admin = 7062 + (base - 300_000) * 0.007
-  } 
-  else if (base <= 1_500_000) {
-    admin = 11_220 + (base - 700_000) * 0.004
-  } 
-  else if (base <= 5_000_000) {
-    admin = 17_142 + (base - 1_500_000) * 0.002
-  } 
-  else if (base <= 15_000_000) {
-    admin = 30_642 + (base - 5_000_000) * 0.0018
-  } 
-  else if (base <= 40_000_000) {
-    admin = 62_442 + (base - 15_000_000) * 0.0015
-  } 
-  else {
-    admin = 127_602 + (base - 40_000_000) * 0.0011
+function formatMoney(value) {
+  if (value === null || value === undefined || isNaN(value)) {
+    return '0.00'
   }
 
-  return admin
+  return Number(value).toLocaleString('es-PE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })
 }
 
 const results = computed(() => {
   const base = amountInPEN.value
   if (!base || base <= 0) {
-    return { admin: 0, arbitrator: 0, total: 0 }
+    return { admin: 0, miembros: 0, total: 0 }
   }
 
-  let admin = 0
-  let arbitrator = 0
+const r = calcularJPRD(amountInPEN.value, miembros.value)
 
-  if (typeof props.calcStrategy === 'function') {
-    const r = props.calcStrategy(base, {
-      mode: mode.value,
-      tipoArbitraje: tipoArbitraje.value,
-      categoria: categoria.value
-    })
-    admin = r?.admin ?? 0
-    arbitrator = r?.arbitrator ?? 0
-  } else {
-    const mult = mode.value === 'emergencia' ? 1.0 : 1.0
-    admin = calcularCostoAdministrativo(base)
-    if (tipoArbitraje.value === 'arbitro_unico') {
-        arbitrator = calcularArbitroUnico(base)
-      } 
-      else if (tipoArbitraje.value === 'tribunal_arbitral') {
-        arbitrator = calcularTribunalArbitral(base)
-      }
+  return {
+    admin: r.admin,
+    miembros: r.miembros,
+    total: r.admin + r.miembros
   }
-
-  return { admin, arbitrator, total: admin + arbitrator }
 })
 
 const presentationFee = computed(() => {
@@ -310,11 +265,11 @@ async function handlePdf(action = 'download') {
     const payload = {
       monto_base: amountInPEN.value,
       moneda: money.value,
-      tipo_arbitraje: tipoArbitraje.value,
+      conformacion_jprd: conformacionJPRD.value,
       categoria: categoria.value,
       tasa_presentacion: presentationFee.value,
-      costos_admin: results.value.admin,
-      honorarios: results.value.arbitrator,
+      costo_administrativo: results.value.admin,
+      retribucion_miembros: results.value.miembros,
       total: totalPagar.value
     }
 
@@ -636,7 +591,7 @@ async function handlePdf(action = 'download') {
         <!-- header -->
         <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-200">
           <h2 class="text-lg md:text-xl font-bold text-neutral-900">
-            Calculadora de Costos de Arbitraje
+            Calculadora de Costos de Junta de Prevencion y Resolucion de Disputas (JPRD)
           </h2>
           <button
             type="button"
@@ -688,7 +643,34 @@ async function handlePdf(action = 'download') {
               Cuantía en soles: <span class="font-semibold">S/ {{ formatMoney(amountInPEN) }}</span>
             </p>
           </div>
+          <!-- conformación JPRD -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-neutral-700 uppercase">
+              Conformación de la JPRD
+            </label>
 
+            <div class="flex gap-4 mt-1">
+              <label class="flex items-center gap-2 text-sm text-neutral-700">
+                <input
+                  type="radio"
+                  value="unipersonal"
+                  v-model="conformacionJPRD"
+                  class="accent-primary"
+                />
+                JPRD Unipersonal (1 miembro)
+              </label>
+
+              <label class="flex items-center gap-2 text-sm text-neutral-700">
+                <input
+                  type="radio"
+                  value="colegiada"
+                  v-model="conformacionJPRD"
+                  class="accent-primary"
+                />
+                JPRD Colegiada (3 miembros)
+              </label>
+            </div>
+          </div>
 
           <!-- botón calcular -->
           <button
@@ -709,12 +691,6 @@ async function handlePdf(action = 'download') {
             v-if="hasCalculated && amountInPEN > 0"
             class="border border-neutral-200 rounded-lg overflow-hidden text-sm"
           >
-            <div class="flex justify-between px-4 py-2 bg-neutral-50">
-              <span class="text-neutral-700">Tasa de Presentación:</span>
-              <span class="font-semibold text-neutral-900">
-                S/ {{ formatMoney(presentationFee) }}
-              </span>
-            </div>
 
             <div class="flex justify-between px-4 py-2">
               <span class="text-neutral-700">Costos Administrativos:</span>
@@ -724,9 +700,9 @@ async function handlePdf(action = 'download') {
             </div>
 
             <div class="flex justify-between px-4 py-2">
-              <span class="text-neutral-700">Honorarios Arbitrales:</span>
+              <span class="text-neutral-700">Retribución de los miembros de la JPRD:</span>
               <span class="font-semibold text-neutral-900">
-                S/ {{ formatMoney(results.arbitrator) }}
+                S/ {{ formatMoney(results.miembros) }}
               </span>
             </div>
 
