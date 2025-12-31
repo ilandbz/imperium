@@ -333,6 +333,18 @@ const toggle = (idx) => {
               REVISAR REQUISITOS
             </a>
           </div>
+          <div class="bg-[#071C54] text-white rounded-xl p-5 text-sm space-y-2">
+            <p class="text-xs font-semibold tracking-[0.15em] uppercase text-white/70">
+              CALCULADORA
+            </p>
+            <a
+              href="/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/lineamientos.pdf"
+              target="_blank"
+              class="inline-flex mt-2 items-center justify-center rounded-full bg-white text-primary px-4 py-2 text-xs font-semibold hover:bg-white/90"
+            >
+              Calcular
+            </a>
+          </div>
         </aside>
       </div>
     </section>
