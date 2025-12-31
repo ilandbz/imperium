@@ -102,7 +102,7 @@ const calcStrategy = (montoPen, { igv, mode }) => {
         image: '/img/hero-jprd.webp',
         title: 'Junta de Prevención y Resolución de Disputas (JPRD)',
         subtitle: '',
-        primary: { label: 'Conocer más', href: 'http://imperium_portal.test/junta-prevencion-resolucion' }
+        primary: { label: 'Conocer más', href: 'https://imperium.org.pe/junta-prevencion-resolucion' }
       }"
     />
     <CommitmentSection />

@@ -8,49 +8,49 @@ const consejoSuperior = [
   {
     id: 'dir-1',
     nombre: 'ABOG. HEIDI TORRES SANTOS de KULESZA',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'heidi.pdf'
   },
   {
     id: 'cs-1',
     nombre: 'ING. CIVIL CRISTHIAN RONALDO ASCENCIO MAGARIÑO',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'cristhianascencio.pdf'
   },
   {
     id: 'cs-2',
     nombre: 'ING. CIVIL JUAN CARLOS GARCIA DURAND',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'juanca.pdf'
   },
   {
     id: 'cs-3',
     nombre: 'ING. CIVIL VICTOR ALESSANDRO INGOL LOZANO',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'victor.pdf'
   },
   {
     id: 'og-1',
     nombre: 'ING. CIVIL SHERLY SUCI MORALES VILLANUEVA',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'sherly.pdf'
   },
   {
     id: 'og-2',
     nombre: 'ING. CIVIL WILHELM EDWARD NIETO SIXTO',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'wilhelm.pdf'
   },
   {
     id: 'og-3',
     nombre: 'ING. CIVIL ALEX SANTOS ONEGLIO',
-    cargo: '',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
     pais: 'pe',
     cv: 'alexsantos.pdf'
   },
@@ -151,7 +151,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
         <div class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
             <button
-              v-for="p in consejoSuperior"
+              v-for="p in secundarios"
               :key="p.id"
               type="button"
               class="block w-full max-w-[420px] text-left"
