@@ -7,7 +7,7 @@ const props = defineProps({
   subtitle: {
     type: String,
     default:
-      'Calcula los costos arbitrales según las pretensiones en disputa, ya sea ante un Árbitro Único o un Tribunal Arbitral, e incluye el servicio de administración del proceso.'
+      'Permite calcular los costos aplicables a las pretensiones en controversia sometidas a la Junta de Prevención y Resolución de Disputas (JPRD), considerando la conformación de la Junta y los costos de administración del proceso.'
   },
   tablaCostosUrl: {
     type: String,
