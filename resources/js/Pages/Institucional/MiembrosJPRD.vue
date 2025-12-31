@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import SiteLayout from '@/Layouts/SiteLayout.vue'
 import HoverFillCard from '@/Components/HoverFillCard.vue'
@@ -7,66 +7,70 @@ import HoverFillCard from '@/Components/HoverFillCard.vue'
 const consejoSuperior = [
   {
     id: 'dir-1',
-    nombre: 'Ing. Mario Manuel Silva López',
+    nombre: 'ABOG. HEIDI TORRES SANTOS de KULESZA',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
-    cv: 'mariomanuel.pdf'
+    cv: 'heidi.pdf'
   },
   {
     id: 'cs-1',
-    nombre: 'Abg. Mayra Alexandra Silva Olivera',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL CRISTHIAN RONALDO ASCENCIO MAGARIÑO',
+    cargo: '',
     pais: 'pe',
-    cv: 'mayraalexandra.pdf'
+    cv: 'cristhianascencio.pdf'
   },
   {
     id: 'cs-2',
-    nombre: 'Abg. Joyce Echeandía Sinarahua',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL JUAN CARLOS GARCIA DURAND',
+    cargo: '',
     pais: 'pe',
-    cv: 'joyce.pdf'
+    cv: 'juanca.pdf'
   },
   {
     id: 'cs-3',
-    nombre: 'Abg. Ángel Antonio Espinoza Trelles',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL VICTOR ALESSANDRO INGOL LOZANO',
+    cargo: '',
     pais: 'pe',
-    cv: 'angelantonio.pdf'
+    cv: 'victor.pdf'
   },
   {
     id: 'og-1',
-    nombre: 'Abg. Francisco Martín Pinedo Aubián',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL SHERLY SUCI MORALES VILLANUEVA',
+    cargo: '',
     pais: 'pe',
-    cv: 'franciscomartin.pdf'
+    cv: 'sherly.pdf'
   },
   {
     id: 'og-2',
-    nombre: 'Abg. María de los Ángeles Aranda Ponce',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL WILHELM EDWARD NIETO SIXTO',
+    cargo: '',
     pais: 'pe',
-    cv: 'mariadelosangeles.pdf'
+    cv: 'wilhelm.pdf'
   },
   {
     id: 'og-3',
-    nombre: 'Abg. Heidi Ivonne Torres Santos de Kulesza',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    nombre: 'ING. CIVIL ALEX SANTOS ONEGLIO',
+    cargo: '',
     pais: 'pe',
-    cv: 'heidiivonne.pdf'
+    cv: 'alexsantos.pdf'
   },
-  {
-    id: 'og-4',
-    nombre: 'Abg. Jhon Cruz Torres',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
-    pais: 'pe',
-    cv: 'jhon.pdf'
-  }
+
 ]
+
+
+const principal = computed(() =>
+  consejoSuperior.find(p => p.id === 'dir-1')
+)
+
+const secundarios = computed(() =>
+  consejoSuperior.filter(p => p.id !== 'dir-1')
+)
+
 
 const abrirCV = (persona) => {
   if (!persona.cv) return
 
-  const url = `/storage/cv/${persona.cv}`
+  const url = `/storage/cv2/${persona.cv}`
   window.open(url, '_blank')
 }
 
@@ -111,9 +115,34 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
       <div class="max-w-6xl mx-auto flex flex-col gap-12">
         <div class="space-y-6">
           <h4 class="text-xl font-bold text-primary text-center">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h4>
-          <div class="grid place-items-center">
+            <div class="grid place-items-center">
+            <button
+                v-if="principal"
+                type="button"
+                class="block w-full max-w-[520px]"
+                @click="abrirCV(principal)"
+            >
+                <HoverFillCard
+                :clickable="true"
+                fillColor="bg-primary"
+                containerClass="h-full border-4 border-primary/30"
+                >
+                <div class="text-center transition-colors duration-500 group-hover:text-white">
+                    <h3 class="text-2xl font-extrabold leading-tight">
+                    {{ principal.nombre }}
+                    </h3>
+                    <p class="mt-2 text-sm font-semibold uppercase">
+                    {{ principal.cargo }}
+                    </p>
 
-          </div>
+                    <div class="mt-4 flex justify-center items-center gap-2">
+                    <span class="font-semibold">País:</span>
+                    <img :src="flagSrc()" alt="País" class="h-5" />
+                    </div>
+                </div>
+                </HoverFillCard>
+            </button>
+            </div>
         </div>
 
         <div class="space-y-6">
