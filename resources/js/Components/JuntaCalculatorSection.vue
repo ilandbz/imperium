@@ -339,7 +339,7 @@ async function handlePdf(action = 'download') {
         <!-- header -->
         <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-200">
           <h2 class="text-lg md:text-xl font-bold text-neutral-900">
-            Calculadora de Costos de Arbitraje
+            Calculadora de JUNTA DE PREVENCIÓN Y RESOLUCIÓN DE DISPUTAS (JPRD)
           </h2>
           <button
             type="button"
