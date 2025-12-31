@@ -26,6 +26,9 @@ Route::get('/institucional/organo-direccion', function () {
 Route::get('/institucional/NominaArbitros', function () {
     return Inertia::render('Institucional/NominaArbitros');
 })->name('nomina-arbitros');
+Route::get('/institucional/miembrosjprd', function () {
+    return Inertia::render('Institucional/MiembrosJPRD');
+})->name('miembros-jprd');
 
 Route::get('/institucional/unidad-de-gobierno', function () {
     return Inertia::render('Institucional/unidadGobierno');
