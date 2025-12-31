@@ -89,20 +89,20 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
         <div class="absolute inset-0 bg-primary/60"></div>
       </div>
       <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">COORDINADOR Y ADMISNISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h1>
       </div>
     </section>
 
     <nav class="bg-white" aria-label="breadcrumb">
       <div class="max-w-6xl mx-auto px-4 py-3 text-primary flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="fill-current"><path d="M12.293 5.293a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414L8.586 10l3.707-4.707z"/></svg>
-        <span class="font-medium">» COORDINADOR Y ADMISNISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</span>
+        <span class="font-medium">» COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</span>
       </div>
     </nav>
 
     <section class="py-12 px-6 bg-gray-50 text-center">
       <div class="max-w-3xl mx-auto">
-        <h3 class="text-3xl font-bold text-primary mb-4">COORDINADOR Y ADMISNISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h3>
+        <h3 class="text-3xl font-bold text-primary mb-4">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h3>
         <p class="text-neutral-700 leading-relaxed text-lg">Nuestra Nominas de Arbitros esta conformado por</p>
       </div>
     </section>
@@ -110,7 +110,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
     <section class="py-10 px-4">
       <div class="max-w-6xl mx-auto flex flex-col gap-12">
         <div class="space-y-6">
-          <h4 class="text-xl font-bold text-primary text-center">COORDINADOR Y ADMISNISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h4>
+          <h4 class="text-xl font-bold text-primary text-center">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h4>
           <div class="grid place-items-center">
 
           </div>
