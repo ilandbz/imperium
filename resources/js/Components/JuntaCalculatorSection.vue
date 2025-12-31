@@ -3,7 +3,7 @@
 import { ref, computed } from 'vue'
 
 const props = defineProps({
-  title: { type: String, default: 'Calculadora de Costos de Arbitraje' },
+  title: { type: String, default: 'Calculadora de JUNTA DE PREVENCIÓN Y RESOLUCIÓN DE DISPUTAS (JPRD)' },
   subtitle: {
     type: String,
     default:
