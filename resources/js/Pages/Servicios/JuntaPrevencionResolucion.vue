@@ -65,8 +65,8 @@ const sections = [
       },
       {
         label: 'Nómina de Árbitros / Miembros de JPRD',
-        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/nomina-de-arbitros.pdf',
-        type: 'PDF',
+        href: '/institucional/miembrosjprd',
+        type: 'URL',
       },
       {
         label: 'TARIFARIO Y COSTOS DE LA JPRD',
