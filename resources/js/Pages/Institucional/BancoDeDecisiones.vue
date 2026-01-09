@@ -61,7 +61,7 @@ const range = computed(() => {
 
 <template>
   <SiteLayout>
-    <Head title="BANCO DE DESICIONES | Corporación Imperium" />
+    <Head title="BANCO DE DECISIONES ARBITRALES | Corporación Imperium" />
 
     <!-- Hero -->
     <section
@@ -71,7 +71,7 @@ const range = computed(() => {
       <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-black/0"></div>
       <div class="relative max-w-7xl mx-auto w-full px-4 pb-6">
         <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow">
-          BANCO DE DESICIONES
+          BANCO DE DECISIONES ARBITRALES
         </h1>
       </div>
     </section>
