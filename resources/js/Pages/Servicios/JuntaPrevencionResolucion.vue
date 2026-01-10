@@ -55,7 +55,8 @@ const sections = [
     items: [
       {
         label: 'Código de Ética — Corporación IMPERIUM',
-        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/codigo-de-etica-corporacion-imperium.pdf',
+        //href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/codigo-de-etica-corporacion-imperium.pdf',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/codigo-de-etica-corporacion-imperium.pdf',
         type: 'PDF',
       },
       {
