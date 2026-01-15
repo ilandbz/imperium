@@ -60,7 +60,15 @@ const consejoSuperior = [
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
     cv: 'jhon.pdf'
-  }
+  },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Christian STEIN CÁRDENAS',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'ChristianSTEINCARDENAS.pdf'
+  },
+
 ]
 
 const abrirCV = (persona) => {
