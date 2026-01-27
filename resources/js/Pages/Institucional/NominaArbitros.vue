@@ -68,6 +68,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'ChristianSTEINCARDENAS.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Silvia Mercedez Rodriguez Rivera',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'CV_SILVIA_RODRIGUEZ.pdf'
+  },
 
 ]
 
