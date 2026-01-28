@@ -75,6 +75,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'CV_SILVIA_RODRIGUEZ.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Joel Anthony Gonzales Zevallos',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'joel_gonzales.pdf'
+  },
 
 ]
 
