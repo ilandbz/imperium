@@ -65,6 +65,11 @@ const sections = [
         type: 'PDF',
       },
       {
+        label: 'Directiva para Servicio Arbitro Emergencia',
+        href: '/archivos/servicios/arbitraje-de-emergencia/Reglamentos/directiva_para_servicio_arbitro_emergencia.pdf',
+        type: 'PDF',
+      },
+      {
         label: 'Cláusula Arbitral – Modelo',
         href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/clausula-arbitral-centro.docx',
         type: 'DOCX',
