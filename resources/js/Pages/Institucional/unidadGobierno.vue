@@ -5,6 +5,7 @@
 <template>
 
 
+
     <!-- Sección principal -->
     <section class="py-12 px-4 bg-gray-50">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
