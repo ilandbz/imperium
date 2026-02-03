@@ -535,7 +535,8 @@ async function handlePdf(action = 'download') {
 </template>
 
 <style scoped>
-.subtitle {
+
+/* .subtitle {
   @apply text-3xl font-extrabold text-primary text-center;
-}
+} */
 </style>

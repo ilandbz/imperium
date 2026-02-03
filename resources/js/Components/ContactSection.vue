@@ -3,12 +3,14 @@
 import { computed } from 'vue'
 import { useForm, usePage } from '@inertiajs/vue3'
 
-const props = defineProps({
-  bgImage: { type: String, default: '/img/contact-bg.jpg' }, // cámbialo por tu imagen
-})
+// const props = defineProps({
+//   bgImage: { type: String, default: '/img/mesareuniones.jpg' },
+// })
+
+const bgImage = '/img/mesareuniones.jpg';
 
 const page  = usePage()
-const flash = computed(() => page.props.flash || {})
+// const flash = computed(() => page.props.flash || {})
 
 const form = useForm({
   name: '',
@@ -33,7 +35,7 @@ const submit = () => {
   <section
     id="contacto"
     class="relative"
-    :style="`background-image:url('${props.bgImage}'); background-size:cover; background-position:center;`"
+    :style="`background-image:url('${bgImage}'); background-size:cover; background-position:center;`"
   >
     <!-- overlay oscuro -->
     <div class="absolute inset-0 bg-black/55"></div>
@@ -48,14 +50,14 @@ const submit = () => {
           </p>
 
           <!-- Mensajes flash -->
-          <div v-if="flash.value?.success"
+          <!-- <div v-if="flash.value?.success"
                class="mt-6 inline-block rounded-lg bg-emerald-500/10 text-emerald-100 border border-emerald-400/40 px-4 py-2">
             {{ flash.value.success }}
           </div>
           <div v-if="flash.value?.error"
                class="mt-6 inline-block rounded-lg bg-rose-500/10 text-rose-100 border border-rose-400/40 px-4 py-2">
             {{ flash.value.error }}
-          </div>
+          </div> -->
         </div>
 
         <!-- Columna derecha: tarjeta formulario -->

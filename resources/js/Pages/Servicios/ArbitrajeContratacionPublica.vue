@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { Head, Link  } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 
 const openIndex = ref(0) // primer bloque abierto
 
@@ -88,8 +87,7 @@ const toggle = (idx) => {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Arbitraje en Contratación Pública | Corporación Imperium" />
+
 
     <section
       class="relative w-full py-10 md:py-14 text-white"
@@ -251,7 +249,7 @@ const toggle = (idx) => {
                       </span>
 
                      <template v-if="item.type === 'URL'">
-                        <Link
+                        <a
                           :href="item.href"
                           class="inline-flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10"
                           title="Ver página"
@@ -269,7 +267,7 @@ const toggle = (idx) => {
                                 64-64V160L320 0z"
                             />
                           </svg>
-                        </Link>
+                        </a>
                       </template>
 
                       <!-- ARCHIVO (PDF / DOCX) -->
@@ -339,7 +337,6 @@ const toggle = (idx) => {
         </aside>
       </div>
     </section>
-  </SiteLayout>
 </template>
 
 <style scoped>

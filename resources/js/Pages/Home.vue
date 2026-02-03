@@ -88,7 +88,8 @@ const calcStrategy = (montoPen, { igv, mode }) => {
 </script>
 
 <template>
-  <SiteLayout>
+
+
     <SplashLoaderGradient @hidden="onSplashHidden" />
     <HeroSplit
       :left="{
@@ -119,10 +120,9 @@ const calcStrategy = (montoPen, { igv, mode }) => {
       :calc-strategy="calcStrategy"
     />
    
-    <ContactSection bg-image="/img/mesareuniones.jpg" />
+    <ContactSection />
 
-    <CertificationsModal v-model="showIso" />
-  </SiteLayout>
+    <!-- <CertificationsModal v-model="showIso" />
 
-  <FloatingWhatsApp />
+  <FloatingWhatsApp /> -->
 </template>

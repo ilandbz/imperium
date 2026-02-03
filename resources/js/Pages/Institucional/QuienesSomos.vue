@@ -1,13 +1,11 @@
 <script setup>
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 import Certificaciones from '@/Components/Certificaciones.vue'
 import PoliticasSection from '@/Components/PoliticasSection.vue'
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="¿Quiénes Somos? | Corporación Imperium" />
+
 
     <!-- HERO con imagen de fondo -->
     <section class="relative">
@@ -109,5 +107,4 @@ import PoliticasSection from '@/Components/PoliticasSection.vue'
 
     <Certificaciones />
     <PoliticasSection />
-  </SiteLayout>
 </template>

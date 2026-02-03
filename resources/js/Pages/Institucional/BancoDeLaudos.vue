@@ -1,7 +1,7 @@
 <!-- resources/js/Pages/Institucional/BancoDeLaudos.vue -->
 <script setup>
 import { ref, computed } from 'vue'
-import { Head } from '@inertiajs/vue3'
+
 import SiteLayout from '@/Layouts/SiteLayout.vue'
 
 /**
@@ -543,8 +543,8 @@ const range = computed(() => {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Banco de Laudos | Corporación Imperium" />
+
+
 
     <!-- Hero -->
     <section
@@ -669,5 +669,5 @@ const range = computed(() => {
         </div>
       </div>
     </section>
-  </SiteLayout>
+
 </template>

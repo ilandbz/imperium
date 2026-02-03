@@ -1,8 +1,6 @@
 <!-- resources/js/Pages/Institucional/BancoDeLaudos.vue -->
 <script setup>
 import { ref, computed } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
 import { bancoDecisiones } from '@/Data/bancoDecisiones'
 
 const props = defineProps({
@@ -60,9 +58,6 @@ const range = computed(() => {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="BANCO DE DECISIONES ARBITRALES | Corporación Imperium" />
-
     <!-- Hero -->
     <section
       class="relative h-48 md:h-56 w-full flex items-end"
@@ -179,5 +174,4 @@ const range = computed(() => {
         </div>
       </div>
     </section>
-  </SiteLayout>
 </template>

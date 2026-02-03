@@ -1,11 +1,9 @@
 <script setup>
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="UNIDAD DE GOBIERNO | Corporación Imperium" />
+
 
     <!-- Sección principal -->
     <section class="py-12 px-4 bg-gray-50">
@@ -46,7 +44,4 @@ import SiteLayout from '@/Layouts/SiteLayout.vue'
         </div>
       </div>
     </section>
-
-
-  </SiteLayout>
 </template>

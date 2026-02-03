@@ -1,8 +1,7 @@
 <!-- resources/js/Pages/Servicios/Peritaje.vue -->
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 
 const showPdf = ref(false)
 
@@ -14,8 +13,7 @@ const peritajeFile = {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Peritaje en sus diversas especialidades | Corporación Imperium" />
+
 
     <!-- HERO -->
     <section
@@ -206,7 +204,6 @@ const peritajeFile = {
         ></iframe>
       </div>
     </div>
-  </SiteLayout>
 </template>
 
 <style scoped>

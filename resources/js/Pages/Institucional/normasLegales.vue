@@ -1,7 +1,7 @@
 <!-- resources/js/Pages/NormasLegales.vue -->
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
+
 import SiteLayout from '@/Layouts/SiteLayout.vue'
 
 // Puedes traer esto desde el backend. Aquí lo dejo estático como ejemplo.
@@ -89,8 +89,7 @@ const toggle = (i) => (grupos.value[i].abierto = !grupos.value[i].abierto)
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Normas Legales | Corporación Imperium" />
+
 
     <!-- Hero (opcional con fondo) -->
     <section
@@ -166,7 +165,6 @@ const toggle = (i) => (grupos.value[i].abierto = !grupos.value[i].abierto)
 
       </div>
     </section>
-  </SiteLayout>
 </template>
 
 <style scoped>

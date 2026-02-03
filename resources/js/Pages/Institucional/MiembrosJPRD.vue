@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 import HoverFillCard from '@/Components/HoverFillCard.vue'
 
 const consejoSuperior = [
@@ -84,8 +83,8 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Nominas de Arbitros | Corporación Imperium" />
+
+
 
     <section class="relative">
       <div class="absolute inset-0">
@@ -213,7 +212,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
         </div>
       </div>
     </transition>
-  </SiteLayout>
+
 </template>
 
 <style scoped>

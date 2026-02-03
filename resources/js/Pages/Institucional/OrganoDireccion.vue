@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 import HoverFillCard from '@/Components/HoverFillCard.vue'
 
 const direccion = [
@@ -27,8 +26,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Unidad de Gobierno | Corporación Imperium" />
+
 
     <section class="relative">
       <div class="absolute inset-0">
@@ -179,7 +177,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
         </div>
       </div>
     </transition>
-  </SiteLayout>
+
 </template>
 
 <style scoped>

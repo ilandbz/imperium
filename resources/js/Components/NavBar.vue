@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { Link, usePage } from '@inertiajs/vue3'
+import { usePage } from '@inertiajs/vue3'
 
 // Estado UI
 const open = ref(false)
@@ -45,13 +45,13 @@ const institucionalItems = [
       
 
       <div class="flex items-center gap-4">
-        <Link href="/" class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
           <img
             src="/img/logo_solo.png"
             alt="Corporación Imperium"
             class="h-12 md:h-16 w-auto object-contain"
           />
-        </Link>
+        </a>
 
         <img
           src="/img/baner_navbar.png"
@@ -82,12 +82,12 @@ const institucionalItems = [
             >
               <li v-for="item in institucionalItems" :key="item.label">
                 <template v-if="item.href">
-                  <Link
+                  <a
                     :href="item.href"
                     class="block px-4 py-2 hover:bg-primary/10 hover:text-primary"
                   >
                     {{ item.label }}
-                  </Link>
+                  </a>
                 </template>
                 <template v-else-if="item.action">
                   <button
@@ -104,22 +104,22 @@ const institucionalItems = [
         <li>
           <!-- Si ya estoy en Home, solo hash; si no, voy a Home y al hash -->
           <component
-            :is="isHome ? 'a' : Link"
+            :is="isHome ? 'a' : a"
             :href="isHome ? '#servicios' : '/#servicios'"
             class="text-primary hover:text-primary"
           >
             Servicios
           </component>
         </li>
-        <li><Link href="/contacto" class="hover:text-primary">Contacto</Link></li>
-        <li><Link href="/blog" class="hover:text-primary">Blog</Link></li>
+        <li><a href="/contacto" class="hover:text-primary">Contacto</a></li>
+        <li><a href="/blog" class="hover:text-primary">Blog</a></li>
         <li>
-          <Link
+          <a
             href="/sirea"
             class="inline-block rounded-xl bg-primary text-white px-4 py-2 font-semibold hover:bg-primary-dark"
           >
             SIREA
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { Head, Link } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+import { Link } from '@inertiajs/vue3'
 
 const openIndex = ref(0)
 
@@ -325,8 +324,7 @@ async function handlePdf(action = 'download') {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Junta de Prevención y Resolución de Disputas | Corporación Imperium" />
+
 
     <!-- HERO / HEADER -->
     <section
@@ -784,7 +782,6 @@ async function handlePdf(action = 'download') {
       </div>
     </div>
 
-  </SiteLayout>
 </template>
 
 <style scoped>

@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import SiteLayout from '@/Layouts/SiteLayout.vue'
+
 
 const openIndex = ref(0)
 
@@ -89,8 +88,7 @@ const toggle = (idx) => {
 </script>
 
 <template>
-  <SiteLayout>
-    <Head title="Recusación | Corporación Imperium" />
+
 
     <!-- HERO -->
     <section
@@ -266,7 +264,6 @@ const toggle = (idx) => {
 
       </div>
     </section>
-  </SiteLayout>
 </template>
 
 <style scoped>
