@@ -1,5 +1,5 @@
 export const defineTitle = (title) => {
-    document.title = title + ' | FINANCIERA EMPRENDER'
+    document.title = title + ' | IMPERIUM'
 }
 
 export const getdataParamsPagination = (data) => {
