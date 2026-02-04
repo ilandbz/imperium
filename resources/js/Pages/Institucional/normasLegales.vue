@@ -2,8 +2,6 @@
 <script setup>
 import { ref } from 'vue'
 
-import SiteLayout from '@/Layouts/SiteLayout.vue'
-
 // Puedes traer esto desde el backend. Aquí lo dejo estático como ejemplo.
 const grupos = ref([
   {
