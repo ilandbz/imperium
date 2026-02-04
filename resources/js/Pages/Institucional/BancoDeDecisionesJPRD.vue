@@ -22,7 +22,7 @@
         <!-- Top bar -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
           <div class="text-sm font-semibold text-neutral-700">
-            BANCO DE DECISIONES DE JUNTAS DE PREVENCIÓN Y RESOLUCIÓN DE DISPUTAS (JPRD)
+            En esta sección se publicarán las decisiones emitidas por las Juntas de Prevención y Resolución de Disputas administradas por el Centro de Conciliación, Arbitraje y JPRD Corporación Imperium, conforme a la Directiva N.º 004-2025-OECE/CD.
           </div>
 
 
