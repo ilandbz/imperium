@@ -31,6 +31,7 @@ const institucionalItems = [
   { label: 'Ver Brochure',        action: () => (showBrochure.value = true) },
   { label: 'Banco de Laudos',     href: '/institucional/banco-de-laudos' },
   { label: 'Banco de Decisiones', href: '/institucional/banco-de-decisiones' },
+  { label: 'Banco de Decisiones JPRD', href: '/institucional/banco-de-decisiones-jprd' },
 ]
 </script>
 

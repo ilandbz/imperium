@@ -21,6 +21,7 @@ import Calculadora from "@/Pages/Institucional/Calculadora.vue";
 import CalculadoraJunta from "@/Pages/Institucional/CalculadoraJunta.vue";
 import BancoDeLaudos from "@/Pages/Institucional/BancoDeLaudos.vue";
 import BancoDeDecisiones from "@/Pages/Institucional/BancoDeDecisiones.vue";
+import BancoDeDecisionesJPRD from "@/Pages/Institucional/BancoDeDecisionesJPRD.vue";
 
 // SERVICIOS
 import ArbitrajeContratacionPublica from "@/Pages/Servicios/ArbitrajeContratacionPublica.vue";
@@ -58,6 +59,7 @@ const routes = [
 
     { path: "/institucional/banco-de-laudos", name: "banco.laudos", component: BancoDeLaudos, meta: { layout: LayoutDefault } },
     { path: "/institucional/banco-de-decisiones", name: "banco.decisiones", component: BancoDeDecisiones, meta: { layout: LayoutDefault } },
+    { path: "/institucional/banco-de-decisiones-jprd", name: "banco.decisiones.jprd", component: BancoDeDecisionesJPRD, meta: { layout: LayoutDefault } },
 
     // SERVICIOS (sin name en Laravel, pero acá conviene poner)
     { path: "/arbitraje-en-contratacion-publica", name: "arbitraje-contratacion-publica", component: ArbitrajeContratacionPublica, meta: { layout: LayoutDefault } },
