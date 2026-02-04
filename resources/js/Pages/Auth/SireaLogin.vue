@@ -1,27 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import {useAutenticacion} from '@/Composables/autenticacion';
+import { ref, onMounted } from 'vue';
+const {errors, loginUsuario } = useAutenticacion();
+const showPassword = ref(false);
 
-const props = defineProps({
-  redirectTo: { type: String, default: '/dashboard' }
-})
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
 
-const user = ref('')
-const pass = ref('')
-const showPass = ref(false)
-const loading = ref(false)
-
-function togglePass() {
-  showPass.value = !showPass.value
-}
-
-async function onSubmit(e) {
-  e.preventDefault()
-  loading.value = true
-
-  
-  setTimeout(() => {
-    window.location.href = props.redirectTo
-  }, 600)
+const user = ref({
+    username:'',
+    password:'',
+    remember:false,
+});
+const autenticar = async() => {
+    await loginUsuario(user.value);
 }
 </script>
 
@@ -53,7 +46,7 @@ async function onSubmit(e) {
         SIREA
       </h1>
 
-      <form class="px-8 pb-8 space-y-4" @submit="onSubmit">
+      <form class="px-8 pb-8 space-y-4" @submit.prevent="autenticar">
         <!-- Usuario -->
         <div>
           <label class="block text-sm font-medium text-neutral-700 mb-1">
