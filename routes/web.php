@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\ArbitrajeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', fn() => Inertia::render('Home'));
+
+
+Route::post('/login', [LoginController::class, 'login']);
 
 // Route::post('/contacto/enviar', [ContactController::class, 'send'])
 //     ->middleware('throttle:5,1')

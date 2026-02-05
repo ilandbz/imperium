@@ -4,17 +4,24 @@ import { ref } from 'vue'
 import HoverFillCard from '@/Components/HoverFillCard.vue'
 
 const direccion = [
-  { id:'dir-1', nombre:'Abog. Juan Carlos Soto Inocente', cargo:'DIRECTOR', pais:'pe' }
+  { id:'dir-1', nombre:'Abog. Juan Carlos Soto Inocente', cargo:'DIRECTOR', cargo2:'DIRECTOR', pais:'pe' }
 ]
+
 const consejoSuperior = [
-  { id:'cs-1', nombre:'Hellen Marjorie Peña Ampudia', cargo:'PRESIDENTE DEL CONSEJO SUPERIOR', pais:'pe' },
-  { id:'cs-2', nombre:'Leonidas Torres Fermín', cargo:'PRIMER VOCAL DEL CONSEJO SUPERIOR · CAH 3669', pais:'pe' },
-  { id:'cs-3', nombre:'María Alejandra Zamudio Cutin', cargo:'SEGUNDO VOCAL DEL CONSEJO SUPERIOR', pais:'pe' }
+  { id:'cs-1', nombre:'Hellen Marjorie Peña Ampudia', cargo:'PRESIDENTE DEL CONSEJO SUPERIOR', cargo2:'PRESIDENTE DEL CONSEJO SUPERIOR', pais:'pe' },
+  { id:'cs-2', nombre:'Leonidas Torres Fermín', cargo:'PRIMER VOCAL DEL CONSEJO SUPERIOR · CAH 3669', cargo2:'PRIMER VOCAL DEL CONSEJO SUPERIOR · CAH 3669', pais:'pe' },
+  { id:'cs-3', nombre:'María Alejandra Zamudio Cutin', cargo:'SEGUNDO VOCAL DEL CONSEJO SUPERIOR', cargo2:'SEGUNDO VOCAL DEL CONSEJO SUPERIOR', pais:'pe' }
 ]
+
 const organoGestion = [
-  { id:'og-1', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIA GENERAL (ÓRGANO DE GESTIÓN)', pais:'pe' },
-  { id:'og-2', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIA ARBITRAL (ÓRGANO DE GESTIÓN)', pais:'pe' },
-  { id:'og-3', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIO TÉCNICO (ÓRGANO DE GESTIÓN)', pais:'pe' }
+  { id:'og-1', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIA GENERAL (ÓRGANO DE GESTIÓN)', cargo2:'SECRETARIA GENERAL (ÓRGANO DE GESTIÓN)', pais:'pe' },
+  { id:'og-2', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIA ARBITRAL (ÓRGANO DE GESTIÓN)', cargo2:'SECRETARIA ARBITRAL (ÓRGANO DE GESTIÓN)', pais:'pe' },
+  { id:'og-3', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIO TÉCNICO (ÓRGANO DE GESTIÓN)', cargo2:'SECRETARIO TÉCNICO (ÓRGANO DE GESTIÓN)', pais:'pe' }
+]
+
+const Coordinador = [
+  { id:'og-1', nombre:'Abog. Heidi Torres Santos de Kulesza', cargo:'COORDINADOR DE LA JPRD', cargo2:'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje', pais:'pe' },
+  { id:'og-1', nombre:'Abog. Heidi Torres Santos de Kulesza', cargo:'ADMINISTRADOR DE LA JPRD', cargo2:'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje', pais:'pe' },
 ]
 
 const flagSrc = () => `/img/flags/pe.jpg`
@@ -140,43 +147,97 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
             </button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <transition name="fade">
-      <div
-        v-if="detalleAbierto && personaSel"
-        class="fixed inset-0 z-50 flex items-center justify-center"
-        @keydown.esc="cerrarDetalle"
-      >
-        <div class="absolute inset-0 bg-black/50" @click="cerrarDetalle"></div>
-        <div class="relative bg-white rounded-2xl shadow-xl w-full max-w-xl mx-4 overflow-hidden">
-          <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
-            <h3 class="text-lg font-bold">{{ personaSel.nombre }}</h3>
-            <button type="button" class="rounded-md px-3 py-1.5 bg-white/20 hover:bg-white/30" @click="cerrarDetalle">✕</button>
-          </div>
-          <div class="p-6">
-            <p class="text-sm uppercase font-semibold text-primary mb-2">{{ personaSel.cargo }}</p>
-            <div class="flex items-center gap-2 mb-6">
-              <span class="font-semibold">País:</span>
-              <img :src="flagSrc()" alt="País" class="h-5" />
-            </div>
-            <div class="prose max-w-none">
-              <p><strong>Nombre completo:</strong> {{ personaSel.nombre }}</p>
-              <p><strong>Cargo:</strong> {{ personaSel.cargo }}</p>
-              <p><strong>Grupo:</strong> {{
-                direccion.some(d=>d.id===personaSel.id) ? 'Órgano de Dirección' :
-                consejoSuperior.some(c=>c.id===personaSel.id) ? 'Consejo Superior' :
-                'Órgano de Gestión'
-              }}</p>
-            </div>
-          </div>
-          <div class="px-6 py-4 bg-gray-50 flex justify-end">
-            <button type="button" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90" @click="cerrarDetalle">Cerrar</button>
+        <div class="space-y-6">
+          <h4 class="text-xl font-bold text-primary text-center"></h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+            <button
+              v-for="p in Coordinador"
+              :key="p.id"
+              type="button"
+              class="block w-full max-w-[420px] text-left"
+              @click="abrirDetalle(p)"
+            >
+              <HoverFillCard :clickable="true" fillColor="bg-primary" containerClass="h-full">
+                <div class="flex items-start gap-4 text-slate-900 transition-colors duration-500 group-hover:text-white">
+                  <div class="flex-1 pr-8">
+                    <h3 class="text-xl font-extrabold leading-tight transition-colors duration-500 group-hover:text-white">{{ p.nombre }}</h3>
+                    <p class="mt-1 text-sm font-semibold tracking-wide uppercase transition-colors duration-500 group-hover:text-white">{{ p.cargo }}</p>
+                    <div class="mt-4 text-base transition-colors duration-500 group-hover:text-white">
+                      <span class="font-semibold">País: </span>
+                      <img :src="flagSrc()" alt="País" class="inline-block h-5 align-[-2px]" />
+                    </div>
+                  </div>
+                  <div class="h-10 w-10 rounded-lg bg-primary text-white grid place-items-center transition-colors group-hover:bg-white group-hover:text-primary">
+                    <span class="text-lg font-bold">›</span>
+                  </div>
+                </div>
+              </HoverFillCard>
+            </button>
           </div>
         </div>
       </div>
-    </transition>
+    </section>
+
+<transition name="fade">
+  <div
+    v-if="detalleAbierto && personaSel"
+    class="fixed inset-0 z-50 flex items-center justify-center"
+    @keydown.esc="cerrarDetalle"
+  >
+    <div class="absolute inset-0 bg-black/50" @click="cerrarDetalle"></div>
+
+    <div class="relative bg-white rounded-2xl shadow-xl w-full max-w-xl mx-4 overflow-hidden">
+      <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
+        <h3 class="text-lg font-bold">{{ personaSel.nombre }}</h3>
+        <button type="button" class="rounded-md px-3 py-1.5 bg-white/20 hover:bg-white/30" @click="cerrarDetalle">✕</button>
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="p-6 text-slate-900">
+        <div class="p-6 text-slate-900">
+
+          <!-- NOMBRE -->
+          <h3 class="text-xl font-extrabold leading-tight">
+            {{ personaSel.nombre }}
+          </h3>
+
+          <!-- CARGO -->
+          <p class="mt-1 text-sm font-semibold tracking-wide uppercase text-primary">
+            {{ personaSel.cargo }}
+          </p>
+
+          <!-- SEGUNDO CARGO (sin título) -->
+          <div v-if="personaSel.cargo2" class="mt-6 font-semibold">
+            {{ personaSel.cargo2 }}
+          </div>
+
+          <!-- GRUPO -->
+          <div class="mt-2 text-sm text-gray-600">
+            {{
+              direccion.some(d=>d.id===personaSel.id) ? 'Órgano de Dirección' :
+              consejoSuperior.some(c=>c.id===personaSel.id) ? 'Consejo Superior' :
+              'Órgano de Gestión'
+            }}
+          </div>
+
+
+          <!-- PAÍS -->
+          <div class="mt-4 text-base">
+            <span class="font-semibold">País: </span>
+            <img :src="flagSrc()" alt="País" class="inline-block h-5 align-[-2px]" />
+          </div>
+
+        </div>
+      </div>
+
+      <div class="px-6 py-4 bg-gray-50 flex justify-end">
+        <button type="button" class="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90" @click="cerrarDetalle">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</transition>
 
 </template>
 
