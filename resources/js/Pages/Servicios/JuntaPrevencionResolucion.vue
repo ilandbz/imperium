@@ -84,9 +84,9 @@ const sections = [
         type: 'DOCX',
       },
       {
-        label: 'Banco de Desciones — JPRD',
-        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/clausula-arbitral-centro.docx',
-        type: 'DOCX',
+        label: 'Documento de Aprobación del Reglamento Interno y Código de Ética',
+        href: '/archivos/b2.pdf',
+        type: 'PDF',
       },
     ],
   },
