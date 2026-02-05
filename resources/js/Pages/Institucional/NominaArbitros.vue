@@ -80,6 +80,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'joel_gonzales.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Luisa V. Davila Musac',
+    cargo: 'Abogada y Conciliadora Extrajudicial con más de 9 años de experiencia en Derecho de Familia, Penal y gestión de conflictos',
+    pais: 'pe',
+    cv: 'cv_luvi.pdf'
+  },
 
 ]
 
