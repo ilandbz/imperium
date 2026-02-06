@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { Link } from '@inertiajs/vue3'
+import { RouterLink } from 'vue-router'
 
 const openIndex = ref(0)
 
@@ -64,7 +64,7 @@ const sections = [
         type: 'PDF',
       },
       {
-        label: 'Nómina de Árbitros / Miembros de JPRD',
+        label: 'NOMINA DE ADJUDICADORES PARA LA JPRD',
         href: '/institucional/miembrosjprd',
         type: 'URL',
       },
@@ -479,8 +479,8 @@ async function handlePdf(action = 'download') {
                       </span>
 
                      <template v-if="item.type === 'URL'">
-                        <Link
-                          :href="item.href"
+                        <RouterLink
+                          :to="item.href"
                           class="inline-flex h-8 w-8 items-center justify-center rounded-full text-primary hover:bg-primary/10"
                           title="Ver página"
                         >
@@ -497,7 +497,7 @@ async function handlePdf(action = 'download') {
                                 64-64V160L320 0z"
                             />
                           </svg>
-                        </Link>
+                        </RouterLink>
                       </template>
 
                       <!-- ARCHIVO (PDF / DOCX) -->
