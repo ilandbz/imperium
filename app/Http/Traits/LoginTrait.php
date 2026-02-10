@@ -26,7 +26,7 @@ trait LoginTrait
 
         // Primero obtenemos el usuario real
         $user = User::where('name', $request->name)
-            ->with('roles', 'agencias')
+            ->with('roles')
             ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {

@@ -9,10 +9,10 @@ export const useAutenticacion = () => {
     const loginUsuario = async (data) => {
         errors.value = ''
         try {
-            const respuesta = await axios.post('login', data)
+            const respuesta = await axios.post('/login', data)
             if (respuesta.data) {
                 localStorage.setItem('userSession', respuesta.data);
-                window.location.href = '/';
+                window.location.href = '/sirea';
             }
         } catch (error) {
             if (error.response.status === 422) {
@@ -26,7 +26,7 @@ export const useAutenticacion = () => {
 
         if (respuesta.data.ok == 1) {
             localStorage.removeItem('userSession')
-            window.location.href = "/login"
+            window.location.href = "/sirea/login"
         }
     }
 

@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode'
 //PLANTILLAS
 import LayoutLogin from '@/Layouts/AppLayoutLogin.vue'
 import LayoutDefault from '@/Layouts/SiteLayout.vue'
+import LayoutSirea from '@/Layouts/AppLayoutSirea.vue'
 
 //vistas
 import Principal from '@/Pages/Home.vue'
@@ -30,6 +31,7 @@ import ArbitrajeEntrePrivados from "@/Pages/Servicios/ArbitrajeEntrePrivados.vue
 import JuntaPrevencionResolucion from "@/Pages/Servicios/JuntaPrevencionResolucion.vue";
 import Recusacion from "@/Pages/Servicios/Recusacion.vue";
 import Peritaje from "@/Pages/Servicios/Peritaje.vue";
+import Dashboard from "@/Pages/DashBoard.vue";
 import DesignacionResidual from "@/Pages/Servicios/DesignacionResidual.vue";
 import ArbitroUnicoTribunal from "@/Pages/Servicios/ArbitroUnicoTribunal.vue";
 import InstalacionArbitral from "@/Pages/Servicios/InstalacionArbitral.vue";
@@ -40,7 +42,11 @@ const routes = [
         meta: { layout: LayoutDefault }
     },
     {
-        path: '/sirea', name: 'Login', component: Login,
+        path: '/sirea', name: 'Dashboard', component: Dashboard,
+        meta: { layout: LayoutSirea }
+    },
+    {
+        path: '/sirea/login', name: 'Login', component: Login,
         meta: { layout: LayoutLogin }
     },
 
