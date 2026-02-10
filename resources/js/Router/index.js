@@ -53,7 +53,7 @@ const routes = [
     { path: "/institucional/normas-legales", name: "normas-legales", component: NormasLegales, meta: { layout: LayoutDefault } },
 
     { path: "/contacto", name: "contacto", component: Contactenos, meta: { layout: LayoutDefault } },
-    { path: "/blog", name: "contacto", component: Contactenos, meta: { layout: LayoutDefault } },
+    { path: "/blog", name: "Blog", component: Contactenos, meta: { layout: LayoutDefault } },
 
     { path: "/calculadora", name: "calculadora", component: Calculadora, meta: { layout: LayoutDefault } },
     { path: "/calculadora-junta", name: "calculadora-junta", component: CalculadoraJunta, meta: { layout: LayoutDefault } },
