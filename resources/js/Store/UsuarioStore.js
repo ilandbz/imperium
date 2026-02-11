@@ -17,16 +17,12 @@ export const useUsuarioStore = defineStore("usuario", {
             const ls = localStorage.getItem('userSession');
             const user_id = ls ? JSON.parse(JSON.stringify(jwtDecode(ls).user)) : null;
             const role_id = ls ? JSON.parse(JSON.stringify(jwtDecode(ls).roleid)) : null;
-            const establecimiento_id = ls ? JSON.parse(JSON.stringify(jwtDecode(ls).establecimientoid)) : null;
             try {
                 const response = await axios.get('usuario-session-data/', { params: { id: user_id } });
                 const response2 = await axios.get('mostrar-role', { params: { id: role_id } });
-                const response3 = await axios.get('mostrar-establecimiento', { params: { id: establecimiento_id } });
                 this.usuario = response.data.usuario;
                 this.role = response2.data.role;
                 this.roles = response.data.usuario.roles ?? []
-                this.establecimientos = response.data.usuario.establecimientos ?? []
-                this.establecimiento = response3.data.establecimiento
                 this.cargarMenus(role_id)
             } catch (error) {
                 if (error.response) {
