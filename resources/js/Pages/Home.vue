@@ -10,7 +10,7 @@ import MetricsSection from '@/Components/MetricsSection.vue'
 import ArbitrationCalculatorSection from '@/Components/ArbitrationCalculatorSection.vue'
 import CommitmentSection from '@/Components/CommitmentSection.vue'
 import SplashLoaderGradient from '@/Components/SplashLoaderGradient.vue'
-import CertificationsModal from '@/Components/CertificationsModal.vue'
+import ModalInicio from '@/Components/ModalInicio.vue'
 const props = defineProps({
   services: { type: Array, default: () => [] }
 })
@@ -122,7 +122,8 @@ const calcStrategy = (montoPen, { igv, mode }) => {
    
     <ContactSection />
 
-    <!-- <CertificationsModal v-model="showIso" />
+    <!-- <CertificationsModal v-model="showIso" /> -->
 
-  <FloatingWhatsApp /> -->
+    <ModalInicio v-model="showIso" />
+  <FloatingWhatsApp />
 </template>
