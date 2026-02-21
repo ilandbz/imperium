@@ -7,6 +7,7 @@ const year = new Date().getFullYear()
 const websiteUrl = 'http://www.imperium.org.pe'
 const phoneMain  = '(062) 620227'
 const phoneAlt   = '905595297'
+const phoneAlt2  = '905595297'
 const emailHtml  = 'imperium.sg.2021@gmail.com'
 const addressHtml =
   'Jr. 28 de Julio N° 1167, 2do Piso – Oficina 05, Huánuco – Perú'
@@ -117,6 +118,9 @@ const gmapSrc =
             <a :href="`tel:${phoneMain.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneMain }}</a>
             <span>–</span>
             <a :href="`tel:${phoneAlt.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneAlt }}</a>
+            <span>–</span>
+            <a :href="`tel:${phoneAlt2.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneAlt2 }}</a>
+
           </p>
           <p class="flex gap-2">
             <!-- Sitio web -->

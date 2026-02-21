@@ -87,6 +87,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'cv_luvi.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Patricia Lora Rios',
+    cargo: 'ASESORA LEGAL INDEPENDIENTE',
+    pais: 'pe',
+    cv: 'patricia_lora.pdf'
+  },
 
 ]
 
