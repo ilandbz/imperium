@@ -116,8 +116,10 @@ const gmapSrc =
               <path d="M511.1 387.3c3.4 8.7 .9 18.6-6.3 24.6l-67.1 56.9c-7.7 6.5-18.7 7.2-27.2 1.8l-62.3-39.6c-7.9-5-12.2-13.9-10.9-23l8.1-59.1c-63.5-31.6-114.9-83-146.5-146.5L142 210.7c-9.1 1.3-18-3-23-10.9L79.4 137.6c-5.4-8.5-4.7-19.5 1.8-27.2l56.9-67.1c6-7.2 15.9-9.7 24.6-6.3l87.7 34.1c9.1 3.5 15.1 12.3 14.9 22L263 153.2c27.9 62 77.8 111.9 139.8 139.8l59.1-5.3c9.7-.2 18.5 5.8 22 14.9l34.1 84.7z"/>
             </svg>
             <a :href="`tel:${phoneMain.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneMain }}</a>
+            <br>
             <span>–</span>
             <a :href="`tel:${phoneAlt.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneAlt }}</a>
+            <br>
             <span>–</span>
             <a :href="`tel:${phoneAlt2.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">{{ phoneAlt2 }}</a>
 
