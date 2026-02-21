@@ -6,8 +6,8 @@ const year = new Date().getFullYear()
 /* ====== Datos editables ====== */
 const websiteUrl = 'http://www.imperium.org.pe'
 const phoneMain  = '(062) 620227'
-const phoneAlt   = '905595297'
-const phoneAlt2  = '905595297'
+const phoneAlt   = '905595297 IA'
+const phoneAlt2  = '961789844 JPRD'
 const emailHtml  = 'imperium.sg.2021@gmail.com'
 const addressHtml =
   'Jr. 28 de Julio N° 1167, 2do Piso – Oficina 05, Huánuco – Perú'
