@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
         ]);
 
-        $roleId = Role::where('nombre', 'Admin')->value('id');
+        $roleId = Role::where('nombre', 'Super Usuario')->value('id');
         $user->roles()->sync([$roleId]);
 
         $user2 = User::create([

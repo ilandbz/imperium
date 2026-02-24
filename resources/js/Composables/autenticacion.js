@@ -26,7 +26,7 @@ export const useAutenticacion = () => {
 
         if (respuesta.data.ok == 1) {
             localStorage.removeItem('userSession')
-            window.location.href = "/sirea/login"
+            window.location.href = "/login"
         }
     }
 

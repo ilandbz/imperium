@@ -1,9 +1,11 @@
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import useDatosSession from '@/Composables/session'
 import { useAutenticacion } from '@/Composables/autenticacion'
 import Navbar from '@/Components/Sirea/Navbar.vue'
+import Topbar from '@/Components/Sirea/Topbar.vue'
+import Footer from '@/Components/Sirea/Footer.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -14,6 +16,8 @@ const { logoutUsuario } = useAutenticacion()
 // --- utilidades para inyectar assets ---
 const ASSET_ATTR = 'data-sirea-asset'
 
+const isDark = ref(false)
+const sidebarCollapsed = ref(false)
 function addCss(href) {
   // evita duplicados
   if (document.querySelector(`link[${ASSET_ATTR}][href="${href}"]`)) return
@@ -40,6 +44,38 @@ function addJs(src) {
   })
 }
 
+const pageTitle = computed(() => route.meta?.title || String(route.name || ''))
+const isDesktop = () => window.matchMedia('(min-width: 1200px)').matches
+
+const toggleSidebarDesktop = () => {
+  if (!isDesktop()) return
+  sidebarCollapsed.value = !sidebarCollapsed.value
+  localStorage.setItem('sidebarCollapsed', sidebarCollapsed.value ? '1' : '0')
+}
+
+const logout = async () => {
+  await logoutUsuario(usuario.value.id)
+}
+const breadcrumbs = computed(() => {
+  const items = [
+    { text: 'Home', to: '/' }
+  ]
+
+  // si estás en Home, no repitas
+  if (route.path !== '/') {
+    items.push({
+      text: pageTitle.value || 'Página',
+      to: route.fullPath
+    })
+  }
+
+  return items
+})
+watch(isDark, (value) => {
+  const theme = value ? 'dark' : 'light'
+  localStorage.setItem('theme', theme)
+  document.documentElement.setAttribute('data-bs-theme', theme)
+})
 function removeSireaAssets() {
   document.querySelectorAll(`[${ASSET_ATTR}]`).forEach(el => el.remove())
 }
@@ -88,11 +124,80 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- IMPORTANTE: wrapper para que tu template tenga su estructura -->
   <div id="top" class="sirea-root">
 
-<Navbar :menus="menus" />
+
+  <Navbar :menus="menus" />
+
+  <Topbar :is-dark="isDark"
+  :user="usuario"
+  :role="role"
+  :menus="menus"
+  @toggle-sidebar="toggleSidebarDesktop"
+  @logout="logout" />
+
+  <main class="nxl-container">
+
+    <div class="nxl-content">
+        <div class="page-header">
+            <div class="page-header-left d-flex align-items-center">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">{{ pageTitle }}</h5>
+                </div>
+                <ul class="breadcrumb">
+                  <li
+                    v-for="(bc, idx) in breadcrumbs"
+                    :key="idx"
+                    class="breadcrumb-item"
+                    :class="{ active: idx === breadcrumbs.length - 1 }"
+                    aria-current="page"
+                  >
+                    <!-- si es el último, texto normal -->
+                    <span v-if="idx === breadcrumbs.length - 1">
+                      {{ bc.text }}
+                    </span>
+
+                    <!-- si no es el último, clickeable -->
+                    <RouterLink v-else :to="bc.to">
+                      {{ bc.text }}
+                    </RouterLink>
+                  </li>
+                </ul>
+            </div>
+            <div class="page-header-right ms-auto">
+                <div class="page-header-right-items">
+                    <div class="d-flex d-md-none">
+                        <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                            <i class="feather-arrow-left me-2"></i>
+                            <span>Back</span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="d-md-none d-flex align-items-center">
+                    <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                        <i class="feather-align-right fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+          <slot />
+        </div>
+    </div>
+    <Footer />
+  </main>
+
+
+
+  </div>
+
+
+
+  <!-- <div id="top" class="sirea-root">
+
+    <Navbar :menus="menus" />
 
     <router-view />
-  </div>
+  </div> -->
 </template>

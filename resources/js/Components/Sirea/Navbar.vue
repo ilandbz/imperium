@@ -13,10 +13,10 @@ const { menuUI, openMenu, submenuRefs, toggleMenu, isActive } = useMenuUI(menusR
   <nav class="nxl-navigation">
     <div class="navbar-wrapper">
       <!-- Header -->
-      <div class="m-header">
+      <div class="m-header m-3 p-4">
         <RouterLink to="/" class="b-brand">
-          <img src="/imagenes/logo_navbar.jpeg" alt="Logo" class="logo logo-lg" />
-          <img src="/imagenes/logo_navbar.jpeg" alt="Logo" class="logo logo-sm" />
+          <img src="/img/logo.png" alt="Logo" class="logo logo-lg" />
+          <img src="/img/logo.png" alt="Logo" class="logo logo-sm" />
         </RouterLink>
       </div>
 
