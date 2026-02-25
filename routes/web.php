@@ -23,12 +23,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/cambiar-role', [LoginController::class, 'cambiarRol']);
     Route::get('/obtener-menus-role', [UserController::class, 'obtenerMenusPorRole']);
 });
-
+require __DIR__ . "/entidades.php";
 Route::get('/{path}', function () {
     return view('app');
 })->where('path', '.*');
-
-
-
-
-require __DIR__ . "/entidades.php";

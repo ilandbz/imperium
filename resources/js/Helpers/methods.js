@@ -7,15 +7,14 @@ export const getdataParamsPagination = (data) => {
 }
 
 export const getConfigHeader = () => {
+    const tokenData = localStorage.getItem('token-api')
+    const token = tokenData ? JSON.parse(tokenData).token : null
 
-    if (localStorage.getItem('token-api')) {
-        let decode = JSON.parse(localStorage.getItem('token-api') || "")
-        let token = decode.token
-
-        return {
-            headers: {
-                'Authorization': 'JWT ' + token
-            }
+    return {
+        headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            ...(token ? { Authorization: 'JWT ' + token } : {}),
         }
     }
 }

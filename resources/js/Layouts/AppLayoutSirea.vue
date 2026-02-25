@@ -108,7 +108,7 @@ onMounted(async () => {
 
   // Tu validación de sesión
   if (!localStorage.getItem('userSession')) {
-    const redirect = route.query.redirect || '/sirea/login'
+    const redirect = route.query.redirect || '/login'
     router.push(redirect)
   }
 })
