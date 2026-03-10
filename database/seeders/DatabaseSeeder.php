@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             GrupoMenuSeeder::class,
             MenuSeeder::class,
+            TipoCasillaSeeder::class,
         ]);
     }
 }

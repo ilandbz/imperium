@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Persona extends Model
 {
@@ -22,4 +23,11 @@ class Persona extends Model
         'grado_instr',
         'direccion',
     ];
+    protected $appends = ['apenom'];
+    public function apenom(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => "{$attributes['ape_pat']} {$attributes['ape_mat']} {$attributes['primernombre']} " . ($attributes['otrosnombres'] ?? ''),
+        );
+    }
 }

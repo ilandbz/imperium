@@ -31,7 +31,7 @@ import ArbitrajeEntrePrivados from "@/Pages/Servicios/ArbitrajeEntrePrivados.vue
 import JuntaPrevencionResolucion from "@/Pages/Servicios/JuntaPrevencionResolucion.vue";
 import Recusacion from "@/Pages/Servicios/Recusacion.vue";
 import Peritaje from "@/Pages/Servicios/Peritaje.vue";
-import Dashboard from "@/Pages/DashBoard.vue";
+import Dashboard from "@/Pages/Dashboard/Inicio.vue";
 import DesignacionResidual from "@/Pages/Servicios/DesignacionResidual.vue";
 import ArbitroUnicoTribunal from "@/Pages/Servicios/ArbitroUnicoTribunal.vue";
 import InstalacionArbitral from "@/Pages/Servicios/InstalacionArbitral.vue";
@@ -96,6 +96,10 @@ const routes = [
     {
         path: '/casillas', name: 'Casilla', component: Casilla,
         meta: { layout: LayoutSirea }
+    },
+    {
+        path: '/expedientes', name: 'Expedientes', component: () => import('@/Pages/Sirea/Expedientes/Inicio.vue'),
+        meta: { layout: LayoutSirea, title: 'Gestión de Expedientes' }
     },
     {
         path: '/notificaciones', name: 'Notificaciones', component: Notificaciones,

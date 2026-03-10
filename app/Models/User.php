@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -64,5 +65,10 @@ class User extends Authenticatable
     public function existeRole($role_id)
     {
         return $this->roles()->where('role_id', $role_id)->exists();
+    }
+
+    public function casilla(): HasOne
+    {
+        return $this->hasOne(CasillaElectronica::class, 'user_id', 'id');
     }
 }

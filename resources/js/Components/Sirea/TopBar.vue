@@ -1,5 +1,5 @@
 <script setup>
-import { toRef, ref } from 'vue'
+import { toRef, ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import TemaCustomizer from './TemaCustomizer.vue'
 import useHelper from '@/Helpers'
@@ -11,16 +11,11 @@ user: Object,
 role: Object,
 menus: { type: Array, default: () => [] }
 })
-const menusRef = toRef(props, 'menus')
-
-const { menuUI, openMenu, submenuRefs, toggleMenu, isActive } = useMenuUI(menusRef)
-
-// show/hide mega menu (control Vue, no ids sueltos)
-const megaOpen = ref(false)
-
 const { Swal } = useHelper()
 
-
+const isCommonUser = computed(() => {
+    return props.role && props.role.nombre !== 'SUPER USUARIO'
+})
 
 const emit = defineEmits(['toggleSidebar', 'toggleMobile', 'logout'])
 const cerrarSesion = async () => {
@@ -45,7 +40,11 @@ const cerrarSesion = async () => {
     <header class="nxl-header">
         <div class="header-wrapper">
             <div class="header-left d-flex align-items-center gap-4">
-                <a href="javascript:void(0);" class="nxl-head-mobile-toggler" id="mobile-collapse">
+                <RouterLink v-if="isCommonUser" to="/" class="b-brand">
+                    <img src="/img/logo.png" alt="Logo" class="logo logo-lg" style="max-height: 50px;" />
+                </RouterLink>
+
+                <a v-if="!isCommonUser" href="javascript:void(0);" class="nxl-head-mobile-toggler" id="mobile-collapse">
                     <div class="hamburger hamburger--arrowturn">
                         <div class="hamburger-box">
                             <div class="hamburger-inner"></div>
@@ -53,7 +52,7 @@ const cerrarSesion = async () => {
                     </div>
                 </a>
                 <!-- ESTO FUNCIONA EN DESKTOP -->
-                <div class="nxl-navigation-toggle">
+                <div v-if="!isCommonUser" class="nxl-navigation-toggle">
                     <a href="javascript:void(0);" id="menu-mini-button">
                         <i class="feather-align-left"></i>
                     </a>
@@ -151,7 +150,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="/duralux/images/avatar/1.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/avatar/1.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Alexandra Della</a>
@@ -165,7 +164,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="/duralux/images/avatar/2.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/avatar/2.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Green Cute</a>
@@ -179,7 +178,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="/duralux/images/avatar/3.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/avatar/3.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Malanie Hanvey</a>
@@ -193,7 +192,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="/duralux/images/avatar/4.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/avatar/4.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Kenneth Hune</a>
@@ -207,7 +206,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-0">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="/duralux/images/avatar/5.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/avatar/5.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Archie Cantones</a>
@@ -225,7 +224,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image bg-gray-200 rounded">
-                                                <img src="/duralux/images/file-icons/css.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/file-icons/css.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Project Style CSS</a>
@@ -239,7 +238,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image bg-gray-200 rounded">
-                                                <img src="/duralux/images/file-icons/zip.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/file-icons/zip.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Dashboard Project Zip</a>
@@ -253,7 +252,7 @@ const cerrarSesion = async () => {
                                     <div class="d-flex align-items-center justify-content-between mb-0">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image bg-gray-200 rounded">
-                                                <img src="/duralux/images/file-icons/pdf.png" alt="" class="img-fluid" />
+                                                <img src="/NEXEL/images/file-icons/pdf.png" alt="" class="img-fluid" />
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Project Document PDF</a>
@@ -288,15 +287,16 @@ const cerrarSesion = async () => {
                     </div>
                     <div class="dropdown nxl-h-item">
                         <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
-                            <img src="/duralux/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar me-0" />
+                            <img src="/NEXEL/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar me-0" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
                             <div class="dropdown-header">
                                 <div class="d-flex align-items-center">
-                                    <img src="/duralux/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar" />
+                                    <img src="/NEXEL/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar" />
                                     <div>
-                                        <h6 class="text-dark mb-0">Alexandra Della <span class="badge bg-soft-success text-success ms-1">PRO</span></h6>
-                                        <span class="fs-12 fw-medium text-muted">alex@example.com</span>
+                                        <h6 class="text-dark mb-0">{{ user.name }}</h6>
+                                        <span class="fs-12 fw-medium text-muted">{{ user.persona?.apenom }}</span><br>
+                                        <span class="fs-12 fw-medium text-muted">{{ role.nombre }}</span>
                                     </div>
                                 </div>
                             </div>

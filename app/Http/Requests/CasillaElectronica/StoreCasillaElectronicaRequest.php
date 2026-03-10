@@ -23,7 +23,7 @@ class StoreCasillaElectronicaRequest extends FormRequest
             'email'          => 'nullable|email|max:70',
             'direccion'      => 'nullable|string',
             'mailbox_number' => 'nullable|string|unique:casilla_electronicas,mailbox_number',
-            'user_type'      => 'required|in:abogado,fiscal,institucion,persona_natural',
+            'tipo_casilla_id' => 'required|exists:tipo_casillas,id',
             'status'         => 'nullable|string',
             'activated_at'   => 'nullable|date',
         ];
@@ -34,6 +34,7 @@ class StoreCasillaElectronicaRequest extends FormRequest
         return [
             'required' => '* Dato Obligatorio',
             'max'      => 'Ingrese Máximo :max caracteres',
+            'size'     => 'Debe ingresar exactamente :size caracteres',
             'string'   => 'Ingrese caracteres alfanuméricos',
             'unique'   => 'El :attribute ya existe',
             'exists'   => 'El usuario seleccionado no es válido',

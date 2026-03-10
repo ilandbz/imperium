@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('mailbox_number')->unique();
-            $table->enum('user_type', ['abogado', 'fiscal', 'institucion', 'persona_natural']);
+            $table->foreignId('tipo_casilla_id')->constrained('tipo_casillas')->onDelete('cascade');
             $table->string('status')->default('pendiente');
+            $table->foreignId('user_created_id')->constrained('users')->onDelete('cascade');
             $table->timestamp('activated_at')->nullable();
             $table->timestamps();
         });

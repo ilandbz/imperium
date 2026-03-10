@@ -2,6 +2,9 @@
 import { ref, watch, onMounted } from 'vue';
 import useHelper from '@/Helpers';
 import useCasillaElectronica from '@/Composables/CasillaElectronica.js';
+import useTipoCasilla from '@/Composables/TipoCasilla.js';
+// import useRol from '@/Composables/Rol.js';
+
 
 const props = defineProps({
     form: Object,
@@ -10,18 +13,14 @@ const props = defineProps({
 
 const emit = defineEmits(['onListar']);
 
-const { hideModal, Toast } = useHelper();
+const { hideModal, Toast, soloNumeros } = useHelper();
 const {
     errors, respuesta,
     agregarCasilla, actualizarCasilla
 } = useCasillaElectronica();
 
-const userTypes = [
-    { value: 'abogado', label: 'Abogado' },
-    { value: 'fiscal', label: 'Fiscal' },
-    { value: 'institucion', label: 'Institución' },
-    { value: 'persona_natural', label: 'Persona Natural' },
-];
+// const { roles, listaRoles } = useRol();
+const { tipos, listaTipos } = useTipoCasilla();
 
 const enviarFormulario = async () => {
     if (props.form.estadoCrud === 'nuevo') {
@@ -40,6 +39,12 @@ const enviarFormulario = async () => {
 watch(() => errors.value, (newVal) => {
     props.form.errors = newVal;
 });
+
+onMounted(async () => {
+    // await listaRoles();
+    await listaTipos();
+});
+
 </script>
 
 <template>
@@ -82,7 +87,7 @@ watch(() => errors.value, (newVal) => {
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Celular</label>
-                                    <input v-model="form.celular" type="text" class="form-control" :class="{ 'is-invalid': form.errors.celular }" placeholder="Número de Celular">
+                                    <input v-model="form.celular" maxlength="9" type="text" class="form-control" :class="{ 'is-invalid': form.errors.celular }" placeholder="Número de Celular" @input="soloNumeros">
                                     <div v-if="form.errors.celular" class="invalid-feedback">{{ form.errors.celular[0] }}</div>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -105,14 +110,14 @@ watch(() => errors.value, (newVal) => {
                                     <div v-if="form.errors.mailbox_number" class="invalid-feedback">{{ form.errors.mailbox_number[0] }}</div>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label class="form-label">Tipo de Usuario</label>
-                                    <select v-model="form.user_type" class="form-select" :class="{ 'is-invalid': form.errors.user_type }">
+                                    <label class="form-label">Tipo de Casilla</label>
+                                    <select v-model="form.tipo_casilla_id" class="form-select" :class="{ 'is-invalid': form.errors.tipo_casilla_id }">
                                         <option value="">Seleccione Tipo</option>
-                                        <option v-for="type in userTypes" :key="type.value" :value="type.value">
-                                            {{ type.label }}
+                                        <option v-for="type in tipos" :key="type.id" :value="type.id">
+                                            {{ type.nombre }}
                                         </option>
                                     </select>
-                                    <div v-if="form.errors.user_type" class="invalid-feedback">{{ form.errors.user_type[0] }}</div>
+                                    <div v-if="form.errors.tipo_casilla_id" class="invalid-feedback">{{ form.errors.tipo_casilla_id[0] }}</div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label">Estado</label>

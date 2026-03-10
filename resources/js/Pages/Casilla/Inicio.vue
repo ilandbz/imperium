@@ -5,7 +5,7 @@
   import useCasillaElectronica from '@/Composables/CasillaElectronica.js';
   import CasillaForm from './Form.vue'
   
-  const { openModal, Toast, Swal } = useHelper();
+  const { openModal, Toast, Swal, formatoFecha } = useHelper();
   const {
         casillas, errors, casilla, respuesta,
         obtenerCasillas, obtenerCasilla, eliminarCasilla
@@ -28,9 +28,9 @@
         id: '',
         user_id: '',
         mailbox_number: '',
-        user_type: '',
+        role_id: '',
         status: 'pendiente',
-        activated_at: '',
+        activated_at: formatoFecha(null, 'YYYY-MM-DDTHH:mm'),
         // Person fields
         dni: '',
         ape_pat: '',
@@ -39,6 +39,7 @@
         otrosnombres: '',
         celular: '',
         email: '',
+        tipo_casilla_id: '',
         direccion: '',
         estadoCrud: '',
         errors: []
@@ -48,9 +49,9 @@
         form.value.id = '';
         form.value.user_id = '';
         form.value.mailbox_number = '';
-        form.value.user_type = '';
+        form.value.role_id = '';
         form.value.status = 'pendiente';
-        form.value.activated_at = '';
+        form.value.activated_at = formatoFecha(null, 'YYYY-MM-DDTHH:mm');
         // Person fields
         form.value.dni = '';
         form.value.ape_pat = '';
@@ -59,6 +60,7 @@
         form.value.otrosnombres = '';
         form.value.celular = '';
         form.value.email = '';
+        form.value.tipo_casilla_id = '';
         form.value.direccion = '';
         form.value.estadoCrud = '';          
         form.value.errors = [];
@@ -71,9 +73,10 @@
             form.value.id = casilla.value.id;
             form.value.user_id = casilla.value.user_id;
             form.value.mailbox_number = casilla.value.mailbox_number;
-            form.value.user_type = casilla.value.user_type;
+            form.value.role_id = casilla.value.role_id;
             form.value.status = casilla.value.status;
             form.value.activated_at = casilla.value.activated_at;
+            form.value.tipo_casilla_id = casilla.value.tipo_casilla_id;
             // Assuming the backend returns person data if available
             if (casilla.value.user && casilla.value.user.persona) {
                 const p = casilla.value.user.persona;
@@ -84,6 +87,7 @@
                 form.value.otrosnombres = p.otrosnombres;
                 form.value.celular = p.celular;
                 form.value.email = p.email;
+                
                 form.value.direccion = p.direccion;
             }
         }
@@ -234,28 +238,34 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Número Casilla</th>
+                                        <th>DNI</th>
+                                        <th>Nombre</th>
                                         <th>Tipo Usuario</th>
                                         <th>Estado</th>
                                         <th>Fecha Activación</th>
+                                        <th>Usuario</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-if="casillas.total == 0">
-                                        <td class="text-danger text-center" colspan="6">
+                                        <td class="text-danger text-center" colspan="9">
                                             -- Datos No Registrados - Tabla Vacía --
                                         </td>
                                     </tr>
                                     <tr v-else v-for="(casilla, index) in casillas.data" :key="casilla.id">
                                         <td>{{ index + casillas.from }}</td>
                                         <td>{{ casilla.mailbox_number }}</td>
-                                        <td>{{ casilla.user_type }}</td>
+                                        <td>{{ casilla.user.persona.dni }}</td>
+                                        <td>{{ casilla.user.persona.primernombre }} {{ casilla.user.persona.otrosnombres }} {{ casilla.user.persona.ape_pat }} {{ casilla.user.persona.ape_mat }}</td>
+                                        <td>{{ casilla.tipo_casilla?.nombre }}</td>
                                         <td>
                                             <span :class="casilla.status === 'activo' ? 'badge bg-success' : 'badge bg-warning'">
                                                 {{ casilla.status }}
                                             </span>
                                         </td>
                                         <td>{{ casilla.activated_at }}</td>
+                                        <td>{{ casilla.user_created.name }}</td>
                                         <td>
                                             <button class="btn btn-warning btn-sm" title="Editar" @click.prevent="editar(casilla.id)">
                                                 <i class="fas fa-edit"></i>

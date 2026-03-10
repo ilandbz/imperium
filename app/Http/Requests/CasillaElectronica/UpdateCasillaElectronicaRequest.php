@@ -28,7 +28,7 @@ class UpdateCasillaElectronicaRequest extends FormRequest
             'email'          => 'nullable|email|max:70',
             'direccion'      => 'nullable|string',
             'mailbox_number' => 'required|string|unique:casilla_electronicas,mailbox_number,' . $this->id,
-            'user_type'      => 'required|in:abogado,fiscal,institucion,persona_natural',
+            'tipo_casilla_id' => 'required|exists:tipo_casillas,id',
             'status'         => 'nullable|string',
             'activated_at'   => 'nullable|date',
         ];

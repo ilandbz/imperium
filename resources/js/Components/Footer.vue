@@ -8,6 +8,7 @@ const websiteUrl = 'http://www.imperium.org.pe'
 const phoneMain  = '(062) 620227'
 const phoneAlt   = '905595297 IA'
 const phoneAlt2  = '961789844 JPRD'
+const phoneAlt3  = '925843417'
 const emailHtml  = 'imperium.sg.2021@gmail.com'
 const addressHtml =
   'Jr. 28 de Julio N° 1167, 2do Piso – Oficina 05, Huánuco – Perú'
@@ -128,6 +129,10 @@ const gmapSrc =
 
               <a :href="`tel:${phoneAlt2.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">
                 – {{ phoneAlt2 }}
+              </a>
+
+              <a :href="`tel:${phoneAlt3.replace(/[^0-9]/g,'')}`" class="hover:underline text-white/90">
+                – {{ phoneAlt3 }}
               </a>
             </div>
           </p>

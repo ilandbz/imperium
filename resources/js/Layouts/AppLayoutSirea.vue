@@ -13,6 +13,11 @@ const router = useRouter()
 
 const { usuario, menus, role } = useDatosSession()
 const { logoutUsuario } = useAutenticacion()
+
+const isCommonUser = computed(() => {
+  return role.value && role.value.nombre !== 'SUPER USUARIO'
+})
+
 // --- utilidades para inyectar assets ---
 const ASSET_ATTR = 'data-sirea-asset'
 
@@ -87,21 +92,21 @@ onMounted(async () => {
   // Guarda las clases del body (para restaurar al salir)
   previousBodyClass = document.body.className
 
-  // Cambia el body para SIREA (ejemplo: deja vacío o pon las clases que requiera duralux)
-  document.body.className = '' // o: 'theme-duralux ...'
+  // Cambia el body para SIREA (ejemplo: deja vacío o pon las clases que requiera NEXEL)
+  document.body.className = '' // o: 'theme-NEXEL ...'
   document.body.setAttribute('data-layout', 'sirea') // opcional
 
   // ✅ CSS del template (en el orden que tu plantilla exige)
-  addCss('/duralux/css/bootstrap.min.css')
-  addCss('/duralux/vendors/css/vendors.min.css')
-  addCss('/duralux/css/theme.min.css')
-  addCss('/duralux/css/custom.css')
+  addCss('/NEXEL/css/bootstrap.min.css')
+  addCss('/NEXEL/vendors/css/vendors.min.css')
+  addCss('/NEXEL/css/theme.min.css')
+  addCss('/NEXEL/css/custom.css')
 
   // ✅ JS del template (ojo: algunos requieren orden)
   try {
-    await addJs('/duralux/vendors/js/vendors.min.js')
-    await addJs('/duralux/js/common-init.min.js')
-    await addJs('/duralux/js/theme-customizer-init.min.js')
+    await addJs('/NEXEL/vendors/js/vendors.min.js')
+    await addJs('/NEXEL/js/common-init.min.js')
+    await addJs('/NEXEL/js/theme-customizer-init.min.js')
   } catch (e) {
     console.error(e)
   }
@@ -127,7 +132,7 @@ onBeforeUnmount(() => {
   <div id="top" class="sirea-root">
 
 
-  <Navbar :menus="menus" />
+  <Navbar v-if="!isCommonUser" :menus="menus" />
 
   <Topbar :is-dark="isDark"
   :user="usuario"
@@ -136,7 +141,7 @@ onBeforeUnmount(() => {
   @toggle-sidebar="toggleSidebarDesktop"
   @logout="logout" />
 
-  <main class="nxl-container">
+  <main class="nxl-container" :style="isCommonUser ? 'left: 0; width: 100%; margin-left: 0;' : ''">
 
     <div class="nxl-content">
         <div class="page-header">
@@ -191,13 +196,4 @@ onBeforeUnmount(() => {
 
 
   </div>
-
-
-
-  <!-- <div id="top" class="sirea-root">
-
-    <Navbar :menus="menus" />
-
-    <router-view />
-  </div> -->
 </template>
