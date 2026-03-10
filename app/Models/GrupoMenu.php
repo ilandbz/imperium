@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class GrupoMenu extends Model
 {
-    protected $fillable = ['id', 'titulo'];
+    protected $fillable = ['id', 'nombre'];
     public $timestamps = false;
 
 

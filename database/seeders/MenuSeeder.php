@@ -18,8 +18,8 @@ class MenuSeeder extends Seeder
         $role_super_admin = Role::where('nombre', 'SUPER USUARIO')->first();
 
         // 2) Obtener o crear Grupos de Menú
-        $g_entidades = GrupoMenu::firstOrCreate(['nombre' => 'Entidades y Control'], ['orden' => 1]);
-        $g_catalogos = GrupoMenu::firstOrCreate(['nombre' => 'Catálogos del Sistema'], ['orden' => 5]);
+        $g_entidades = GrupoMenu::firstOrCreate(['nombre' => 'Entidades y Control']);
+        $g_catalogos = GrupoMenu::firstOrCreate(['nombre' => 'Catálogos del Sistema']);
 
         $grupoId = function ($nombre) {
             return GrupoMenu::where('nombre', $nombre)->first()?->id;
@@ -63,7 +63,6 @@ class MenuSeeder extends Seeder
                     'icono'          => $row['icono'],
                     'orden'          => $row['orden'] ?? 1,
                     'url'            => $row['url'] ?? null,
-                    'user_created_id' => 1
                 ]
             );
             $menu->roles()->syncWithoutDetaching([$role_super_admin->id]);
@@ -80,7 +79,6 @@ class MenuSeeder extends Seeder
                 'icono' => 'feather-folder',
                 'grupo_menu_id' => $g_entidades->id,
                 'orden' => 3,
-                'user_created_id' => 1
             ]
         );
         $m_expedientes->roles()->syncWithoutDetaching([$role_super_admin->id]);
@@ -94,7 +92,6 @@ class MenuSeeder extends Seeder
                 'icono' => 'feather-mail',
                 'grupo_menu_id' => $g_entidades->id,
                 'orden' => 4,
-                'user_created_id' => 1
             ]
         );
         $m_casillas->roles()->syncWithoutDetaching([$role_super_admin->id]);

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('grupo_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo')->unique();
+            $table->string('nombre')->unique();
             $table->timestamps();
         });
     }
