@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import useDatosSession from '@/Composables/session'
 import { useAutenticacion } from '@/Composables/autenticacion'
 import Navbar from '@/Components/Sirea/Navbar.vue'
-import Topbar from '@/Components/Sirea/Topbar.vue'
+import Topbar from '@/Components/Sirea/TopBar.vue'
 import Footer from '@/Components/Sirea/Footer.vue'
 
 const route = useRoute()
