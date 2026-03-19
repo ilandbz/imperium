@@ -171,7 +171,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
         <li>
           <a
-            href="https://sirea.imperium.pe/"
+            href="https://sirea.imperium.org.pe/"
             target="_blank"
             class="inline-block rounded-xl bg-primary text-white px-4 py-2 font-semibold hover:bg-primary-dark"
           >
