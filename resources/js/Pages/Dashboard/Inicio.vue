@@ -5,17 +5,11 @@ import CasillaDashboard from '@/Pages/Sirea/Casilla/Dashboard.vue';
 
 const { role } = useDatosSession();
 
-// Verificamos si es un usuario común (no Super Usuario)
-const isCommonUser = computed(() => {
-    return role.value && role.value.nombre !== 'SUPER USUARIO';
-});
+
 </script>
 
 <template>
-    <div v-if="isCommonUser">
-        <CasillaDashboard />
-    </div>
-    <div v-else class="p-4">
+    <div v-if="role.nombre === 'SUPER USUARIO'">
         <div class="card border-0 shadow-sm">
             <div class="card-body">
                 <h5 class="fw-bold">Panel de Administración</h5>
@@ -23,5 +17,8 @@ const isCommonUser = computed(() => {
                 <!-- Aquí iría el dashboard de administrador si existiera uno específico -->
             </div>
         </div>
+    </div>
+    <div v-else class="p-4">
+        <CasillaDashboard />
     </div>
 </template>

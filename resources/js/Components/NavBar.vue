@@ -170,13 +170,13 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
         </li>
 
         <li>
-          <RouterLink
-            to="/sirea"
+          <a
+            href="https://sirea.imperium.pe/"
+            target="_blank"
             class="inline-block rounded-xl bg-primary text-white px-4 py-2 font-semibold hover:bg-primary-dark"
-            @click="closeAll"
           >
             SIREA
-          </RouterLink>
+          </a>
         </li>
       </ul>
     </nav>

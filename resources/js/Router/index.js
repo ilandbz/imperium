@@ -71,15 +71,6 @@ const routes = [
         path: '/', name: 'Principal', component: Principal,
         meta: { layout: LayoutDefault }
     },
-    // {
-    //     path: '/sirea', meta: { layout: LayoutSirea },
-    //     children: [
-    //         { path: '', name: 'Dashboard', component: Dashboard },
-    //         { path: 'perfil', name: 'Perfil', component: Perfil },
-    //         { path: 'cambiar-clave', name: 'CambiarClave', component: CambiarClave },
-    //         { path: 'casilla', name: 'Casilla', component: Casilla },
-    //     ]
-    // },
 
     {
         path: '/sirea', name: 'Sirea', component: Dashboard,

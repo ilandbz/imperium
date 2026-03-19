@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia';
 import { useUsuarioStore } from '@/Store';
 import { jwtDecode } from 'jwt-decode'
 import axios from 'axios'
+
 export default function useDatosSession() {
 
     const user_id = localStorage.getItem('userSession') ? JSON.parse(JSON.stringify(jwtDecode(localStorage.getItem('userSession')).user)) : null

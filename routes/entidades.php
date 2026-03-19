@@ -26,17 +26,17 @@ Route::group(['prefix' => 'casilla', 'middleware' => 'auth'], function () {
     Route::post('/', [CasillaElectronicaController::class, 'store']); // Changed from 'guardar'
     Route::post('actualizar', [CasillaElectronicaController::class, 'update']);
     Route::post('eliminar', [CasillaElectronicaController::class, 'destroy']);
-    Route::get('/dashboard', [\App\Http\Controllers\CasillaDashboardController::class, 'index']); // Changed from 'dashboard'
+    Route::get('dashboard', [CasillaDashboardController::class, 'index']); // Changed from 'dashboard'
 
     // Expedientes y Notificaciones
-    Route::get('/expedientes', [ExpedienteController::class, 'listar']);
-    Route::post('/expedientes', [ExpedienteController::class, 'store']);
-    Route::get('/expedientes/{id}', [ExpedienteController::class, 'show']);
-    Route::post('/enviar-notificacion', [ExpedienteController::class, 'notificar']);
+    Route::get('expedientes', [ExpedienteController::class, 'listar']);
+    Route::post('expedientes', [ExpedienteController::class, 'store']);
+    Route::get('expedientes/{id}', [ExpedienteController::class, 'show']);
+    Route::post('enviar-notificacion', [ExpedienteController::class, 'notificar']);
 
-    Route::get('/notificaciones', [NotificacionCasillaController::class, 'listar']); // Added
-    Route::get('/notificaciones/{id}', [NotificacionCasillaController::class, 'show']); // Added
-    Route::post('/notificaciones/{id}/marcar-leida', [NotificacionCasillaController::class, 'marcarLeida']); // Added
+    Route::get('notificaciones', [NotificacionCasillaController::class, 'listar']); // Added
+    Route::get('notificaciones/{id}', [NotificacionCasillaController::class, 'show']); // Added
+    Route::post('notificaciones/{id}/marcar-leida', [NotificacionCasillaController::class, 'marcarLeida']); // Added
 });
 
 Route::group(['prefix' => 'rol', 'middleware' => 'auth'], function () {
