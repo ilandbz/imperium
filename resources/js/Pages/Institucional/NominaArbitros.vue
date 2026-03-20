@@ -94,6 +94,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'patricia_lora.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Ramiro Rivera',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'ramiro_rivera.pdf'
+  },
 
 ]
 
