@@ -53,6 +53,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'alexsantos.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Victor Gayoso Tarazona',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'VICTOR_GAYOSO_TARAZONA.pdf'
+  },
 
 ]
 

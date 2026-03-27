@@ -101,6 +101,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'ramiro_rivera.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. José Luis Mandujano',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'jose_luis_manujano.pdf'
+  },
 
 ]
 
