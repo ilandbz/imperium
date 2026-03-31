@@ -108,6 +108,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'jose_luis_manujano.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Max Luis Montoya Choccechanca',
+    cargo: 'Especializado en Arbitraje y Junta de Resolución de Disputas (JRD) con más de 12 años de experiencia en Derecho Administrativo, Contrataciones con el Estado y Arbitraje.',
+    pais: 'pe',
+    cv: 'montoya_choccechanca.pdf'
+  },
 
 ]
 
