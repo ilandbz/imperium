@@ -76,7 +76,7 @@ const principal = computed(() =>
 )
 
 const secundarios = computed(() =>
-  consejoSuperior.filter(p => p.id !== 'dir-1')
+  consejoSuperior.filter(p => p.id !== 'dir-2')
 )
 
 
