@@ -12,6 +12,13 @@ const consejoSuperior = [
     cv: 'heidi.pdf'
   },
   {
+    id: 'dir-1',
+    nombre: 'ABOG. ANNIE MERCEDES AGURTO MAIZ',
+    cargo: 'DNI : 46993672',
+    pais: 'pe',
+    cv: 'annie.pdf'
+  },
+  {
     id: 'cs-1',
     nombre: 'ING. CIVIL CRISTHIAN RONALDO ASCENCIO MAGARIÑO',
     cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
