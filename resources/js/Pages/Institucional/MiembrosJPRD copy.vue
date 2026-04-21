@@ -131,37 +131,36 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
       <div class="max-w-6xl mx-auto flex flex-col gap-12">
         <div class="space-y-6">
           <h4 class="text-xl font-bold text-primary text-center">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+            <div class="grid place-items-center">
             <button
-              v-for="p in principales"
-              :key="p.id"
-              type="button"
-              class="block w-full max-w-[520px]"
-              @click="abrirCV(p)"
+                v-if="principal"
+                type="button"
+                class="block w-full max-w-[520px]"
+                @click="abrirCV(principal)"
             >
-              <HoverFillCard
+                <HoverFillCard
                 :clickable="true"
                 fillColor="bg-primary"
                 containerClass="h-full border-4 border-primary/30"
-              >
+                >
                 <div class="text-center transition-colors duration-500 group-hover:text-white">
-                  <h3 class="text-2xl font-extrabold leading-tight">
-                    {{ p.nombre }}
-                  </h3>
-                  <p class="mt-2 text-sm font-semibold uppercase">
-                    {{ p.cargo }}
-                  </p>
+                    <h3 class="text-2xl font-extrabold leading-tight">
+                    {{ principal.nombre }}
+                    </h3>
+                    <p class="mt-2 text-sm font-semibold uppercase">
+                    {{ principal.cargo }}
+                    </p>
 
-                  <div class="mt-4 flex justify-center items-center gap-2">
+                    <div class="mt-4 flex justify-center items-center gap-2">
                     <span class="font-semibold">País:</span>
                     <img :src="flagSrc()" alt="País" class="h-5" />
-                  </div>
+                    </div>
                 </div>
-              </HoverFillCard>
+                </HoverFillCard>
             </button>
-          </div>
+            </div>
 
-
+            
         </div>
 <div class="text-center space-y-2">
   <h4 class="text-2xl font-bold text-primary">
