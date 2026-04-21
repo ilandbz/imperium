@@ -12,7 +12,7 @@ const consejoSuperior = [
     cv: 'heidi.pdf'
   },
   {
-    id: 'dir-1',
+    id: 'dir-2',
     nombre: 'ABOG. ANNIE MERCEDES AGURTO MAIZ',
     cargo: 'DNI : 46993672',
     pais: 'pe',
