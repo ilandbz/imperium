@@ -4,13 +4,13 @@ import { ref, computed } from 'vue'
 import HoverFillCard from '@/Components/HoverFillCard.vue'
 
 const consejoSuperior = [
-  {
-    id: 'dir-1',
-    nombre: 'ABOG. HEIDI TORRES SANTOS de KULESZA',
-    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
-    pais: 'pe',
-    cv: 'heidi.pdf'
-  },
+  // {
+  //   id: 'dir-1',
+  //   nombre: 'ABOG. HEIDI TORRES SANTOS de KULESZA',
+  //   cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
+  //   pais: 'pe',
+  //   cv: 'heidi.pdf'
+  // },
   {
     id: 'dir-2',
     nombre: 'ANNIE MERCEDES AGURTO MAIZ',
