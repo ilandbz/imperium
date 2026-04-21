@@ -19,10 +19,7 @@ const organoGestion = [
   { id:'og-3', nombre:'Abog. Gabriela Lucero Echevarría Tafur', cargo:'SECRETARIO TÉCNICO (ÓRGANO DE GESTIÓN)', cargo2:'SECRETARIO TÉCNICO (ÓRGANO DE GESTIÓN)', pais:'pe' }
 ]
 
-const Coordinador = [
-  { id:'og-1', nombre:'Abog. Heidi Torres Santos de Kulesza', cargo:'COORDINADOR DE LA JPRD', cargo2:'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje', pais:'pe' },
-  { id:'og-1', nombre:'Abog. Heidi Torres Santos de Kulesza', cargo:'ADMINISTRADOR DE LA JPRD', cargo2:'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje', pais:'pe' },
-]
+
 
 const flagSrc = () => `/img/flags/pe.jpg`
 
