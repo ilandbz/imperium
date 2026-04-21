@@ -123,7 +123,7 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
     <section class="py-12 px-6 bg-gray-50 text-center">
       <div class="max-w-3xl mx-auto">
         <h3 class="text-3xl font-bold text-primary mb-4">COORDINADOR Y ADMINISTRADOR DE LA JPRD/ADJUDICADORES PARA LA JPRD</h3>
-        <p class="text-neutral-700 leading-relaxed text-lg">Nuestra Nominas esta conformado por</p>
+        <p class="text-neutral-700 leading-relaxed text-lg">Esta conformado por</p>
       </div>
     </section>
 
