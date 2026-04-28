@@ -90,7 +90,7 @@ const consejoSuperior = [
   {
     id: 'og-4',
     nombre: 'Abg. Patricia Lora Rios',
-    cargo: 'ASESORA LEGAL INDEPENDIENTE',
+    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
     pais: 'pe',
     cv: 'patricia_lora.pdf'
   },
@@ -114,6 +114,13 @@ const consejoSuperior = [
     cargo: 'Especializado en Arbitraje y Junta de Resolución de Disputas (JRD) con más de 12 años de experiencia en Derecho Administrativo, Contrataciones con el Estado y Arbitraje.',
     pais: 'pe',
     cv: 'montoya_choccechanca.pdf'
+  },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Julio Cesar Santisteban Cueto',
+    cargo: 'Especializado en Arbitraje y Junta de Resolución de Disputas (JRD) con más de 12 años de experiencia en Derecho Administrativo, Contrataciones con el Estado y Arbitraje.',
+    pais: 'pe',
+    cv: 'santisteban.pdf'
   },
 
 ]
