@@ -18,13 +18,6 @@ const consejoSuperior = [
     cv: 'mayraalexandra.pdf'
   },
   {
-    id: 'cs-2',
-    nombre: 'Abg. Joyce Echeandía Sinarahua',
-    cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
-    pais: 'pe',
-    cv: 'joyce.pdf'
-  },
-  {
     id: 'cs-3',
     nombre: 'Abg. Ángel Antonio Espinoza Trelles',
     cargo: 'Especialista en Derecho Administrativo, Contrataciones con el Estado y Arbitraje',
