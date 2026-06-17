@@ -115,6 +115,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'santisteban.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. Roberto Mario Durand Galindo',
+    cargo: 'Abogado especializado en arbitraje y contratación pública, con destacada experiencia profesional y participación en más de 240 procesos arbitrales.',
+    pais: 'pe',
+    cv: 'roberto_durand.pdf'
+  },
 
 ]
 
