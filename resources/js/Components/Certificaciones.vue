@@ -48,7 +48,7 @@
       </div>
 
 
-      <div class="flex flex-col items-center gap-4 sm:col-span-2 lg:col-span-1">
+      <!-- <div class="flex flex-col items-center gap-4 sm:col-span-2 lg:col-span-1">
         <img src="/img/constancia_regaju.jpeg" alt="ISO 14001" class="w-72 h-72 object-contain" />
         <a href="/archivos/regaju.pdf" target="_blank"
           class="bg-primary text-white px-6 py-2 rounded-xl font-semibold flex items-center gap-2 hover:bg-primary-dark transition">
@@ -57,7 +57,7 @@
           </svg>
           REGAJU
         </a>
-      </div>
+      </div> -->
 
       <!-- BENEFICIOS Y ALCANCES -->
       <div class="grid md:grid-cols-2 gap-6 mt-12 w-full">
