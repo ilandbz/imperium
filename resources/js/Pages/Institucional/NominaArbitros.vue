@@ -122,7 +122,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'roberto_durand.pdf'
   },
-
+  {
+    id: 'og-4',
+    nombre: 'Abg. Jorge Armando Ponce Rengifo',
+    cargo: 'Experto en Administración de Contratos, Gestión Comercial, Financiamiento de Proyectos, Inversión Privada y Resolución de Controversias, con experiencia en proyectos de minería, energía, hidrocarburos, infraestructura y construcción bajo modalidades EPC, EPCM, G2G, NEC, FIDIC, APP y OxI.',
+    pais: 'pe',
+    cv: 'JORGE_ARMANDO _PONCE_RENGIFO.pdf'
+  },
 ]
 
 const abrirCV = (persona) => {
