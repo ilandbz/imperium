@@ -179,6 +179,28 @@ class CasillaElectronicaController extends Controller
         ], 200);
     }
 
+    public function cambiarEstado(Request $request)
+    {
+        $casilla = CasillaElectronica::find($request->id);
+        if ($casilla->status === 'activo') {
+            $casilla->status = 'suspendido'; // O 'pendiente' si el sistema lo requiere
+        } else {
+            $casilla->status = 'activo';
+        }
+        $casilla->save();
+
+        // Si se desea actualizar también el usuario asociado:
+        if ($casilla->user) {
+            $casilla->user->es_activo = ($casilla->status === 'activo') ? 1 : 0;
+            $casilla->user->save();
+        }
+
+        return response()->json([
+            'ok' => 1,
+            'mensaje' => 'Estado Cambiado'
+        ], 200);
+    }
+
     public function todos()
     {
         $casillas = CasillaElectronica::orderBy('mailbox_number', 'ASC')->get();

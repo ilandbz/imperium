@@ -8,7 +8,7 @@
   const { openModal, Toast, Swal, formatoFecha } = useHelper();
   const {
         casillas, errors, casilla, respuesta,
-        obtenerCasillas, obtenerCasilla, eliminarCasilla
+        obtenerCasillas, obtenerCasilla, eliminarCasilla, cambiarEstado
     } = useCasillaElectronica();
 
     const titleHeader = ref({
@@ -137,6 +137,14 @@
         }
     }
 
+    const cambEstado = async (id) => {
+        await cambiarEstado(id);
+        if (respuesta.value.ok == 1) {
+            Toast.fire({ icon: 'success', title: respuesta.value.mensaje });
+            listarCasillas();
+        }
+    }
+
     // PAGINACION
     const isActived = () => {
         return casillas.value.current_page;
@@ -260,9 +268,16 @@
                                         <td>{{ casilla.user.persona.primernombre }} {{ casilla.user.persona.otrosnombres }} {{ casilla.user.persona.ape_pat }} {{ casilla.user.persona.ape_mat }}</td>
                                         <td>{{ casilla.tipo_casilla?.nombre }}</td>
                                         <td>
-                                            <span :class="casilla.status === 'activo' ? 'badge bg-success' : 'badge bg-warning'">
-                                                {{ casilla.status }}
-                                            </span>
+                                            <button
+                                                type="button"
+                                                class="btn btn-sm"
+                                                :class="casilla.status === 'activo' ? 'btn-success' : 'btn-secondary'"
+                                                @click="cambEstado(casilla.id)"
+                                                title="Cambiar estado"
+                                            >
+                                                <i class="fas" :class="casilla.status === 'activo' ? 'fa-toggle-on' : 'fa-toggle-off'"></i>
+                                                <span class="ms-1 text-capitalize">{{ casilla.status }}</span>
+                                            </button>
                                         </td>
                                         <td>{{ casilla.activated_at }}</td>
                                         <td>{{ casilla.user_created.name }}</td>

@@ -53,8 +53,15 @@ export default function useCasillaElectronica() {
         }
     }
 
+    const cambiarEstado = async (id) => {
+        const respond = await axios.post('casilla/cambiar-estado', { id: id }, getConfigHeader())
+        if (respond.data.ok == 1) {
+            respuesta.value = respond.data
+        }
+    }
+
     return {
         errors, casillas, listaCasillas, casilla, obtenerCasilla, obtenerCasillas,
-        agregarCasilla, actualizarCasilla, eliminarCasilla, respuesta
+        agregarCasilla, actualizarCasilla, eliminarCasilla, cambiarEstado, respuesta
     }
 }

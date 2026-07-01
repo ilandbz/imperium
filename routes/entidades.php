@@ -26,6 +26,7 @@ Route::group(['prefix' => 'casilla', 'middleware' => 'auth'], function () {
     Route::post('/', [CasillaElectronicaController::class, 'store']); // Changed from 'guardar'
     Route::post('actualizar', [CasillaElectronicaController::class, 'update']);
     Route::post('eliminar', [CasillaElectronicaController::class, 'destroy']);
+    Route::post('cambiar-estado', [CasillaElectronicaController::class, 'cambiarEstado']);
     Route::get('dashboard', [CasillaDashboardController::class, 'index']); // Changed from 'dashboard'
 
     // Expedientes y Notificaciones
