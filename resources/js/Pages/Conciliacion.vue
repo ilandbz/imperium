@@ -11,7 +11,7 @@
         <div class="absolute inset-0 bg-primary/80"></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-28 text-white">
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">CONCILIACIÓN</h1>
+        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-md">CONCILIACIÓN</h1>
         <p class="mt-4 text-xl font-medium max-w-lg leading-relaxed text-white">
           Diálogo que construye acuerdos, soluciones que generan bienestar.
         </p>
@@ -48,7 +48,7 @@
               <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
             </svg>
           </div>
-          <h3 class="font-bold text-primary mb-4 h-12">CONCILIACIÓN EN CONTRATACIONES DEL ESTADO</h3>
+          <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN CONTRATACIONES DEL ESTADO</h3>
           <p class="text-sm text-gray-600 mb-8 flex-grow">
             Mecanismo especializado para prevenir y resolver controversias derivadas de la ejecución contractual entre Entidades del Estado y contratistas, conforme a la Ley de Contrataciones del Estado y su Reglamento.
           </p>
@@ -63,7 +63,7 @@
               <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
             </svg>
           </div>
-          <h3 class="font-bold text-primary mb-4 h-12">CONCILIACIÓN EN FAMILIA</h3>
+          <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN FAMILIA</h3>
           <p class="text-sm text-gray-600 mb-8 flex-grow">
             Dirigida a personas naturales que desean resolver sus conflictos familiares de manera amistosa, rápida y confidencial, con el apoyo de nuestros conciliadores especializados.
           </p>
@@ -78,7 +78,7 @@
               <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
             </svg>
           </div>
-          <h3 class="font-bold text-primary mb-4 h-12">CONCILIACIÓN EN CIVIL</h3>
+          <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN MATERIA CIVIL</h3>
           <p class="text-sm text-gray-600 mb-8 flex-grow">
             Mecanismo orientado a resolver controversias sobre materias disponibles entre personas naturales o jurídicas, buscando acuerdos justos y beneficiosos para ambas partes.
           </p>
