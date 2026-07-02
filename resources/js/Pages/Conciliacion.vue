@@ -184,10 +184,13 @@
           En nuestro compromiso por ser un centro inclusivo que llega a todos los sectores de la población, ponemos a tu disposición un video explicativo en lengua de señas peruana sobre la conciliación.
         </p>
         <div class="aspect-video bg-gray-900 rounded-lg overflow-hidden flex items-center justify-center relative">
-          <!-- Placeholder para el video que el usuario incluirá -->
-          <div class="text-white text-center p-4">
-            <p>Aquí puede incrustar su video de YouTube o archivo</p>
-          </div>
+          <video 
+            src="/video_conciliacion.mp4" 
+            controls 
+            class="w-full h-full object-cover"
+          >
+            Tu navegador no soporta el elemento de video.
+          </video>
         </div>
         <div class="mt-4 text-center">
           <a href="#" class="text-sm text-gray-600 hover:text-primary underline flex items-center justify-center gap-1">
