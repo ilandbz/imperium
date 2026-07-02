@@ -23,6 +23,7 @@ import CalculadoraJunta from "@/Pages/Institucional/CalculadoraJunta.vue";
 import BancoDeLaudos from "@/Pages/Institucional/BancoDeLaudos.vue";
 import BancoDeDecisiones from "@/Pages/Institucional/BancoDeDecisiones.vue";
 import BancoDeDecisionesJPRD from "@/Pages/Institucional/BancoDeDecisionesJPRD.vue";
+import Conciliacion from "@/Pages/Conciliacion.vue";
 
 // SERVICIOS
 import ArbitrajeContratacionPublica from "@/Pages/Servicios/ArbitrajeContratacionPublica.vue";
@@ -205,6 +206,7 @@ const routes = [
 
     { path: "/contacto", name: "contacto", component: Contactenos, meta: { layout: LayoutDefault } },
     { path: "/blog", name: "Blog", component: Contactenos, meta: { layout: LayoutDefault } },
+    { path: "/conciliacion", name: "conciliacion", component: Conciliacion, meta: { layout: LayoutDefault } },
 
     { path: "/calculadora", name: "calculadora", component: Calculadora, meta: { layout: LayoutDefault } },
     { path: "/calculadora-junta", name: "calculadora-junta", component: CalculadoraJunta, meta: { layout: LayoutDefault } },

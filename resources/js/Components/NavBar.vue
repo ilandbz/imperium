@@ -158,6 +158,12 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
         </li>
 
         <li>
+          <RouterLink to="/conciliacion" class="hover:text-primary font-medium" :class="{ 'text-primary font-semibold': isActive('/conciliacion') }" @click="closeAll">
+            Conciliación
+          </RouterLink>
+        </li>
+
+        <li>
           <RouterLink to="/contacto" class="hover:text-primary font-medium" @click="closeAll">
             Contacto
           </RouterLink>
