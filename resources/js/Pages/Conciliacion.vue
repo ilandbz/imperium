@@ -74,9 +74,13 @@
         <!-- Card 3 -->
         <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition text-center flex flex-col items-center">
           <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="M7 21h10"/>
+                <path d="M12 3v18"/>
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+              </svg>
           </div>
           <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN CIVIL</h3>
           <p class="text-sm text-gray-600 mb-8 flex-grow">
@@ -96,78 +100,91 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Item 1 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
+                <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/>
+                <path d="m21 3-6 6"/>
+                <path d="m11 17-2.88 2.88a3 3 0 0 1-4.24 0l-1.42-1.42a3 3 0 0 1 0-4.24l2.88-2.88"/>
+                <path d="m7.12 11.88-2.83-2.83a3 3 0 0 1 4.24-4.24l2.83 2.83"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Solución consensuada</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Solución consensuada</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Las partes participan activamente en la construcción del acuerdo.</p>
             </div>
           </div>
           <!-- Item 2 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Rápida y flexible</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Rápida y flexible</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Permite resolver disputas en menos tiempo y con procedimientos adaptables.</p>
             </div>
           </div>
           <!-- Item 3 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Confidencial</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Confidencial</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Todo el proceso se desarrolla con reserva y discreción.</p>
             </div>
           </div>
           <!-- Item 4 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Preserva relaciones</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Preserva relaciones</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Favorece el diálogo y mantiene vínculos personales y comerciales.</p>
             </div>
           </div>
           <!-- Item 5 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 2a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-1 0v-12A.5.5 0 0 1 8 2z"/>
-                <path d="M12.5 4a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm-9 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-                <path d="M2.5 8a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5zm11 0a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5z"/>
-                <path fill-rule="evenodd" d="M13.5 12h-11v1h11v-1zm-11-9h11v1h-11V3z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="M7 21h10"/>
+                <path d="M12 3v18"/>
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Con fuerza legal</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Con fuerza legal</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Los acuerdos conciliatorios tienen fuerza vinculante y ejecutiva.</p>
             </div>
           </div>
           <!-- Item 6 -->
           <div class="flex gap-4">
-            <div class="bg-primary text-white w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+            <div class="bg-[#0b1c3e] text-white w-16 h-16 flex-shrink-0 rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/>
+                <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/>
+                <path d="m2 16 6 6"/>
+                <circle cx="16" cy="9" r="2.9"/>
+                <path d="M15 6h2"/>
+                <path d="M16 7v2"/>
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-primary mb-1">Menor costo</h4>
+              <h4 class="font-bold text-primary mb-1 mt-1">Menor costo</h4>
               <p class="text-sm text-gray-600 leading-relaxed">Es más económica que un proceso judicial o arbitral.</p>
             </div>
           </div>
