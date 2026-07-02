@@ -78,7 +78,7 @@
               <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
             </svg>
           </div>
-          <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN MATERIA CIVIL</h3>
+          <h3 class="font-bold text-primary mb-4 min-h-[4rem] flex items-center text-center">CONCILIACIÓN EN CIVIL</h3>
           <p class="text-sm text-gray-600 mb-8 flex-grow">
             Mecanismo orientado a resolver controversias sobre materias disponibles entre personas naturales o jurídicas, buscando acuerdos justos y beneficiosos para ambas partes.
           </p>
