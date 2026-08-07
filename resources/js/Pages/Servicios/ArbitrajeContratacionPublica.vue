@@ -68,6 +68,11 @@ const sections = [
         type: 'PDF',
       },
       {
+        label: 'Reglamento Procesal de Arbitraje',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/reglamento-procesal-de-arbitraje.pdf',
+        type: 'PDF',
+      },
+      {
         label: 'Cláusula Arbitral – Modelo',
         href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/clausula-arbitral-centro.docx',
         type: 'DOCX',
