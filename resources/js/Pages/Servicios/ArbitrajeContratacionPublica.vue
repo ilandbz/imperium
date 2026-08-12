@@ -68,6 +68,11 @@ const sections = [
         type: 'PDF',
       },
       {
+        label: 'Reglamento interno - vigente a partir del 07 de agosto de 2026',
+        href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/reglamento-interno-2026.pdf',
+        type: 'PDF',
+      },
+      {
         label: 'Reglamento Procesal de Arbitraje',
         href: '/archivos/servicios/arbitraje-en-contrataciones-publicas/reglamento/reglamento-procesal-de-arbitraje.pdf',
         type: 'PDF',
