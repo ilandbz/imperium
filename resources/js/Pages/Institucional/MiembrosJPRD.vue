@@ -67,6 +67,20 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'VICTOR_GAYOSO_TARAZONA.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Arq. Luisa Cielo Celeste García Yuffra',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
+    pais: 'pe',
+    cv: 'CV_Luisa_Yuffra2026.pdf'
+  },
+  {
+    id: 'og-4',
+    nombre: 'Arq. Eder Antonio Lima García',
+    cargo: 'ESPECIALISTA Y EXPERIENCIA EN OBRAS EN CONTRATACIONES CON EL ESTADO',
+    pais: 'pe',
+    cv: 'Cv_Eder_Lima2026.pdf'
+  },
 
 ]
 
