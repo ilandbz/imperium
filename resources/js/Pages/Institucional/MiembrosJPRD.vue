@@ -82,7 +82,7 @@ const consejoSuperior = [
     cv: 'Cv_Eder_Lima2026.pdf'
   },
   {
-    id: 'dir-2',
+    id: 'og-4',
     nombre: 'Ing. Yohn Carlos de la Cruz Caballon',
     cargo: 'CIP. Nº 174190',
     pais: 'pe',
