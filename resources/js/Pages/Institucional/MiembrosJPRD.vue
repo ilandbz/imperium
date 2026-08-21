@@ -110,8 +110,9 @@ const secundarios = computed(() =>
 
 const abrirCV = (persona) => {
   if (!persona.cv) return
-
-  const url = `/storage/cv2/${persona.cv}`
+  const url = /^https?:\/\//i.test(persona.cv)
+    ? persona.cv
+    : `/storage/cv2/${persona.cv}`
   window.open(url, '_blank')
 }
 
