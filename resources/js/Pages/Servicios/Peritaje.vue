@@ -7,8 +7,8 @@ const showPdf = ref(false)
 
 const peritajeFile = {
   label: 'Nómina de Peritos',
-  href: '/archivos/servicios/peritajes/nomina-de-peritos.pdf',
-  type: 'PDF',
+  href: '/institucional/MiembrosPeritaje',
+  type: 'URL',
 }
 </script>
 

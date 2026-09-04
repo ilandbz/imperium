@@ -59,6 +59,7 @@ import Reportes from "@/Pages/Reportes/Inicio.vue";
 import Indicadores from "@/Pages/Indicadores/Inicio.vue";
 import Usuarios from "@/Pages/Usuarios/Inicio.vue";
 import Roles from "@/Pages/Roles/Inicio.vue";
+import MiembrosPeritaje from "@/Pages/Institucional/MiembrosPeritaje.vue";
 import Menus from "@/Pages/Menus/Inicio.vue";
 import Parametros from "@/Pages/Parametros/Inicio.vue";
 import Bitacora from "@/Pages/Bitacora/Inicio.vue";
@@ -201,6 +202,7 @@ const routes = [
     { path: "/institucional/organo-direccion", name: "organo-direccion", component: OrganoDireccion, meta: { layout: LayoutDefault } },
     { path: "/institucional/NominaArbitros", name: "nomina-arbitros", component: NominaArbitros, meta: { layout: LayoutDefault } },
     { path: "/institucional/miembrosjprd", name: "miembros-jprd", component: MiembrosJPRD, meta: { layout: LayoutDefault } },
+    { path: "/institucional/miembrosperitaje", name: "miembros-peritaje", component: MiembrosPeritaje, meta: { layout: LayoutDefault } },
     { path: "/institucional/unidad-de-gobierno", name: "unidad-de-gobierno", component: UnidadGobierno, meta: { layout: LayoutDefault } },
     { path: "/institucional/normas-legales", name: "normas-legales", component: NormasLegales, meta: { layout: LayoutDefault } },
 
