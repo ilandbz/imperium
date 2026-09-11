@@ -129,12 +129,19 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'JORGE_ARMANDO_PONCE_RENGIFO.pdf'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. JHOEL CHIPANA CATALÁN',
+    cargo: 'Es árbitro en procesos sobre contrataciones del Estado y arbitrajes comerciales,',
+    pais: 'pe',
+    cv: 'https://drive.google.com/file/d/1Qnzi15khPfdUWGvtKPQeogShWELnwBEV/view'
+  },
 ]
 
 const abrirCV = (persona) => {
   if (!persona.cv) return
 
-  const url = `/storage/cv/${persona.cv}`
+  const url = persona.cv.startsWith('http') ? persona.cv : `/storage/cv/${persona.cv}`
   window.open(url, '_blank')
 }
 
