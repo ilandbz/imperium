@@ -132,7 +132,7 @@ const consejoSuperior = [
   {
     id: 'og-4',
     nombre: 'Abg. JHOEL CHIPANA CATALÁN',
-    cargo: 'Es árbitro en procesos sobre contrataciones del Estado y arbitrajes comerciales,',
+    cargo: 'Abogado especializado en arbitraje en procesos sobre contrataciones del Estado y arbitrajes comerciales,',
     pais: 'pe',
     cv: 'https://drive.google.com/file/d/1Qnzi15khPfdUWGvtKPQeogShWELnwBEV/view'
   },
