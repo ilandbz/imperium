@@ -88,6 +88,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'https://drive.google.com/file/d/1Wim8SV151n0ZBibYcHAf4LiPBx6EuBg7/view?usp=sharing'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. JHOEL CHIPANA CATALÁN',
+    cargo: 'Abogado especializado en arbitraje en procesos sobre contrataciones del Estado y arbitrajes comerciales,',
+    pais: 'pe',
+    cv: 'https://drive.google.com/file/d/1Qnzi15khPfdUWGvtKPQeogShWELnwBEV/view'
+  },
 
 ]
 
