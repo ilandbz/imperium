@@ -191,14 +191,14 @@ const cerrarDetalle = () => { detalleAbierto.value = false; personaSel.value = n
 
 
         </div>
-<div class="text-center space-y-2">
-  <h4 class="text-2xl font-bold text-primary">
-    ADJUDICADORES PARA LA JPRD
-  </h4>
-  <p class="text-sm uppercase tracking-wide text-neutral-600">
-    Para contrataciones del Estado
-  </p>
-</div>
+        <div class="text-center space-y-2">
+          <h4 class="text-2xl font-bold text-primary">
+            ADJUDICADORES PARA LA JPRD
+          </h4>
+          <p class="text-sm uppercase tracking-wide text-neutral-600">
+            Para contrataciones del Estado
+          </p>
+        </div>
         <div class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
             <button
