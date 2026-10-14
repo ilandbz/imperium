@@ -1,0 +1,31 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-GJMseyBz.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/Pages/Sirea/Expedientes/Inicio.vue": {
+    "file": "assets/Inicio-BTcDe_NI.js",
+    "name": "Inicio",
+    "src": "resources/js/Pages/Sirea/Expedientes/Inicio.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CJYy3p39.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/Sirea/Expedientes/Inicio.vue"
+    ],
+    "css": [
+      "assets/app-s5exjg3v.css"
+    ]
+  }
+}
