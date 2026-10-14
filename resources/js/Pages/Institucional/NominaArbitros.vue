@@ -136,6 +136,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'https://drive.google.com/file/d/1Qnzi15khPfdUWGvtKPQeogShWELnwBEV/view'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. BERLY SIMON ALCANTARA ASENCIOS',
+    cargo: 'Especialista en materia de Derecho Administrativo, Contrataciones del Estado y Arbitraje',
+    pais: 'pe',
+    cv: 'https://drive.google.com/file/d/1Qnzi15khPfdUWGvtKPQeogShWELnwBEV/view'
+  },
 ]
 
 const abrirCV = (persona) => {
