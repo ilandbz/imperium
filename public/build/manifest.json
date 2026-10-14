@@ -8,7 +8,7 @@
     ]
   },
   "resources/js/Pages/Sirea/Expedientes/Inicio.vue": {
-    "file": "assets/Inicio-BTcDe_NI.js",
+    "file": "assets/Inicio-ByN6UqNM.js",
     "name": "Inicio",
     "src": "resources/js/Pages/Sirea/Expedientes/Inicio.vue",
     "isDynamicEntry": true,
@@ -17,7 +17,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CJYy3p39.js",
+    "file": "assets/app-CFg7O-yu.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -25,7 +25,7 @@
       "resources/js/Pages/Sirea/Expedientes/Inicio.vue"
     ],
     "css": [
-      "assets/app-s5exjg3v.css"
+      "assets/app-DVEFqIKN.css"
     ]
   }
 }
