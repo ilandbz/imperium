@@ -69,6 +69,11 @@ const sections = [
         type: 'URL',
       },
       {
+        label: 'REGLAMENTO DE COSTOS ADMINISTRATIVOS Y HONORARIOS DE LA JPRD',
+        href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/reglamento_costos.pdf',
+        type: 'PDF',
+      },      
+      {
         label: 'TARIFARIO Y COSTOS DE LA JPRD',
         href: '/archivos/servicios/junta-de-prevencion-y-resolucion-de-disputas/reglamento/tarifario_jprd.pdf',
         type: 'PDF',
