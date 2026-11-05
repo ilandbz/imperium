@@ -98,7 +98,7 @@ const consejoSuperior = [
   {
     id: 'og-4',
     nombre: 'Ing. JAIME DE LA CRUZ CABALLON',
-    cargo: 'Ingeniero Civil con más de 12 años de experiencia profesional en los sectores público y privado, con trayectoria en elaboración de proyectos, residencia y supervisión de obras, así como en el desempeño como experto independiente en procesos de contratación pública y licitaciones',
+    cargo: 'Ingeniero Civil con más de 12 años de experiencia profesional',
     pais: 'pe',
     cv: 'https://drive.google.com/file/d/1N8wSi7WREzRUXA8Yzfl31tPcL6mv0GB9/view?usp=sharing'
   },
