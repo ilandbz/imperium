@@ -143,6 +143,13 @@ const consejoSuperior = [
     pais: 'pe',
     cv: 'https://drive.google.com/file/d/1Z534Am3ysblg9TxdrF-WGbH8WT6sPpk3/view?usp=sharing'
   },
+  {
+    id: 'og-4',
+    nombre: 'Abg. JOSIAS CLAUDIO URETA TOLENTINO',
+    cargo: 'Especialista en Contrataciones con el Estado – Arbitraje – Derecho Administrativo – JPRD – Peritaje',
+    pais: 'pe',
+    cv: 'JCUT26.pdf'
+  },
 ]
 
 const abrirCV = (persona) => {
